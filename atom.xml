@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-06T13:33:08.683Z</updated>
+  <updated>2017-05-06T13:49:26.933Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://visugar.com/2017/05/06/hello-world/"/>
     <id>http://visugar.com/2017/05/06/hello-world/</id>
     <published>2017-05-06T08:16:15.000Z</published>
-    <updated>2017-05-06T13:33:08.683Z</updated>
+    <updated>2017-05-06T13:49:26.933Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png" alt="look me"></p>
+    <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png =600×100" alt="look me"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放<a id="more"></a>，不好找，所以才想着自己搭建一个人博客网站，现在大家用<code>hexo</code>比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
 <h3 id="耍起来"><a href="#耍起来" class="headerlink" title="耍起来"></a>耍起来</h3><p>由于小花的电脑在搭建博客之前就有了各种环境，但是对于没有任何基础的人来讲，我觉得还是从源头开始讲会好一点，就像教别人做菜，总得把所有的用料及步骤说清楚对吧？（大佬们可以自动忽略啊啊啊啊~）</p>
 <h4 id="1-安装Git-Bash"><a href="#1-安装Git-Bash" class="headerlink" title="1. 安装Git Bash"></a>1. <strong>安装Git Bash</strong></h4><p>我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的<a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git Bash</a>, 我的是windows环境，所以下载windows版本并安装就可以了。</p>
@@ -177,7 +177,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://opif0c56u.bkt.clouddn.com/look-me.png&quot; alt=&quot;look me&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://opif0c56u.bkt.clouddn.com/look-me.png =600×100&quot; alt=&quot;look me&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放
     
     </summary>
