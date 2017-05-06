@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-06T13:01:21.842Z</updated>
+  <updated>2017-05-06T13:14:01.023Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://visugar.com/2017/05/06/hello-world/"/>
     <id>http://visugar.com/2017/05/06/hello-world/</id>
     <published>2017-05-06T08:16:15.000Z</published>
-    <updated>2017-05-06T13:01:21.842Z</updated>
+    <updated>2017-05-06T13:14:01.023Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png" alt="look me"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放<a id="more"></a>，不好找，所以才想着自己搭建一个人博客网站，现在大家用<code>hexo</code>比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
@@ -149,7 +149,16 @@
 </ul>
 </li>
 </ul>
-<h4 id="9-添加RSS"><a href="#9-添加RSS" class="headerlink" title="9. 添加RSS"></a>9. <strong>添加RSS</strong></h4><h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4><h4 id="11-写文章部分"><a href="#11-写文章部分" class="headerlink" title="11. 写文章部分"></a>11. <strong>写文章部分</strong></h4><ul>
+<h4 id="9-添加RSS"><a href="#9-添加RSS" class="headerlink" title="9. 添加RSS"></a>9. <strong>添加RSS</strong></h4><ul>
+<li>先安装rss相关插件：<code>npm i hexo-generator-feed</code></li>
+<li><p>在你的项目的<code>-config.yml</code>配置文件下找到Extensions添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Extensions  #插件和主题</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">#RSS订阅</div><div class="line">plugin:</div><div class="line">- hexo-generator-feed</div><div class="line">#Feed Atom</div><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 20</div></pre></td></tr></table></figure>
+</li>
+<li><p>进入到你的主题的配置文件下，找到你的放rss的位置，添加<code>/atom.xml</code>即可。</p>
+</li>
+<li>重新部署再打开就能看到效果啦~<h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4></li>
+</ul>
+<h4 id="11-写文章部分"><a href="#11-写文章部分" class="headerlink" title="11. 写文章部分"></a>11. <strong>写文章部分</strong></h4><ul>
 <li>新建文章：<code>hexo new &#39;文章名&#39;</code>，然后你就可以在<code>source/_posts</code>路径下看到你创建的文章啦，编辑完成之后按照前面说的方式部署，在浏览器刷新就能看到你的文章了。</li>
 <li>关于具体的文章编辑你可以看下<a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="external">官网的介绍</a></li>
 <li>至于markdown，可以自行发挥啦~</li>
