@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-06T12:16:01.113Z</updated>
+  <updated>2017-05-06T13:01:21.842Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://visugar.com/2017/05/06/hello-world/"/>
     <id>http://visugar.com/2017/05/06/hello-world/</id>
     <published>2017-05-06T08:16:15.000Z</published>
-    <updated>2017-05-06T12:16:01.113Z</updated>
+    <updated>2017-05-06T13:01:21.842Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png" alt="look me"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放<a id="more"></a>，不好找，所以才想着自己搭建一个人博客网站，现在大家用<code>hexo</code>比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
@@ -149,17 +149,19 @@
 </ul>
 </li>
 </ul>
-<h4 id="9-添加RSS"><a href="#9-添加RSS" class="headerlink" title="9. 添加RSS"></a>9. <strong>添加RSS</strong></h4><h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4><h4 id="11-写文章部分"><a href="#11-写文章部分" class="headerlink" title="11. 写文章部分"></a>11. <strong>写文章部分</strong></h4><pre><code>- 新建文章：`hexo new &apos;文章名&apos;`，然后你就可以在`source/_posts`路径下看到你创建的文章啦，编辑完成之后按照前面说的方式部署，在浏览器刷新就能看到你的文章了。
-- 关于具体的文章编辑你可以看下[官网的介绍](https://hexo.io/zh-cn/docs/writing.html)
-- 至于markdown，可以自行发挥啦~
-</code></pre><h3 id="小结一波"><a href="#小结一波" class="headerlink" title="小结一波"></a>小结一波</h3><ul>
+<h4 id="9-添加RSS"><a href="#9-添加RSS" class="headerlink" title="9. 添加RSS"></a>9. <strong>添加RSS</strong></h4><h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4><h4 id="11-写文章部分"><a href="#11-写文章部分" class="headerlink" title="11. 写文章部分"></a>11. <strong>写文章部分</strong></h4><ul>
+<li>新建文章：<code>hexo new &#39;文章名&#39;</code>，然后你就可以在<code>source/_posts</code>路径下看到你创建的文章啦，编辑完成之后按照前面说的方式部署，在浏览器刷新就能看到你的文章了。</li>
+<li>关于具体的文章编辑你可以看下<a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="external">官网的介绍</a></li>
+<li>至于markdown，可以自行发挥啦~</li>
+</ul>
+<h3 id="小结一波"><a href="#小结一波" class="headerlink" title="小结一波"></a>小结一波</h3><ul>
 <li>在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~</li>
 <li>本文针对的是从来没用hexo搭建过个人博客的小伙伴，不过文中获取会有一些小错误，欢迎大佬们指正，小花不胜感激！</li>
 <li>感觉我好啰嗦啊，可是没办法，我就是这么爱打字丫</li>
 <li><a href="http://visugar.com">小花的博客</a></li>
 </ul>
 <hr>
-<h4 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h4><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
+<h4 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h4><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
 ]]></content>
     
     <summary type="html">
@@ -169,7 +171,7 @@
     
     </summary>
     
-      <category term="Web开发" scheme="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+      <category term="Web开发" scheme="http://visugar.com/categories/web%E5%BC%80%E5%8F%91/"/>
     
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
