@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-06T08:53:35.449Z</updated>
+  <updated>2017-05-06T08:59:36.855Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>hexo从零开始到搭建完整</title>
     <link href="http://visugar.com/2017/05/06/hello-world/"/>
     <id>http://visugar.com/2017/05/06/hello-world/</id>
-    <published>2017-05-06T08:53:35.448Z</published>
-    <updated>2017-05-06T08:53:35.449Z</updated>
+    <published>2017-05-06T08:59:36.854Z</published>
+    <updated>2017-05-06T08:59:36.855Z</updated>
     
     <summary type="html">
     
@@ -35,6 +35,8 @@
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="hexo" scheme="http://visugar.com/tags/hexo/"/>
+    
+      <category term="hueman" scheme="http://visugar.com/tags/hueman/"/>
     
   </entry>
   
