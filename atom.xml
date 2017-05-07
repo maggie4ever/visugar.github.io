@@ -43,9 +43,10 @@
     <link href="http://visugar.com/2017/05/06/hello-world/"/>
     <id>http://visugar.com/2017/05/06/hello-world/</id>
     <published>2017-05-06T08:16:15.000Z</published>
-    <updated>2017-05-06T13:52:56.772Z</updated>
+    <updated>2017-05-07T05:10:06.749Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png?imageView/2/w/600/q/90" alt="look me"></p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png" alt="look me"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放<a id="more"></a>，不好找，所以才想着自己搭建一个人博客网站，现在大家用<code>hexo</code>比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
 <h3 id="耍起来"><a href="#耍起来" class="headerlink" title="耍起来"></a>耍起来</h3><p>由于小花的电脑在搭建博客之前就有了各种环境，但是对于没有任何基础的人来讲，我觉得还是从源头开始讲会好一点，就像教别人做菜，总得把所有的用料及步骤说清楚对吧？（大佬们可以自动忽略啊啊啊啊~）</p>
 <h4 id="1-安装Git-Bash"><a href="#1-安装Git-Bash" class="headerlink" title="1. 安装Git Bash"></a>1. <strong>安装Git Bash</strong></h4><p>我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的<a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git Bash</a>, 我的是windows环境，所以下载windows版本并安装就可以了。</p>
@@ -84,8 +85,7 @@
 <li><p>初始化命令：<code>hexo init</code> ，初始化完成之后打开所在的文件夹可以看到以下文件：</p>
 <p>  <img src="http://opif0c56u.bkt.clouddn.com/hexo-init.png" alt="myblog"></p>
 </li>
-<li><p>解释一下：</p>
-<ul>
+<li>解释一下：<ul>
 <li>node_modules：是依赖包</li>
 <li>public：存放的是生成的页面</li>
 <li>scaffolds：命令生成文章等的模板</li>
@@ -155,7 +155,13 @@
 </ul>
 <h4 id="8-修改及配置主题"><a href="#8-修改及配置主题" class="headerlink" title="8. 修改及配置主题"></a>8. <strong>修改及配置主题</strong></h4><ul>
 <li>hexo初始化之后默认的主题是<code>landscape</code> , 然后你可以去<a href="https://hexo.io/themes/" target="_blank" rel="external">这个地址</a>里面找到你想要的主题。在github中搜索你要的主题名称，里面都会有该主题的如何使用的介绍，按着来就好了，反正就是改改改！我选的是<code>hueman</code>,看起来挺不错，至少是我喜欢的类型。</li>
+</ul>
+<p><img src="http://opif0c56u.bkt.clouddn.com/themes.png" alt="themes"></p>
+<ul>
 <li>跟该主题相关的配置在<code>themes/hueman/_config.yml</code>里面,然后根据你的需要在这配配配就行了。</li>
+</ul>
+<p><img src="http://opif0c56u.bkt.clouddn.com/themes-config.png" alt="themes-config"></p>
+<ul>
 <li>有的东西我也不知道是啥玩意儿，你要多试多倒腾几次，就能意会啦</li>
 <li><p>下面是针对我所选的主题的两小点(别的主题我没看，可能也是类似):</p>
 <p>  <strong>在导航栏添加点东西</strong></p>
@@ -176,12 +182,22 @@
 </ul>
 <h4 id="9-添加RSS"><a href="#9-添加RSS" class="headerlink" title="9. 添加RSS"></a>9. <strong>添加RSS</strong></h4><ul>
 <li>先安装rss相关插件：<code>npm i hexo-generator-feed</code></li>
-<li><p>在你的项目的<code>-config.yml</code>配置文件下找到Extensions添加如下内容：</p>
+<li>在你的项目的<code>_config.yml</code>配置文件下找到Extensions添加如下内容：</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Extensions  #插件和主题</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">#RSS订阅</div><div class="line">plugin:</div><div class="line">- hexo-generator-feed</div><div class="line">#Feed Atom</div><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 20</div></pre></td></tr></table></figure>
-</li>
-<li><p>进入到你的主题的配置文件下，找到你的放rss的位置，添加<code>/atom.xml</code>即可。</p>
-</li>
-<li>重新部署再打开就能看到效果啦~<h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4></li>
+<ul>
+<li>进入到你的主题的配置文件下，找到你的放rss的位置，添加<code>/atom.xml</code>即可。</li>
+<li>重新部署再打开就能看到效果啦~</li>
+</ul>
+<h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4><ul>
+<li>先选一个你要使用的第三方评论系统，最好找个靠谱点的（我使用的是网易云跟帖）。</li>
+<li>在主题的配置文件下找到comment，添加一行，例如我添加的是<code>yungentie: 此处自由发挥</code></li>
+<li>注册完评论系统后获取相应的代码，然后在主题的layout下找到comment新建一个ejs模板文件，名称自定义。</li>
+</ul>
+<p><img src="http://opif0c56u.bkt.clouddn.com/yungentie.png" alt="yungentie"></p>
+<ul>
+<li>找到你的article.ejs模板文件，加上<code>&lt;%- partial(&#39;comment/你刚刚取得名字&#39;) %&gt;</code>保存。</li>
+<li>重新部署，OK啦</li>
 </ul>
 <h4 id="11-写文章部分"><a href="#11-写文章部分" class="headerlink" title="11. 写文章部分"></a>11. <strong>写文章部分</strong></h4><ul>
 <li>新建文章：<code>hexo new &#39;文章名&#39;</code>，然后你就可以在<code>source/_posts</code>路径下看到你创建的文章啦，编辑完成之后按照前面说的方式部署，在浏览器刷新就能看到你的文章了。</li>
@@ -201,6 +217,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://opif0c56u.bkt.clouddn.com/look-me.png?imageView/2/w/600/q/90&quot; alt=&quot;look me&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://opif0c56u.bkt.clouddn.com/look-me.png&quot; alt=&quot;look me&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放
     
     </summary>
