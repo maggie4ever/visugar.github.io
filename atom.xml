@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-07T05:34:02.086Z</updated>
+  <updated>2017-05-07T05:42:40.157Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>菜鸟张小花之多种布局实现</title>
-    <link href="http://visugar.com/2017/05/06/20170506#02-css%E5%B8%83%E5%B1%80/"/>
-    <id>http://visugar.com/2017/05/06/20170506#02-css布局/</id>
+    <link href="http://visugar.com/2017/05/06/20170506css%E5%B8%83%E5%B1%8002/"/>
+    <id>http://visugar.com/2017/05/06/20170506css布局02/</id>
     <published>2017-05-06T08:09:57.000Z</published>
-    <updated>2017-05-07T05:34:02.086Z</updated>
+    <updated>2017-05-07T05:42:40.157Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC07777.JPG?imageView/2/w/600/q/90" alt="look me"></p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
@@ -159,7 +159,12 @@
 </ul>
 <blockquote>
 <p>此处卖萌（哎呀！好气呀，写的我手痛脚痛肩膀痛眼睛痛真是不容易丫）</p>
-<h3 id="大发！"><a href="#大发！" class="headerlink" title="大发！"></a>大发！</h3></blockquote>
+<h3 id="大发！"><a href="#大发！" class="headerlink" title="大发！"></a>大发！</h3><ul>
+<li><a href="http://visugar.com">小花的博客</a></li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h3><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
 ]]></content>
     
     <summary type="html">
@@ -182,8 +187,8 @@
   
   <entry>
     <title>hexo从零开始到搭建完整</title>
-    <link href="http://visugar.com/2017/05/04/20170504#01-hexo%E6%90%AD%E5%BB%BA/"/>
-    <id>http://visugar.com/2017/05/04/20170504#01-hexo搭建/</id>
+    <link href="http://visugar.com/2017/05/04/20170504hexo%E6%90%AD%E5%BB%BA01/"/>
+    <id>http://visugar.com/2017/05/04/20170504hexo搭建01/</id>
     <published>2017-05-04T08:16:15.000Z</published>
     <updated>2017-05-07T05:33:47.845Z</updated>
     
