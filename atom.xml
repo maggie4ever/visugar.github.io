@@ -240,9 +240,9 @@
     
       <category term="生活" scheme="http://visugar.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
-      <category term="心情" scheme="http://visugar.com/tags/%E5%BF%83%E6%83%85/"/>
-    
       <category term="工作" scheme="http://visugar.com/tags/%E5%B7%A5%E4%BD%9C/"/>
+    
+      <category term="心情" scheme="http://visugar.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
