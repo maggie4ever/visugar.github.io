@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-07T09:48:23.019Z</updated>
+  <updated>2017-05-10T01:37:08.793Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中文技术文档规范-改自阮一峰老师</title>
+    <link href="http://visugar.com/2017/05/10/20170510%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E8%A7%84%E8%8C%8303/"/>
+    <id>http://visugar.com/2017/05/10/20170510技术文档规范03/</id>
+    <published>2017-05-10T01:08:30.000Z</published>
+    <updated>2017-05-10T01:37:08.793Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1727565-e450ee7e521b3f2f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/800" alt="湖北石首"></p>
+<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>以前从来去想一篇技术文章要怎么架构，总是随自己想到什么写什么，然后看到了阮一峰老师的总结，就把它改成了思维导图，以便记忆查询。</p>
+<p>原文地址：<a href="https://github.com/ruanyf/document-style-guide" target="_blank" rel="external">https://github.com/ruanyf/document-style-guide</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1727565-a07e07f5691f0e14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中文技术文档写作规范"></p>
+<h4 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h4><ul>
+<li><a href="http://visugar.com">小花的博客</a></li>
+</ul>
+<hr>
+<h4 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h4><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      根据阮一峰老师对中文技术文档规范的总结改成的思维导图
+    
+    </summary>
+    
+      <category term="小笔记" scheme="http://visugar.com/categories/%E5%B0%8F%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>菜鸟张小花之多种前端布局实现</title>
