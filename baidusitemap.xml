@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://visugar.com/2017/05/10/20170510%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E8%A7%84%E8%8C%8303/</loc>
+    <lastmod>2017-05-11T01:05:00.059Z</lastmod>
+    <data>
+        <display>
+        <title>中文技术文档规范-改自阮一峰老师</title>
+        <pubTime>2017-05-10T01:08:30.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>文档</tag>
+         
+         
+           
+             
+              <breadCrumb title="小笔记" url="http://visugar.com/categories/%E5%B0%8F%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://visugar.com/2017/05/06/20170506css%E5%B8%83%E5%B1%8002/</loc>
+    <lastmod>2017-05-10T01:38:40.019Z</lastmod>
+    <data>
+        <display>
+        <title>菜鸟张小花之多种前端布局实现</title>
+        <pubTime>2017-05-06T08:09:57.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>CSS布局</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://visugar.com/2017/05/04/20170504hexo%E6%90%AD%E5%BB%BA01/</loc>
+    <lastmod>2017-05-09T01:01:41.597Z</lastmod>
+    <data>
+        <display>
+        <title>hexo从零开始到搭建完整</title>
+        <pubTime>2017-05-04T08:16:15.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>hexo</tag>
+         
+        <tag>hueman</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>
