@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-11T08:21:59.122Z</updated>
+  <updated>2017-05-11T23:55:06.348Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -20,16 +20,11 @@
     <link href="http://visugar.com/2017/05/11/RegExp%EF%BC%88%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%89%E5%B8%B8%E7%94%A8%E8%A6%81%E7%82%B9%E5%B0%8F%E7%BB%93/"/>
     <id>http://visugar.com/2017/05/11/RegExp（正则表达式）常用要点小结/</id>
     <published>2017-05-11T08:17:05.000Z</published>
-    <updated>2017-05-11T08:21:59.122Z</updated>
+    <updated>2017-05-11T23:55:06.348Z</updated>
     
     <content type="html"><![CDATA[<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p><img src="http://upload-images.jianshu.io/upload_images/1727565-eb70c2f7892d2171.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/800" alt="香港"><br>正则表达式用到的地方很多，但是每次很久不用就全忘光了，每次都要重新看一遍文档，为了节省时间，把它的一些基本要点画总结在一张图片中，这样方便以后查看。</p>
 <p>PS：细节的东西还是需要看详细点的文档。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1727565-65f035c9dc1f499a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="RegExp小结"></p>
-<h4 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h4><ul>
-<li><a href="http://visugar.com">小花的博客</a></li>
-</ul>
-<hr>
-<h4 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h4><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
 ]]></content>
     
     <summary type="html">
@@ -41,11 +36,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
-      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
-      <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -54,17 +49,12 @@
     <link href="http://visugar.com/2017/05/10/%E4%B8%AD%E6%96%87%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E8%A7%84%E8%8C%83-%E6%94%B9%E8%87%AA%E9%98%AE%E4%B8%80%E5%B3%B0%E8%80%81%E5%B8%88/"/>
     <id>http://visugar.com/2017/05/10/中文技术文档规范-改自阮一峰老师/</id>
     <published>2017-05-10T01:08:30.000Z</published>
-    <updated>2017-05-11T08:19:36.291Z</updated>
+    <updated>2017-05-11T23:54:26.750Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1727565-e450ee7e521b3f2f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/800" alt="湖北石首"></p>
 <h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>以前从来去想一篇技术文章要怎么架构，总是随自己想到什么写什么，然后看到了阮一峰老师的总结，就把它改成了思维导图，以便记忆查询。</p>
 <p>原文地址：<a href="https://github.com/ruanyf/document-style-guide" target="_blank" rel="external">https://github.com/ruanyf/document-style-guide</a></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1727565-a07e07f5691f0e14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中文技术文档写作规范"></p>
-<h4 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h4><ul>
-<li><a href="http://visugar.com">小花的博客</a></li>
-</ul>
-<hr>
-<h4 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h4><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
 ]]></content>
     
     <summary type="html">
@@ -76,11 +66,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
+      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
-    
-      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
@@ -89,7 +79,7 @@
     <link href="http://visugar.com/2017/05/06/%E8%8F%9C%E9%B8%9F%E5%BC%A0%E5%B0%8F%E8%8A%B1%E4%B9%8B%E5%A4%9A%E7%A7%8D%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E5%AE%9E%E7%8E%B0/"/>
     <id>http://visugar.com/2017/05/06/菜鸟张小花之多种前端布局实现/</id>
     <published>2017-05-06T08:09:57.000Z</published>
-    <updated>2017-05-10T01:38:40.019Z</updated>
+    <updated>2017-05-11T23:54:45.023Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC07777.JPG?imageView/2/w/600/q/90" alt="look me"></p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
@@ -226,15 +216,7 @@
 <li>每种方式的优缺点其实对于我这种萌新来说也是比较懵，只是这几天写了几个作业才想到要小小总结下的</li>
 <li>第一次用markdown写文字棒棒哒，不要介意某写地方可能写错了</li>
 </ul>
-<blockquote>
-<p>此处卖萌（哎呀！好气呀，写的我手痛脚痛肩膀痛眼睛痛真是不容易丫）</p>
-<h3 id="大发！"><a href="#大发！" class="headerlink" title="大发！"></a>大发！</h3><ul>
-<li><a href="http://visugar.com">小花的博客</a></li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h3><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
-]]></content>
+<h3 id="大发！"><a href="#大发！" class="headerlink" title="大发！"></a>大发！</h3>]]></content>
     
     <summary type="html">
     
@@ -260,7 +242,7 @@
     <link href="http://visugar.com/2017/05/04/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%88%B0%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4/"/>
     <id>http://visugar.com/2017/05/04/hexo从零开始到搭建完整/</id>
     <published>2017-05-04T08:16:15.000Z</published>
-    <updated>2017-05-09T01:01:41.597Z</updated>
+    <updated>2017-05-11T23:54:56.259Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png?imageView/2/w/600/q/90" alt="look me"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放<a id="more"></a>，不好找，所以才想着自己搭建一个人博客网站，现在大家用<code>hexo</code>比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
@@ -424,10 +406,7 @@
 <li>在哪里跌倒，就在哪里趴下，休息一会儿你会发现新大陆的哦~</li>
 <li>本文针对的是从来没用hexo搭建过个人博客的小伙伴，不过文中可能会有一些小错误，欢迎大佬们指正，小花不胜感激！</li>
 <li>感觉我好啰嗦啊，可是没办法，我就是这么爱打字丫</li>
-<li><a href="http://visugar.com">小花的博客</a></li>
 </ul>
-<hr>
-<h4 id="招摇撞骗（可自行忽略）"><a href="#招摇撞骗（可自行忽略）" class="headerlink" title="招摇撞骗（可自行忽略）"></a>招摇撞骗（可自行忽略）</h4><p><a href="http://visugar.com/about/">小花求赏→爱的辣条</a></p>
 ]]></content>
     
     <summary type="html">
