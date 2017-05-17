@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Visugar个人博客">
 <meta property="og:description" content="通过z-index值的改变来实现CSS3饼状loading效果">
 <meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00871.JPG">
-<meta property="og:updated_time" content="2017-05-17T00:57:28.334Z">
+<meta property="og:updated_time" content="2017-05-17T01:16:40.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3饼状loading效果">
 <meta name="twitter:description" content="通过z-index值的改变来实现CSS3饼状loading效果">
@@ -184,75 +184,57 @@
 <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a><strong>原理</strong></h4><p>这个东西分为两部分：外圈和内圆。颜色这东西都自定义啦，不过我画的的圈圈好像有点太大，然后动画时间是随便设的，反正转起来看着感觉有点怪怪的额</p>
 <p>先上html结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;con-wrap&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!--外圈--&gt;</div><div class="line">    &lt;div class=&quot;out-round&quot;&gt;&lt;/div&gt;</div><div class="line">    </div><div class="line">    &lt;!--内圆，里面有半圆四个--&gt;</div><div class="line">    &lt;div class=&quot;in-round&quot;&gt;</div><div class="line">        &lt;div class=&quot;lt-round&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;lt-mask&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;rt-round&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;rt-mask&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>外圈和内圆是通过position定位重合在一起，实质上外圈转完2圈，内圆的红色和粉色才各转完1圈（内圆的全程包括红色从1到0、粉色从1到0），所以内圆的动画时间应该是外圈的两倍！！！</p>
-<ol>
+<ul>
 <li><strong>外圈</strong></li>
-</ol>
+</ul>
 <p>外圈很简单，设置<code>border-radius:50%</code>即可画出一个圆，然后设置三条边框为红色，另外一条为透明，即画出了四分之三个圆边框（即外圆）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.out-round &#123;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            border-radius: 50%;</div><div class="line">            margin: 150px auto;</div><div class="line">            border: 3px solid #FF298C;</div><div class="line">            border-left: 3px solid transparent;</div><div class="line">            animation: outRound 1s linear infinite running;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/%E5%9B%9B%E5%88%86%E4%B9%8B%E4%B8%89%E4%B8%AA%E5%9C%88.png" alt="四分之三个圆边框"></p>
 <p>接下来是外圈的动画，为其设置的动画就是旋转一圈，infinite表示无限次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@keyframes outRound &#123;</div><div class="line">            0% &#123;</div><div class="line">                transform: rotate(120deg)</div><div class="line">            &#125;</div><div class="line">            100% &#123;</div><div class="line">                transform: rotate(-240deg)</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
 <p>其中<code>rotate(120deg)</code>为旋转起始位置，可根据实际情况调整。</p>
 <p>至此外圈就完成了，比较麻烦的是下面的内圆，不过根据图示应该是可以想象的。</p>
-<ol>
+<ul>
 <li><strong>内圆</strong></li>
-</ol>
+</ul>
 <p>此处有四个半圆，左边两个，右边两个（round为红色，mask为粉色），动画主要通过改变两个红色半圆的<code>z-index</code>值来控制各个半圆显示的优先顺序。内圆的css实现部分为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/*左边两个半圆*/</div><div class="line">        .lt-round, .lt-mask &#123;</div><div class="line">            position: absolute;</div><div class="line">            width: 35px;</div><div class="line">            height: 70px;</div><div class="line">            border-radius: 35px 0 0 35px;</div><div class="line">            transform-origin: right center;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">/*右边两个半圆*/</div><div class="line">        .rt-round, .rt-mask &#123;</div><div class="line">            position: absolute;</div><div class="line">            left: 50%;</div><div class="line">            width: 35px;</div><div class="line">            height: 70px;</div><div class="line">            border-radius: 0 35px 35px 0;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
 <p>下面过程描述内圆的动画全程（其中右边的粉色全程不需要动，右边红色部分只需要改变<code>z-index</code>的值来改变显示的优先级，从而实现显示和隐藏的效果来配合补充左半边的圆。）：</p>
-<ol>
-<li>初始设置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">红左 z-index：3</div><div class="line">粉1  z-index：2</div><div class="line"></div><div class="line">红右 z-index：1</div><div class="line">粉2  z-index：0</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>1.初始设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">红左 z-index：3</div><div class="line">粉1  z-index：2</div><div class="line"></div><div class="line">红右 z-index：1</div><div class="line">粉2  z-index：0</div></pre></td></tr></table></figure>
 <p>模型图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B0.png" alt="模型图1"></p>
 <p>视觉效果图(忽略中间的白线)：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/01.png" alt="视觉效果图"></p>
-<ol>
-<li>左边红色旋转完180度时（逆时针旋转所以是360→<br>180→<br>0）</li>
-</ol>
+<p>2.左边红色旋转完180度时（逆时针旋转所以是360→180→0）</p>
 <p>模型图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B25.png" alt="模型图2"></p>
 <p>视觉效果图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/02.png" alt="视觉效果图"></p>
-<ol>
-<li>左边红色转完到0度时（此时左右两边的红色半圆被粉色覆盖）</li>
-</ol>
+<p>3.左边红色转完到0度时（此时左右两边的红色半圆被粉色覆盖）</p>
 <p>模型图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B50.png" alt="模型图3"></p>
 <p>视觉效果图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/03.png" alt="视觉效果图"></p>
-<ol>
-<li>粉色半圆重复之前红色半圆的动画（即左边粉色360→<br>180→<br>0）</li>
-</ol>
+<p>4.粉色半圆重复之前红色半圆的动画（即左边粉色360→180→0）</p>
 <p>模型图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B75.png" alt="模型图4"></p>
 <p>视觉效果图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/04.png" alt="视觉效果图"></p>
-<ol>
-<li>当左边粉色旋转到0度时，全部半圆回到了最初始的状态，整个动画即完成（在相同时间下外圈完成了2次的动画）。</li>
-</ol>
+<p>5.当左边粉色旋转到0度时，全部半圆回到了最初始的状态，整个动画即完成（在相同时间下外圈完成了2次的动画）。</p>
 <p>模型图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B100.png" alt="模型图5"></p>
 <p>视觉效果图：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/05.png" alt="视觉效果图"></p>
-<h4 id="动画代码部分"><a href="#动画代码部分" class="headerlink" title="动画代码部分"></a><strong>动画代码部分</strong></h4><ol>
-<li><p>前半程为左边红色旋转一周，后半程为粉色旋转一周。动画实现如下：</p>
+<h4 id="动画代码部分"><a href="#动画代码部分" class="headerlink" title="动画代码部分"></a><strong>动画代码部分</strong></h4><p>1.前半程为左边红色旋转一周，后半程为粉色旋转一周。动画实现如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">/*左边红色完成第一圈的旋转*/</div><div class="line">@keyframes ltRound &#123;</div><div class="line">            0% &#123;</div><div class="line">                transform: rotate(360deg);</div><div class="line">            &#125;</div><div class="line">            24.9% &#123;</div><div class="line">                z-index: 3;</div><div class="line">            &#125;</div><div class="line">            25% &#123;</div><div class="line">                z-index: 1;</div><div class="line">                transform: rotate(180deg);</div><div class="line">            &#125;</div><div class="line">            50% &#123;</div><div class="line">                transform: rotate(0deg);</div><div class="line">            &#125;</div><div class="line">            74.9% &#123;</div><div class="line">                z-index: 1;</div><div class="line">            &#125;</div><div class="line">            75%, 100% &#123;</div><div class="line">                z-index: 3;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">/*右边红色圆通过z-index来控制显示和隐藏，从而达到在适当时间配上左半圆的效果*/</div><div class="line">@keyframes rtRound &#123;</div><div class="line">            0%, 24.9% &#123;</div><div class="line">                z-index: 1;</div><div class="line">            &#125;</div><div class="line">            25% &#123;</div><div class="line">                z-index: -3;</div><div class="line">            &#125;</div><div class="line">            74.9% &#123;</div><div class="line">                z-index: -3;</div><div class="line">            &#125;</div><div class="line">            75%, 100% &#123;</div><div class="line">                z-index: 1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">/*左边粉色完成第二圈的旋转*/</div><div class="line">@keyframes ltMask &#123;</div><div class="line">            0%, 25%, 50% &#123;</div><div class="line">                transform: rotate(360deg);</div><div class="line">            &#125;</div><div class="line">            75% &#123;</div><div class="line">                transform: rotate(180deg);</div><div class="line">            &#125;</div><div class="line">            100% &#123;</div><div class="line">                transform: rotate(0deg);</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在全部代码未完成时，可以将动画时间设大一点，这样便于观察，搞完了再设回去就OK了。</p>
-</li>
-<li>由于动画是匀速变化的，但是z-index的值不能匀速变化，所以只能在某个很短时间内去改变z-index的值。这样才能达到效果（突然感觉这种实现好像也不是很好）</li>
-</ol>
+<p>2.在全部代码未完成时，可以将动画时间设大一点，这样便于观察，搞完了再设回去就OK了。</p>
+<p>3.由于动画是匀速变化的，但是z-index的值不能匀速变化，所以只能在某个很短时间内去改变z-index的值。这样才能达到效果（突然感觉这种实现好像也不是很好）</p>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h4><ol>
 <li>没做兼容，在chrome中无异常，别的我就不太知道了</li>
 <li>只是用来练习练习，实际上不一定会用到，但是里面几个知识点还是hei有用滴</li>
 <li>小花是小白，对很多东西都还没整明白，欢迎大佬们指点指点~</li>
 <li>这几个图画的我心好累，sei能给小花推荐个好用点的额</li>
 </ol>
-<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a><strong>源代码</strong></h4><ul>
-<li><p><a href="https://github.com/visugar/ife2017/blob/master/04nuomi/task413/index.html" target="_blank" rel="external">源码地址</a></p>
-</li>
-<li><p><a href="https://visugar.github.io/ife2017/04nuomi/task413/index.html" target="_blank" rel="external">预览地址</a></p>
-</li>
-</ul>
+<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a><strong>源代码</strong></h4><p><a href="https://github.com/visugar/ife2017/blob/master/04nuomi/task413/index.html" target="_blank" rel="external">源码地址</a></p>
+<p><a href="https://visugar.github.io/ife2017/04nuomi/task413/index.html" target="_blank" rel="external">预览地址</a></p>
 
             <hr width="98%">
             <div>
