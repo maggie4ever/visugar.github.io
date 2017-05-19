@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-05-18T11:45:40.519Z</updated>
+  <updated>2017-05-19T04:36:21.065Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>预览github项目的html文件新方法</title>
+    <link href="http://visugar.com/2017/05/19/%E9%A2%84%E8%A7%88github%E9%A1%B9%E7%9B%AE%E7%9A%84html%E6%96%87%E4%BB%B6%E6%96%B0%E6%96%B9%E6%B3%95/"/>
+    <id>http://visugar.com/2017/05/19/预览github项目的html文件新方法/</id>
+    <published>2017-05-19T04:32:01.000Z</published>
+    <updated>2017-05-19T04:36:21.065Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC03498.JPG?imageView/2/w/600/q/90" alt="这是一个很好看的地方"></p>
+<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>关于如何在线预览github中的html文件，其实这是一个很多人知道的东西，但是查资料的时候呢总是找不到正确的答案，并且一开始我也是踩了坑的。</p>
+<h4 id="踩坑经历"><a href="#踩坑经历" class="headerlink" title="踩坑经历"></a>踩坑经历</h4><p>搜出来的结果大概就两种：</p>
+<ol>
+<li><p>第一种是在你打开的源码地址的url地址基础上加<code>http://htmlpreview.github.io/?</code>或者<code>http://htmlpreview.github.com/?(注：填这个还是会转到前面那个前缀去的)</code>前缀。</p>
+</li>
+<li><p>第二种就是在你的项目branch上添加一个gh-pages分支，然后将你的项目复制一份到这个分支上，然后再进入settings的github pages进行设置就OK了。</p>
+</li>
+<li><p>总结下上面两种，添加前缀的方式确实比较简单，但是东西多了就会加载很慢，甚至不能正确的显示css样式，对于显示js的效果就更不使用了。所以，赶快放弃吧！创建分支的方式确实是很麻烦额，之前就是感觉麻烦的不得了所以没用这种方式，接下来要介绍的是创建分支的升级版，看下文~</p>
+</li>
+</ol>
+<h4 id="取经啦"><a href="#取经啦" class="headerlink" title="取经啦"></a>取经啦</h4><p>一度感觉小花说话很麻烦，请不要见怪！！！</p>
+<ol>
+<li><p>第一步就是找到你要展示的repo中的Settings</p>
+<p> <img src="http://opif0c56u.bkt.clouddn.com/yulan01.png" alt="Settings"></p>
+</li>
+<li><p>找到github pages那一栏,在Source中选择<code>master branch</code>,然后save</p>
+<p> <img src="http://opif0c56u.bkt.clouddn.com/yulan02.png" alt="Github Pages"></p>
+</li>
+<li><p>放大你的眼睛找到你自己的这串地址<br> <img src="http://opif0c56u.bkt.clouddn.com/yulan03.png" alt="url前缀"></p>
+</li>
+<li><p>然后就可以愉快的预览了</p>
+<p> <img src="http://opif0c56u.bkt.clouddn.com/yulan04.png" alt="快去预览"></p>
+</li>
+<li><p>完美~</p>
+</li>
+</ol>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>刚开始自己踩坑发现不对劲但又苦于找不到解决方法，后来偶然有个同学告诉我这样纸，所以，我就只是枚小小的搬运工而已~</p>
+<h6 id="给看完本文的孩纸们一个爱的么么哒"><a href="#给看完本文的孩纸们一个爱的么么哒" class="headerlink" title="给看完本文的孩纸们一个爱的么么哒"></a>给看完本文的孩纸们一个爱的么么哒</h6>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC03498.JPG?imageView/2/w/600/q/90&quot; alt=&quot;这是一个很好看的地方&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class
+    
+    </summary>
+    
+      <category term="Web开发" scheme="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="github" scheme="http://visugar.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS3饼状loading效果</title>
@@ -122,11 +175,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
+      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
@@ -153,11 +206,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
-      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
     
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
-      <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
