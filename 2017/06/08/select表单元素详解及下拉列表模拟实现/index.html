@@ -5,24 +5,24 @@
     <meta name="baidu-site-verification" content="c6FvlJjXM0" />
     <meta name="google-site-verification" content="nIsOrwE2Wm5pnS7Jk3Qn3GAzbHINWBovJ50ACgOMZO4" />
     
-    <title>CSS3饼状loading效果 | Visugar个人博客</title>
+    <title>select表单元素详解及下拉列表模拟实现 | Visugar个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="前端,css3,z-index" />
+        <meta name="keywords" content="前端,css3,select" />
     
-    <meta name="description" content="通过z-index值的改变来实现CSS3饼状loading效果">
-<meta name="keywords" content="css3 饼状Loading 前端 web">
+    <meta name="description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图：  firefox下select的默认样式：    chrome">
+<meta name="keywords" content="前端,css3,select">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3饼状loading效果">
-<meta property="og:url" content="http://visugar.com/2017/05/17/CSS3饼状loading效果/index.html">
+<meta property="og:title" content="select表单元素详解及下拉列表模拟实现">
+<meta property="og:url" content="http://visugar.com/2017/06/08/select表单元素详解及下拉列表模拟实现/index.html">
 <meta property="og:site_name" content="Visugar个人博客">
-<meta property="og:description" content="通过z-index值的改变来实现CSS3饼状loading效果">
-<meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00871.JPG?imageView/2/w/600/q/90">
-<meta property="og:updated_time" content="2017-05-18T11:45:40.519Z">
+<meta property="og:description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图：  firefox下select的默认样式：    chrome">
+<meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90">
+<meta property="og:updated_time" content="2017-06-08T11:48:50.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3饼状loading效果">
-<meta name="twitter:description" content="通过z-index值的改变来实现CSS3饼状loading效果">
-<meta name="twitter:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00871.JPG?imageView/2/w/600/q/90">
+<meta name="twitter:title" content="select表单元素详解及下拉列表模拟实现">
+<meta name="twitter:description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图：  firefox下select的默认样式：    chrome">
+<meta name="twitter:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90">
     
 
     
@@ -144,14 +144,14 @@
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-CSS3饼状loading效果" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-select表单元素详解及下拉列表模拟实现" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        CSS3饼状loading效果
+        select表单元素详解及下拉列表模拟实现
         </h1>
     
 
@@ -161,80 +161,149 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2017/05/17/CSS3饼状loading效果/" class="article-date">
-            <time datetime="2017-05-17T00:36:33.000Z" itemprop="datePublished">2017-05-17</time>
+        <a href="/2017/06/08/select表单元素详解及下拉列表模拟实现/" class="article-date">
+            <time datetime="2017-06-08T11:45:10.000Z" itemprop="datePublished">2017-06-08</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/css3/">css3</a>, <a class="tag-link" href="/tags/z-index/">z-index</a>, <a class="tag-link" href="/tags/前端/">前端</a>
+        <a class="tag-link" href="/tags/css3/">css3</a>, <a class="tag-link" href="/tags/select/">select</a>, <a class="tag-link" href="/tags/前端/">前端</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00871.JPG?imageView/2/w/600/q/90" alt="武功山的秋天"></p>
-<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a><strong>写在前面</strong></h4><p>（附录有源码及效果）</p>
-<p>之前碰到一个小练习，就是用纯CSS3来写饼状的loading效果，之前着实没有写过这玩意儿，小花完全没头绪，然后参考了张鑫旭老师的<a href="http://www.zhangxinxu.com/wordpress/2014/04/css3-pie-loading-waiting-animation/" target="_blank" rel="external">CSS3实现鸡蛋饼饼状图loading等待转转转</a>，还有些别的东西，用一种看起来有一点类似但是好像又不一样的方式完成了同样的效果，题目要求的大概就是这个样子：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/css3%E9%A5%BC%E7%8A%B6loading%E5%9B%BE.gif" alt="look me"></p>
-<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a><strong>开始</strong></h4><p>琢磨了一下，睡一觉起来画了个图，理顺了一下，不过感觉此图有点难意会啊啊啊啊啊，没关系，小花会在后文一点一点解释哒~(红跟粉代表颜色，斜杠后面是z-index的值)<br><img src="http://opif0c56u.bkt.clouddn.com/862022799.jpg" alt="饼状loading流程图"></p>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a><strong>原理</strong></h4><p>这个东西分为两部分：外圈和内圆。颜色这东西都自定义啦，不过我画的的圈圈好像有点太大，然后动画时间是随便设的，反正转起来看着感觉有点怪怪的额</p>
-<p>先上html结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;con-wrap&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!--外圈--&gt;</div><div class="line">    &lt;div class=&quot;out-round&quot;&gt;&lt;/div&gt;</div><div class="line">    </div><div class="line">    &lt;!--内圆，里面有半圆四个--&gt;</div><div class="line">    &lt;div class=&quot;in-round&quot;&gt;</div><div class="line">        &lt;div class=&quot;lt-round&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;lt-mask&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;rt-round&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;rt-mask&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>外圈和内圆是通过position定位重合在一起，实质上外圈转完2圈，内圆的红色和粉色才各转完1圈（内圆的全程包括红色从1到0、粉色从1到0），所以内圆的动画时间应该是外圈的两倍！！！</p>
-<ul>
-<li><strong>外圈</strong></li>
-</ul>
-<p>外圈很简单，设置<code>border-radius:50%</code>即可画出一个圆，然后设置三条边框为红色，另外一条为透明，即画出了四分之三个圆边框（即外圆）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.out-round &#123;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            border-radius: 50%;</div><div class="line">            margin: 150px auto;</div><div class="line">            border: 3px solid #FF298C;</div><div class="line">            border-left: 3px solid transparent;</div><div class="line">            animation: outRound 1s linear infinite running;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/%E5%9B%9B%E5%88%86%E4%B9%8B%E4%B8%89%E4%B8%AA%E5%9C%88.png" alt="四分之三个圆边框"></p>
-<p>接下来是外圈的动画，为其设置的动画就是旋转一圈，infinite表示无限次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@keyframes outRound &#123;</div><div class="line">            0% &#123;</div><div class="line">                transform: rotate(120deg)</div><div class="line">            &#125;</div><div class="line">            100% &#123;</div><div class="line">                transform: rotate(-240deg)</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
-<p>其中<code>rotate(120deg)</code>为旋转起始位置，可根据实际情况调整。</p>
-<p>至此外圈就完成了，比较麻烦的是下面的内圆，不过根据图示应该是可以想象的。</p>
-<ul>
-<li><strong>内圆</strong></li>
-</ul>
-<p>此处有四个半圆，左边两个，右边两个（round为红色，mask为粉色），动画主要通过改变两个红色半圆的<code>z-index</code>值来控制各个半圆显示的优先顺序。内圆的css实现部分为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/*左边两个半圆*/</div><div class="line">        .lt-round, .lt-mask &#123;</div><div class="line">            position: absolute;</div><div class="line">            width: 35px;</div><div class="line">            height: 70px;</div><div class="line">            border-radius: 35px 0 0 35px;</div><div class="line">            transform-origin: right center;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">/*右边两个半圆*/</div><div class="line">        .rt-round, .rt-mask &#123;</div><div class="line">            position: absolute;</div><div class="line">            left: 50%;</div><div class="line">            width: 35px;</div><div class="line">            height: 70px;</div><div class="line">            border-radius: 0 35px 35px 0;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
-<p>下面过程描述内圆的动画全程（其中右边的粉色全程不需要动，右边红色部分只需要改变<code>z-index</code>的值来改变显示的优先级，从而实现显示和隐藏的效果来配合补充左半边的圆。）：</p>
-<p>1.初始设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">红左 z-index：3</div><div class="line">粉1  z-index：2</div><div class="line"></div><div class="line">红右 z-index：1</div><div class="line">粉2  z-index：0</div></pre></td></tr></table></figure>
-<p>模型图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B0.png" alt="模型图1"></p>
-<p>视觉效果图(忽略中间的白线)：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/01.png" alt="视觉效果图"></p>
-<p>2.左边红色旋转完180度时（逆时针旋转所以是360→180→0）</p>
-<p>模型图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B25.png" alt="模型图2"></p>
-<p>视觉效果图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/02.png" alt="视觉效果图"></p>
-<p>3.左边红色转完到0度时（此时左右两边的红色半圆被粉色覆盖）</p>
-<p>模型图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B50.png" alt="模型图3"></p>
-<p>视觉效果图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/03.png" alt="视觉效果图"></p>
-<p>4.粉色半圆重复之前红色半圆的动画（即左边粉色360→180→0）</p>
-<p>模型图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B75.png" alt="模型图4"></p>
-<p>视觉效果图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/04.png" alt="视觉效果图"></p>
-<p>5.当左边粉色旋转到0度时，全部半圆回到了最初始的状态，整个动画即完成（在相同时间下外圈完成了2次的动画）。</p>
-<p>模型图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/%E7%99%BE%E5%88%86%E4%B9%8B100.png" alt="模型图5"></p>
-<p>视觉效果图：</p>
-<p><img src="http://opif0c56u.bkt.clouddn.com/05.png" alt="视觉效果图"></p>
-<h4 id="动画代码部分"><a href="#动画代码部分" class="headerlink" title="动画代码部分"></a><strong>动画代码部分</strong></h4><p>1.前半程为左边红色旋转一周，后半程为粉色旋转一周。动画实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">/*左边红色完成第一圈的旋转*/</div><div class="line">@keyframes ltRound &#123;</div><div class="line">            0% &#123;</div><div class="line">                transform: rotate(360deg);</div><div class="line">            &#125;</div><div class="line">            24.9% &#123;</div><div class="line">                z-index: 3;</div><div class="line">            &#125;</div><div class="line">            25% &#123;</div><div class="line">                z-index: 1;</div><div class="line">                transform: rotate(180deg);</div><div class="line">            &#125;</div><div class="line">            50% &#123;</div><div class="line">                transform: rotate(0deg);</div><div class="line">            &#125;</div><div class="line">            74.9% &#123;</div><div class="line">                z-index: 1;</div><div class="line">            &#125;</div><div class="line">            75%, 100% &#123;</div><div class="line">                z-index: 3;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">/*右边红色圆通过z-index来控制显示和隐藏，从而达到在适当时间配上左半圆的效果*/</div><div class="line">@keyframes rtRound &#123;</div><div class="line">            0%, 24.9% &#123;</div><div class="line">                z-index: 1;</div><div class="line">            &#125;</div><div class="line">            25% &#123;</div><div class="line">                z-index: -3;</div><div class="line">            &#125;</div><div class="line">            74.9% &#123;</div><div class="line">                z-index: -3;</div><div class="line">            &#125;</div><div class="line">            75%, 100% &#123;</div><div class="line">                z-index: 1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">/*左边粉色完成第二圈的旋转*/</div><div class="line">@keyframes ltMask &#123;</div><div class="line">            0%, 25%, 50% &#123;</div><div class="line">                transform: rotate(360deg);</div><div class="line">            &#125;</div><div class="line">            75% &#123;</div><div class="line">                transform: rotate(180deg);</div><div class="line">            &#125;</div><div class="line">            100% &#123;</div><div class="line">                transform: rotate(0deg);</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>2.在全部代码未完成时，可以将动画时间设大一点，这样便于观察，搞完了再设回去就OK了。</p>
-<p>3.由于动画是匀速变化的，但是z-index的值不能匀速变化，所以只能在某个很短时间内去改变z-index的值。这样才能达到效果（突然感觉这种实现好像也不是很好）</p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h4><ol>
-<li>没做兼容，在chrome中无异常，别的我就不太知道了</li>
-<li>只是用来练习练习，实际上不一定会用到，但是里面几个知识点还是hei有用滴</li>
-<li>小花是小白，对很多东西都还没整明白，欢迎大佬们指点指点~</li>
-<li>这几个图画的我心好累，sei能给小花推荐个好用点的额</li>
+            <p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90" alt="吹啊吹啊我的骄傲放纵"></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p><strong>select</strong> 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。</p>
+<p>介绍之前先看下demo预览图：</p>
+<ol>
+<li>firefox下select的默认样式：</li>
 </ol>
-<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a><strong>源代码</strong></h4><p><a href="https://github.com/visugar/ife2017/blob/master/04nuomi/task413/index.html" target="_blank" rel="external">源码地址</a></p>
-<p><a href="https://visugar.github.io/ife2017/04nuomi/task413/index.html" target="_blank" rel="external">预览地址</a></p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/firefox-default.png" alt="firefox-default"></p>
+<ol>
+<li>chrome下select的默认样式：</li>
+</ol>
+<p><img src="http://opif0c56u.bkt.clouddn.com/chrome-default.png" alt="chrome-default"></p>
+<ol>
+<li>firefox下自定义select下拉列表的icon效果：</li>
+</ol>
+<p><img src="http://opif0c56u.bkt.clouddn.com/firefox-self.png" alt="firefox-self"></p>
+<ol>
+<li>chrome下自定义select下拉列表的icon效果：</li>
+</ol>
+<p><img src="http://opif0c56u.bkt.clouddn.com/chrome-self.png" alt="chrome-self"></p>
+<ol>
+<li>原生js模拟select下拉列表的实现效果(chrome及firefox效果一致)：</li>
+</ol>
+<p><img src="http://opif0c56u.bkt.clouddn.com/chrome-moni.png" alt="模拟select"></p>
+<p>源代码地址→<a href="https://github.com/visugar/FrontEnd-examples/blob/master/02%E6%A8%A1%E6%8B%9Fselect%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/index.html" target="_blank" rel="external">传送门</a></p>
+<p>预览地址→<a href="https://visugar.github.io/FrontEnd-examples/02模拟select下拉列表/index.html" target="_blank" rel="external">传送门</a></p>
+<h4 id="1-select表单元素及相关属性（我只是大自然的搬运工）"><a href="#1-select表单元素及相关属性（我只是大自然的搬运工）" class="headerlink" title="1. select表单元素及相关属性（我只是大自然的搬运工）"></a>1. select表单元素及相关属性（我只是大自然的搬运工）</h4><ul>
+<li><strong>提示</strong></li>
+</ul>
+<p>select 元素是一种表单控件，可用于在表单中接受用户输入</p>
+<ul>
+<li><p><strong>支持的全局属性</strong></p>
+<ul>
+<li>仅挑几个属性</li>
+<li>autofocus(其值为autofocus): 规定在页面加载后文本区域自动获得焦点。</li>
+<li>disabled(值为disabled): 规定禁用该下拉列表。</li>
+<li>form(值为form_id): 规定文本区域所属的一个或多个表单。</li>
+<li>multiple(值为multiple): 规定可选择多个选项。</li>
+</ul>
+</li>
+<li><p><strong>支持的事件属性</strong></p>
+<ul>
+<li>挑一个最常用到的额</li>
+<li>onchange：当select改变选择时调用的事件句柄。(可以实现三级联动的效果)</li>
+</ul>
+</li>
+<li><p><strong>selected对象的属性及方法</strong></p>
+<ul>
+<li>挑几个重要的额</li>
+<li>options[]：返回包含下拉列表中的所有选项的一个数组。</li>
+<li>length：返回下拉列表中的选项数目。</li>
+<li>selectIndex：设置或返回下拉列表中被选项目的索引号。</li>
+<li>add(): 向下拉列表添加一个选项。</li>
+<li>remove(): 从下拉列表中删除一个选项。</li>
+</ul>
+</li>
+<li><p><strong>option标签</strong></p>
+<ul>
+<li>option元素定义下拉列表中的一个选项（一个条目）。</li>
+<li>disabled(值为disabled)：规定此选项应在首次加载时被禁用。</li>
+<li>label(值为text)：定义当使用 <optgroup> 时所使用的标注。</optgroup></li>
+<li>selected)(值为selected)：规定选项（在首次显示在列表中时）表现为选中状态。</li>
+<li>value(text): 定义送往服务器的选项值。</li>
+</ul>
+</li>
+<li><p><strong>option对象的属性</strong></p>
+<ul>
+<li>几个比较重要的额</li>
+<li>defaultSelected：返回 selected 属性的默认值。</li>
+<li>disabled:设置或返回选项是否应被禁用。</li>
+<li>index：返回下拉列表中某个选项的索引位置。</li>
+<li>selected：设置或返回 selected 属性的值。</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>select本身的样式可用css设置，但对option设置的样式在chrome中不起作用，在Firefox可行</li>
+<li>w3c官网的详细解释 → <a href="http://www.w3school.com.cn/tags/tag_select.asp" target="_blank" rel="external">传送门</a></li>
+</ol>
+<h4 id="2-HTML标签自定义属性（纯属题外话）"><a href="#2-HTML标签自定义属性（纯属题外话）" class="headerlink" title="2. HTML标签自定义属性（纯属题外话）"></a>2. HTML标签自定义属性（纯属题外话）</h4><p><strong>HTML5 data-*自定义属性</strong>：添加data-前缀使属性变成自定义属性，最大的好处是我们可以把所有自定义属性在dataset对象中统一管理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;student&quot; data-weight=&quot;98&quot;&gt;点击显示&lt;/div&gt;</div><div class="line"></div><div class="line">var student = document.getElementById(&quot;student&quot;);</div><div class="line">student.dataset.cm = &apos;168&apos;; //设置自定义属性</div><div class="line">var stuWeight = studdent.dataset.weight; //获取自定义属性值</div><div class="line"></div><div class="line">student.dataset.birthDate = &apos;19980612&apos;;  //连字符的自定义属性 (例如设置data-birth-date)</div></pre></td></tr></table></figure>
+<h4 id="3-自定义下拉列表的图标"><a href="#3-自定义下拉列表的图标" class="headerlink" title="3. 自定义下拉列表的图标"></a>3. 自定义下拉列表的图标</h4><p>select默认样式中的下拉按钮不是很好看，我们可以自己用替张图片替换掉。（效果看文章上面的链接，请忽略我的丑丑的图标额）</p>
+<ol>
+<li>对select自定义图标时需要设置apperance属性为<code>none</code>(隐藏原有小三角)，并做兼容</li>
+<li><p>加上将要替换的自定义图标即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select&#123;</div><div class="line">    -webkit-appearance: none; /*隐藏默认样式中的小三角*/</div><div class="line">    -moz-appearance: none;</div><div class="line">    background: url(&apos;http://opif0c56u.bkt.clouddn.com/select.gif&apos;) no-repeat scroll right 8px center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>可对option添加背景色</p>
+</li>
+<li>在firefox中可使用伪元素<code>:before</code>对option添加序号（此处插播一个css添加序号的方法）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">select&#123;</div><div class="line">    counter-reset: item; //类似于声明计数变量（声明在父元素中）</div><div class="line">&#125;</div><div class="line">select option:before &#123;</div><div class="line">    counter-increment: item;   //要使用的计数名</div><div class="line">    content: counter(item) &quot; . &quot;; //追加前置序号,chrome对option的设置中不起作用</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="4-js模拟select下拉菜单-重头戏"><a href="#4-js模拟select下拉菜单-重头戏" class="headerlink" title="4. js模拟select下拉菜单(重头戏)"></a>4. js模拟select下拉菜单(重头戏)</h4><p>许多时候会觉得select表单特别的不好用，不能自己添加很多的样式，小伙伴们还是自己模拟一个吧！</p>
+<ol>
+<li>html代码结构：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;sel-wrap&quot;&gt;</div><div class="line">    &lt;div id=&quot;sel-show&quot;&gt;=请选择=&lt;/div&gt;</div><div class="line">    &lt;ul id=&quot;sel-option&quot;&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;早上吃包子&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;中午吃米饭&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;晚上吃面条&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;宵夜吃烧烤&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;睡前喝牛奶&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>下拉按钮的图标跟上面自定义的方式一致（这里不再说了）。</p>
+</li>
+<li><p>hover到li上时，利用伪元素<code>:before</code>追加一个对勾。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#sel-option li:hover:before &#123;</div><div class="line">    content: &apos;\2714&apos; &apos; &apos;;  //此处为对勾+空格</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>下面说下实现原理：</p>
+</li>
+</ol>
+<ul>
+<li><p>下拉菜单的选项为ul中的内容，需要先隐藏起来，且显示的时候是浮在其他内容的上面，此处需要使用position来实现。（即脱离文档流）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#sel-wrap&#123;</div><div class="line">    position: relative;  //设置父元素</div><div class="line">&#125;</div><div class="line">#sel-option&#123;</div><div class="line">    position: absolute;  //设置下拉列项的包裹层</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>点击下拉框时显示下拉列表项</p>
+</li>
+<li><p>点击列表项时将选中值传递给下拉框并显示，同时下拉项收起（此处的点击事件绑定在父元素中）</p>
+</li>
+<li><p>当下拉项显示并未选中任何下拉项时，点击下拉框收起下拉项</p>
+</li>
+<li><p>当下拉项显示并未选中任何下拉项时，点击下拉项以外的任意位置，收起下拉框</p>
+</li>
+<li><p>最终实现（样式什么的都可以随便改）：</p>
+</li>
+</ul>
+<p><img src="http://opif0c56u.bkt.clouddn.com/firefox-moni.png" alt="最终样式"></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol>
+<li><p>小花作为菜鸟第一次自己模拟下拉列表的实现，有可能存在代码欠缺，但是为了方便以后使用的时候查询，所以就记录下</p>
+</li>
+<li><p>欢迎大佬们指点</p>
+</li>
+</ol>
 
             <hr width="98%">
             <div>
@@ -354,20 +423,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/05/19/预览github项目的html文件新方法/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            预览github项目的html文件新方法
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2017/05/11/RegExp（正则表达式）常用要点小结/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/05/19/预览github项目的html文件新方法/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">RegExp（正则表达式）常用要点小结</p>
+        <p class="article-nav-title">预览github项目的html文件新方法</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
