@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Visugar个人博客">
 <meta property="og:description" content="原文地址：→看过来写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图： 1.firefox下select的默认样式：">
 <meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG">
-<meta property="og:updated_time" content="2017-06-08T15:52:30.548Z">
+<meta property="og:updated_time" content="2017-06-08T15:55:57.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="select表单元素详解及下拉列表模拟实现">
 <meta name="twitter:description" content="原文地址：→看过来写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图： 1.firefox下select的默认样式：">
@@ -254,14 +254,13 @@
 <ul>
 <li><p>下拉菜单的选项为ul中的内容，需要先隐藏起来，且显示的时候是浮在其他内容的上面，此处需要使用position来实现。（即脱离文档流）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#sel-wrap&#123;</div><div class="line">    position: relative;  //设置父元素</div><div class="line">&#125;</div><div class="line">#sel-option&#123;</div><div class="line">    position: absolute;  //设置下拉列项的包裹层</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>点击下拉框时显示下拉列表项</li>
+</li>
+<li><p>点击下拉框时显示下拉列表项</p>
+</li>
 <li>点击列表项时将选中值传递给下拉框并显示，同时下拉项收起（此处的点击事件绑定在父元素中）</li>
 <li>当下拉项显示并未选中任何下拉项时，点击下拉框收起下拉项</li>
 <li>当下拉项显示并未选中任何下拉项时，点击下拉项以外的任意位置，收起下拉框</li>
 <li>最终实现（样式什么的都可以随便改）：</li>
-</ul>
-</li>
 </ul>
 <p><img src="http://opif0c56u.bkt.clouddn.com/firefox-moni.png" alt="最终样式"></p>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol>
