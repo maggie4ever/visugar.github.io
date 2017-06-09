@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-06-08T15:55:57.467Z</updated>
+  <updated>2017-06-09T12:34:53.496Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -14,6 +14,110 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原生JS实现省市区（县）三级联动选择</title>
+    <link href="http://visugar.com/2017/06/09/%E5%8E%9F%E7%94%9FJS%E5%AE%9E%E7%8E%B0%E7%9C%81%E5%B8%82%E5%8C%BA%EF%BC%88%E5%8E%BF%EF%BC%89%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8%E9%80%89%E6%8B%A9/"/>
+    <id>http://visugar.com/2017/06/09/原生JS实现省市区（县）三级联动选择/</id>
+    <published>2017-06-09T12:28:08.000Z</published>
+    <updated>2017-06-09T12:34:53.496Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC03889.JPG" alt="wo e le"></p>
+<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>前段时间写一个关于天气的东西，里面的省市区（县）城市选择让我很头疼，在网上搜索出来大都是借助插件或者第三方库，感觉这样做代码会很重，所以索性就把几种城市选择的方式实现一遍，以备日后的不时之需。这三种方法都是针对pc端的，并且都是使用原生js实现的，连jq都没使用，于是代码有点繁琐额（尴尬）。。。。不过还是让我把原理讲完吧。</p>
+<p>源代码地址→<a href="https://github.com/visugar/FrontEnd-examples/blob/master/01%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/index.html" target="_blank" rel="external">传送门</a></p>
+<p>预览地址→<a href="https://visugar.github.io/FrontEnd-examples/01省市区三级联动/index.html" target="_blank" rel="external">传送门</a></p>
+<h4 id="方法一：下拉选择框实现省市区（县）三级联动"><a href="#方法一：下拉选择框实现省市区（县）三级联动" class="headerlink" title="方法一：下拉选择框实现省市区（县）三级联动"></a>方法一：下拉选择框实现省市区（县）三级联动</h4><ol>
+<li>用下拉框实现省市区三级联动是很常见的一种方式，也很方便。这里需要先了解下select的相关属性及其对象属性，请参考<a href="http://visugar.com/2017/06/08/select%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0/">此文</a></li>
+<li>先看下最终实现效果图：<br><img src="http://opif0c56u.bkt.clouddn.com/select00.png" alt="select实现三级联动"></li>
+<li><p>思路介绍：</p>
+<ul>
+<li><p>页面加载时，动态获取省份列表并放到下拉菜单的下拉项中：<br><img src="http://opif0c56u.bkt.clouddn.com/select01.png" alt="select-省份显示"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    /*自动加载省份列表*/</div><div class="line">(function showProv() &#123;</div><div class="line">    btn.disabled = true;</div><div class="line">    var len = provice.length;</div><div class="line">    for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">        var provOpt = document.createElement(&apos;option&apos;);</div><div class="line">        provOpt.innerText = provice[i][&apos;name&apos;];</div><div class="line">        provOpt.value = i;</div><div class="line">        prov.appendChild(provOpt);</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+</li>
+<li><p>当点击省份列表中的某一项，此时触发省份下拉框的<code>onchange事件</code>，在onchange事件中根据前面所选的省份来显示对应城市。这里用到一个select的selectedIndex属性，从而获取刚刚点击的是哪个省份（生成省份列表时添加了value属性值）：<br><img src="http://opif0c56u.bkt.clouddn.com/select02.png" alt="select-省份显示"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var val = obj.options[obj.selectedIndex].value;  //这里得到的是所选择省份在所有下拉项中为第几项</div></pre></td></tr></table></figure>
+</li>
+<li><p>当点击城市列表中的某一项时，原理同上（此处不赘述）<br><img src="http://opif0c56u.bkt.clouddn.com/select04.png" alt="select-省份显示"></p>
+</li>
+<li><p>选择城市时存在两种情况，如何城市选项下不存在县区，则直接将所选省市显示在输入框，否则依照上诉原理显示县区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!--方法是判断县区的length是否为0--&gt;</div><div class="line">var countryLen = provice[current.prov][&quot;city&quot;][val].districtAndCounty.length;</div><div class="line">    if(countryLen == 0)&#123;</div><div class="line">        addrShow.value = provice[current.prov].name + &apos;-&apos; + provice[current.prov][&quot;city&quot;][current.city].name;</div><div class="line">        return;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后点击县区后再按确定，则可将所选地点显示在输入框中。</p>
+</li>
+</ul>
+</li>
+<li><p>注意:</p>
+<ul>
+<li>在未选中具体县区时，按钮为不可点状态</li>
+<li>具体的实现主要根据城市数据来进行更细的处理。</li>
+</ul>
+</li>
+<li>说明：<ul>
+<li>这里使用的省市区数据来源于网络，不能保证真实性及完整性，仅供案例使用</li>
+<li>此处使用的数据类型为js数组,格式参考如下（<a href="https://github.com/visugar/FrontEnd-examples/blob/master/01%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/city.js" target="_blank" rel="external">完整版</a>）：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">var provice = [</div><div class="line">    &#123;</div><div class="line">        name: &quot;北京市&quot;,</div><div class="line">        city: [</div><div class="line">            &#123;</div><div class="line">                name: &quot;北京市&quot;,</div><div class="line">                districtAndCounty: [&quot;东城区&quot;, &quot;西城区&quot;, &quot;崇文区&quot;, &quot;宣武区&quot;, &quot;朝阳区&quot;, &quot;丰台区&quot;, &quot;石景山区&quot;, &quot;海淀区&quot;, &quot;门头沟区&quot;, &quot;房山区&quot;, &quot;通州区&quot;, &quot;顺义区&quot;, &quot;昌平区&quot;, &quot;大兴区&quot;, &quot;怀柔区&quot;, &quot;平谷区&quot;, &quot;密云县&quot;, &quot;延庆县&quot;, &quot;延庆镇&quot;]</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line">    &#123;</div><div class="line">        name: &quot;河北省&quot;,</div><div class="line">        city: [</div><div class="line">            &#123;</div><div class="line">                name: &quot;石家庄市&quot;,</div><div class="line">                districtAndCounty: [&quot;长安区&quot;, &quot;桥东区&quot;, &quot;桥西区&quot;, &quot;新华区&quot;, &quot;裕华区&quot;, &quot;井陉矿区&quot;, &quot;辛集市&quot;, &quot;藁城市&quot;, &quot;晋州市&quot;, &quot;新乐市&quot;, &quot;鹿泉市&quot;, &quot;井陉县&quot;, &quot;微水镇&quot;, &quot;正定县&quot;, &quot;正定镇&quot;, &quot;栾城县&quot;, &quot;栾城镇&quot;, &quot;行唐县&quot;, &quot;龙州镇&quot;, &quot;灵寿县&quot;, &quot;灵寿镇&quot;, &quot;高邑县&quot;, &quot;高邑镇&quot;, &quot;深泽县&quot;, &quot;深泽镇&quot;, &quot;赞皇县&quot;, &quot;赞皇镇&quot;, &quot;无极县&quot;, &quot;无极镇&quot;, &quot;平山县&quot;, &quot;平山镇&quot;, &quot;元氏县&quot;, &quot;槐阳镇&quot;, &quot;赵县&quot;, &quot;赵州镇&quot;]</div><div class="line">            &#125;,</div><div class="line"></div><div class="line">            .......</div><div class="line"></div><div class="line">            &#123;</div><div class="line">                name: &quot;邯郸市&quot;,</div><div class="line">                districtAndCounty: [&quot;丛台区&quot;, &quot;邯山区&quot;, &quot;复兴区&quot;, &quot;峰峰矿区&quot;, &quot;武安市&quot;, &quot;邯郸县&quot;, &quot;南堡乡东小屯村&quot;, &quot;临漳县&quot;, &quot;临漳镇&quot;, &quot;成安县&quot;, &quot;成安镇&quot;, &quot;大名县&quot;, &quot;大名镇&quot;, &quot;涉县&quot;, &quot;涉城镇&quot;, &quot;磁县&quot;, &quot;磁州镇&quot;, &quot;肥乡县&quot;, &quot;肥乡镇&quot;, &quot;永年县&quot;, &quot;临洺关镇&quot;, &quot;邱县&quot;, &quot;新马头镇&quot;, &quot;鸡泽县&quot;, &quot;鸡泽镇&quot;, &quot;广平县&quot;, &quot;广平镇&quot;, &quot;馆陶县&quot;, &quot;馆陶镇&quot;, &quot;魏县&quot;, &quot;魏城镇&quot;, &quot;曲周县&quot;, &quot;曲周镇&quot;]</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<h4 id="方法二：按级选中省市县-区"><a href="#方法二：按级选中省市县-区" class="headerlink" title="方法二：按级选中省市县/区"></a>方法二：按级选中省市县/区</h4><ol>
+<li>这种方式比上面的下拉框更好看点，操作也更方便点，不过大概的逻辑有点类似。所用省市区数据跟上面的一致。</li>
+<li>先看看这种方式的效果图：<br><img src="http://opif0c56u.bkt.clouddn.com/grad00.png" alt="按级选中省市县/区"></li>
+<li>在页面加载时同样先显示出所有的省份列表（方法类似）<br><img src="http://opif0c56u.bkt.clouddn.com/grad01.png" alt="按级选中省市县/区"></li>
+<li>点击具体省份时，将省份列表替换成对应的城市列表，点击具体城市时显示对应县区，实现如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">addrWrap.onclick = function (e) &#123;     //将点击事件委托给列表的父元素</div><div class="line">    var n;</div><div class="line">    var e = e || window.event;</div><div class="line">    var target = e.target || e.srcElement;</div><div class="line">    if (target &amp;&amp; target.nodeName == &apos;LI&apos;) &#123;</div><div class="line">        /*先判断当前显示区域显示的是省市区的那部分*/</div><div class="line">        for (var z = 0; z &lt; 3; z++) &#123;</div><div class="line">            if (titleWrap[z].className == &apos;titleSel&apos;)</div><div class="line">                n = z;</div><div class="line">        &#125;</div><div class="line">        /*显示的处理函数*/</div><div class="line">        switch (n) &#123;</div><div class="line">            case 0:</div><div class="line">                showCity2(target.index);   //点击的是省份中列表的某一项，接下来则显示城市列表</div><div class="line">                break;</div><div class="line">            case 1:</div><div class="line">                showCountry2(target.index);  //点击的是城市列表中的某一项，接下来则显示县区列表</div><div class="line">                break;</div><div class="line">            case 2:</div><div class="line">                selectCountry(target.index);  //点击具体的某个县区，则将该县区选择</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                showProv2();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://opif0c56u.bkt.clouddn.com/grad02.png" alt="按级选中省市县/区"><br><img src="http://opif0c56u.bkt.clouddn.com/grad03.png" alt="按级选中省市县/区"></p>
+<ol>
+<li>上面点击的每一步中将选中项的索引及值保存在一个对象中，以便最后点击确定按钮将选择的省市区显示在输入框中。</li>
+<li>当选择的城市不存在县区时处理跟第一种方式一致。</li>
+<li><p>当点击分类时，显示对应的内容，同时将保存的对象的值进行处理：<br><img src="http://opif0c56u.bkt.clouddn.com/grad04.png" alt="点击不同分类"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//将事件委托给父元素,根据点击的分类进行处理（html的设置好li的value值）</div><div class="line">if (target.value == &apos;0&apos;) &#123;</div><div class="line">    showProv2();</div><div class="line">&#125; else if (target.value == &apos;1&apos;) &#123;</div><div class="line">    showCity2(current2.prov);</div><div class="line">&#125; else &#123;</div><div class="line">    showCountry2(current2.city);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>OK</p>
+</li>
+</ol>
+<h4 id="方法三：按字母顺序选中城市"><a href="#方法三：按字母顺序选中城市" class="headerlink" title="方法三：按字母顺序选中城市"></a>方法三：按字母顺序选中城市</h4><ol>
+<li>直接按字母的顺序选中城市这种方式比前两种更简单粗暴也较为简单，代码量也较少。</li>
+<li>先看看这种方式的效果图：<br><img src="http://opif0c56u.bkt.clouddn.com/city02.png" alt="按字母顺序选中城市"></li>
+<li>页面加载时先显示热门城市<br><img src="http://opif0c56u.bkt.clouddn.com/city01.png" alt="按字母顺序选中城市"></li>
+<li>点击不同字母集，显示对应的城市列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">switch (index) &#123;</div><div class="line">            case 0:    //0为热门项</div><div class="line">                showHotCity();</div><div class="line">                break;</div><div class="line">            case 6:    //6为最后一栏，字母集个数为2</div><div class="line">                showCitys(index, 2);</div><div class="line">                break;</div><div class="line">            default:   //其余索引，字母集个数都为4</div><div class="line">                showCitys(index, 4);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function showCitys(index, m) &#123;</div><div class="line">    //通过传入的参数截取城市数据的一部分为当前要显示的城市列表</div><div class="line">    var currentAll = cityAll.slice(4 * index - 3, 4 * index + m - 3);</div><div class="line"></div><div class="line">    .....</div><div class="line"></div><div class="line">    //将动态生成的列表项放到显示区域</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>点击具体某一个城市时，将其显示在输入框中。<br><img src="http://opif0c56u.bkt.clouddn.com/city00.png" alt="按字母顺序选中城市"></li>
+<li>这种方式的城市数据跟前两种不同，来源于网上，不能保证真实性及完整性，仅供案例使用，数据格式如下（<a href="https://github.com/visugar/FrontEnd-examples/blob/master/01%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/city02.js" target="_blank" rel="external">完整版</a>）：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var cityAll = [</div><div class="line">    &#123;</div><div class="line">        name: &quot;hot&quot;,</div><div class="line">        citys: [&quot;北京&quot;, &quot;上海&quot;, &quot;广州&quot;, &quot;深圳&quot;, &quot;杭州&quot;, &quot;南京&quot;, &quot;成都&quot;, &quot;重庆&quot;, &quot;武汉&quot;, &quot;长沙&quot;, &quot;昆明&quot;]</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        name: &quot;A&quot;,</div><div class="line">        citys: [&quot;阿坝&quot;, &quot;阿拉善&quot;, &quot;阿里&quot;, &quot;安康&quot;, &quot;安庆&quot;, &quot;鞍山&quot;, &quot;安顺&quot;, &quot;安阳&quot;, &quot;澳门&quot;]</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    ......</div><div class="line"></div><div class="line"></div><div class="line">    &#123;</div><div class="line">        name: &quot;Z&quot;,</div><div class="line">        citys: [&quot;杂多县&quot;, &quot;赞皇县&quot;, &quot;枣强县&quot;, &quot;枣阳市&quot;, &quot;枣庄&quot;,.......,资阳&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>完美~</li>
+</ol>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol>
+<li>详细代码看上面给出了链接，有注释的额（firefox和chrome可正常显示）~</li>
+<li>这几种实现方式为一己之见，欢迎大佬们指点，如有更好的可以告诉我，我来完善完善~</li>
+<li>有人能告诉我怎么做gif图么？</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC03889.JPG&quot; alt=&quot;wo e le&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;
+    
+    </summary>
+    
+      <category term="Web开发" scheme="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="select" scheme="http://visugar.com/tags/select/"/>
+    
+      <category term="省市区三级联动" scheme="http://visugar.com/tags/%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/"/>
+    
+      <category term="JS" scheme="http://visugar.com/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>select表单元素详解及下拉列表模拟实现</title>
