@@ -5,19 +5,24 @@
     <meta name="baidu-site-verification" content="c6FvlJjXM0" />
     <meta name="google-site-verification" content="nIsOrwE2Wm5pnS7Jk3Qn3GAzbHINWBovJ50ACgOMZO4" />
     
-    <title>Visugar个人博客</title>
+    <title>JS中client/offset/scroll等的宽高解析 | Visugar个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="404">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Visugar个人博客">
-<meta property="og:url" content="http://visugar.com/404.html">
+        <meta name="keywords" content="前端,width/height,offset/client/scroll" />
+    
+    <meta name="description" content="window相关宽高属性1. window.outerHeight (窗口的外层的高度) / window.outerWidth (窗口的外层的宽度) window.outerHeight获取整个浏览器窗口的高度（单位：像素），包括侧边栏（如果存在）、窗口镶边（window chrome）和窗口调正边框。包含调试窗及浏览器边框 window.outerWidth表示整个浏览器窗口的宽度，包括侧边">
+<meta name="keywords" content="前端,width&#x2F;height,offset&#x2F;client&#x2F;scroll">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中client&#x2F;offset&#x2F;scroll等的宽高解析">
+<meta property="og:url" content="http://visugar.com/2017/07/25/20170725ClienOffsetScroll/index.html">
 <meta property="og:site_name" content="Visugar个人博客">
-<meta property="og:description" content="404">
-<meta property="og:updated_time" content="2017-05-06T12:16:34.247Z">
+<meta property="og:description" content="window相关宽高属性1. window.outerHeight (窗口的外层的高度) / window.outerWidth (窗口的外层的宽度) window.outerHeight获取整个浏览器窗口的高度（单位：像素），包括侧边栏（如果存在）、窗口镶边（window chrome）和窗口调正边框。包含调试窗及浏览器边框 window.outerWidth表示整个浏览器窗口的宽度，包括侧边">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1727565-d51672eab4d06697.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-25T11:32:00.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Visugar个人博客">
-<meta name="twitter:description" content="404">
+<meta name="twitter:title" content="JS中client&#x2F;offset&#x2F;scroll等的宽高解析">
+<meta name="twitter:description" content="window相关宽高属性1. window.outerHeight (窗口的外层的高度) / window.outerWidth (窗口的外层的宽度) window.outerHeight获取整个浏览器窗口的高度（单位：像素），包括侧边栏（如果存在）、窗口镶边（window chrome）和窗口调正边框。包含调试窗及浏览器边框 window.outerWidth表示整个浏览器窗口的宽度，包括侧边">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1727565-d51672eab4d06697.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
 
     
@@ -135,36 +140,165 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    Visugar个人博客
+    <a class="page-title-link" href="/categories/划重点/">划重点</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="default-undefined" class="article article-single article-type-default" itemscope itemprop="blogPost">
+                            <article id="post-20170725ClienOffsetScroll" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        JS中client/offset/scroll等的宽高解析
+        </h1>
+    
+
+            </header>
         
         
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/404.html" class="article-date">
-            <time datetime="2017-05-18T09:08:15.601Z" itemprop="datePublished">2017-05-18</time>
+        <a href="/2017/07/25/20170725ClienOffsetScroll/" class="article-date">
+            <time datetime="2017-07-25T11:28:30.000Z" itemprop="datePublished">2017-07-25</time>
         </a>
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/offset-client-scroll/">offset/client/scroll</a>, <a class="tag-link" href="/tags/width-height/">width/height</a>, <a class="tag-link" href="/tags/前端/">前端</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <html>
-<head>
-    <meta charset="UTF-8">
-    <title>404</title>
-</head>
-<body>
-<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8"></script>
-</body>
-</html>
+            <p><img src="http://upload-images.jianshu.io/upload_images/1727565-d51672eab4d06697.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="眼花缭乱"></p>
+<h2 id="window相关宽高属性"><a href="#window相关宽高属性" class="headerlink" title="window相关宽高属性"></a>window相关宽高属性</h2><h6 id="1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度"><a href="#1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度" class="headerlink" title="1. window.outerHeight (窗口的外层的高度) / window.outerWidth (窗口的外层的宽度)"></a>1. <strong>window.outerHeight</strong> (窗口的外层的高度) / <strong>window.outerWidth</strong> (窗口的外层的宽度)</h6><ul>
+<li>window.outerHeight获取整个浏览器窗口的高度（单位：像素），包括侧边栏（如果存在）、窗口镶边（window chrome）和窗口调正边框。包含调试窗及浏览器边框</li>
+<li>window.outerWidth表示整个浏览器窗口的宽度，包括侧边栏（如果存在）、窗口镶边（window chrome）和调正窗口大小的边框。包含调试窗及浏览器边框<br><img src="http://upload-images.jianshu.io/upload_images/1727565-09555815592f0bb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window的相关属性"></li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/outerHeight" target="_blank" rel="external">window.outerHeight -MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/window/outerWidth" target="_blank" rel="external">window.outerWidth-MDN</a></p>
+<h6 id="2-window-innerHeight-浏览器窗口的视口的高度-和-window-innerWidth"><a href="#2-window-innerHeight-浏览器窗口的视口的高度-和-window-innerWidth" class="headerlink" title="2. window.innerHeight (浏览器窗口的视口的高度)和 window.innerWidth"></a>2. <strong>window.innerHeight</strong> (浏览器窗口的视口的高度)和 <strong>window.innerWidth</strong></h6><ul>
+<li>window.innerHeight浏览器窗口的视口（viewport）高度（以像素为单位），如果存在水平滚动条，则包括它。不包含调试窗及浏览器边框</li>
+<li>window.innerWidth浏览器视口（viewport）宽度（单位：像素），如果存在垂直滚动条则包括它。不包含调试窗及浏览器边框</li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/window/innerHeight" target="_blank" rel="external">window.innerHeight - MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/window/innerWidth" target="_blank" rel="external">window.innerWidth - MDN</a></p>
+<h6 id="3-window-screen-width和window-screen-height"><a href="#3-window-screen-width和window-screen-height" class="headerlink" title="3. window.screen.width和window.screen.height"></a>3. <strong>window.screen.width</strong>和<strong>window.screen.height</strong></h6><blockquote>
+<p>注：在获取值时可不加window.前缀</p>
+</blockquote>
+<ul>
+<li>window.screen.width声明了显示当前浏览器的<code>屏幕的宽度</code>，以像素计</li>
+<li>window.screen.height声明了显示当前浏览器的<code>屏幕的高度</code>，以像素计<br><img src="http://upload-images.jianshu.io/upload_images/1727565-4e1521faf20a88e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.screen"></li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a></p>
+<h6 id="4-window-screen-availHeight和window-screen-availWidth"><a href="#4-window-screen-availHeight和window-screen-availWidth" class="headerlink" title="4. window.screen.availHeight和window.screen.availWidth"></a>4. <strong>window.screen.availHeight</strong>和<strong>window.screen.availWidth</strong></h6><ul>
+<li>window.screen.availHeight声明了显示浏览器的<code>屏幕的可用高度</code>，以像素计。除去我们底部任务栏外的屏幕高度</li>
+<li>window.screen.availWidth声明了显示浏览器的<code>屏幕的可用宽度</code>，以像素计</li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a></p>
+<h6 id="5-window-screenTop和window-screenLeft"><a href="#5-window-screenTop和window-screenLeft" class="headerlink" title="5. window.screenTop和window.screenLeft"></a>5. <strong>window.screenTop</strong>和<strong>window.screenLeft</strong></h6><ul>
+<li>功能： 返回窗口的左上角在屏幕上的x坐标。该属性为只读属性。语法： window.screenLeft。注：在Firefox等浏览器中使用的是screenX属性。</li>
+<li>返回窗口的左上角在屏幕上的y坐标。该属性为只读属性。 语法： window.screenTop。注：在Firefox等浏览器中使用的是screenY属性。<br><img src="http://upload-images.jianshu.io/upload_images/1727565-0d26e615e78a1d47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.screenTop/left"></li>
+</ul>
+<p>参考链接：<br><a href="http://blog.csdn.net/fengyun111999/article/details/5392505" target="_blank" rel="external">window.screenTop</a><br><a href="http://blog.csdn.net/fengyun111999/article/details/5392505" target="_blank" rel="external">window.screenLeft</a></p>
+<h2 id="document下面的相关属性（offset-client-scroll）"><a href="#document下面的相关属性（offset-client-scroll）" class="headerlink" title="document下面的相关属性（offset/client/scroll）"></a>document下面的相关属性（offset/client/scroll）</h2><h3 id="与client相关属性"><a href="#与client相关属性" class="headerlink" title="与client相关属性"></a>与client相关属性</h3><h6 id="6-document-body-clientWidth或element-clientWidth"><a href="#6-document-body-clientWidth或element-clientWidth" class="headerlink" title="6. document.body.clientWidth或element.clientWidth"></a>6. <strong>document.body.clientWidth</strong>或<strong>element.clientWidth</strong></h6><ul>
+<li>表示元素的内部宽度，以像素计。该属性包括内边距，但不包括垂直滚动条（如果有的话）、边框和外边距。</li>
+<li>该属性值会被四舍五入为一个整数。如果你需要一个小数值，可使用 element.getBoundingClientRect()。</li>
+<li>语法：var intElemClientWidth = element.clientWidth;<br><img src="http://upload-images.jianshu.io/upload_images/1727565-b9c85298f4d69745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="document.body.clientWH"></li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth" target="_blank" rel="external">Element.clientWidth - MDN</a></p>
+<h6 id="7-document-body-clientHeight或element-clientHeight"><a href="#7-document-body-clientHeight或element-clientHeight" class="headerlink" title="7. document.body.clientHeight或element.clientHeight"></a>7. <strong>document.body.clientHeight</strong>或<strong>element.clientHeight</strong></h6><ul>
+<li>返回元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。</li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight" target="_blank" rel="external">element.clientHeight - MDN</a></p>
+<h6 id="8-document-body-clientLeft或element-clientLeft"><a href="#8-document-body-clientLeft或element-clientLeft" class="headerlink" title="8. document.body.clientLeft或element.clientLeft"></a>8. <strong>document.body.clientLeft</strong>或<strong>element.clientLeft</strong></h6><ul>
+<li>表示一个元素的左边框的宽度，以像素表示。如果元素的文本方向是从右向左（RTL, right-to-left），并且由于内容溢出导致左边出现了一个垂直滚动条，则该属性包括滚动条的宽度。<br><img src="http://upload-images.jianshu.io/upload_images/1727565-0aa014faec459e55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="element.clientLT"></li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientLeft" target="_blank" rel="external">Element.clientLeft - MDN</a></p>
+<h6 id="9-document-body-clientTop或element-clientTop"><a href="#9-document-body-clientTop或element-clientTop" class="headerlink" title="9. document.body.clientTop或element.clientTop"></a>9. <strong>document.body.clientTop</strong>或<strong>element.clientTop</strong></h6><ul>
+<li>一个元素顶部边框的宽度（以像素表示）。不包括顶部外边距或内边距。</li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientTop" target="_blank" rel="external">Element.clientTop</a></p>
+<h3 id="与offset相关属性"><a href="#与offset相关属性" class="headerlink" title="与offset相关属性"></a>与offset相关属性</h3><blockquote>
+<p>这一对属性指的是元素的border+padding+content的宽度和高度</p>
+</blockquote>
+<h6 id="10-document-body-offsetWidth或element-offsetWidth"><a href="#10-document-body-offsetWidth或element-offsetWidth" class="headerlink" title="10. document.body.offsetWidth或element.offsetWidth"></a>10. <strong>document.body.offsetWidth</strong>或<strong>element.offsetWidth</strong></h6><ul>
+<li>border/padding/width三者的总宽度<br><img src="http://upload-images.jianshu.io/upload_images/1727565-a44eb7d8cc51e523.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="offsetWH"></li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth" target="_blank" rel="external">HTMLElement.offsetWidth</a></p>
+<h6 id="11-document-body-offsetHeight或element-offsetHeight"><a href="#11-document-body-offsetHeight或element-offsetHeight" class="headerlink" title="11. document.body.offsetHeight或element.offsetHeight"></a>11. <strong>document.body.offsetHeight</strong>或<strong>element.offsetHeight</strong></h6><ul>
+<li>border/padding/width三者的总高度，且是一个整数。</li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight" target="_blank" rel="external">HTMLElement.offsetHeight</a></p>
+<h6 id="12-HTMLElement-offsetLeft和HTMLElement-offsetTop"><a href="#12-HTMLElement-offsetLeft和HTMLElement-offsetTop" class="headerlink" title="12. HTMLElement.offsetLeft和HTMLElement.offsetTop"></a>12. <strong>HTMLElement.offsetLeft</strong>和<strong>HTMLElement.offsetTop</strong></h6><blockquote>
+<p>这两个属性是基于offsetParent的</p>
+</blockquote>
+<ul>
+<li>如果当前元素的父级元素没有进行CSS定位（position为absolute或relative）,offsetParent为body.</li>
+<li>假如当前元素的父级元素中有CSS定位，offsetParent取最近的那个父级元素。</li>
+<li>offsetLeft返回当前元素左上角相对于  HTMLElement.offsetParent 节点的左边界偏移的像素值。</li>
+<li>offsetTop返回当前元素相对于其 offsetParent 元素的顶部的距离。</li>
+<li><p>在IE6/7中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">offsetLeft=(offsetParent的padding-left)+(当前元素的margin-left)</div></pre></td></tr></table></figure>
+</li>
+<li><p>在IE8/9/10及Chrome中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">offsetLeft=(offsetParent的margin-left)+(offsetParent的border宽度)+(offsetParent的padding-left)+(当前元素的margin-left)</div></pre></td></tr></table></figure>
+</li>
+<li><p>在FireFox中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">offsetLeft=(offsetParent的margin-left)+(当前元素的margin-left)+(offsetParent的padding-left)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft" target="_blank" rel="external">HTMLElement.offsetLeft</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop" target="_blank" rel="external">HTMLElement.offsetTop</a></p>
+<h3 id="与scroll相关属性"><a href="#与scroll相关属性" class="headerlink" title="与scroll相关属性"></a>与scroll相关属性</h3><h6 id="13-document-body-scrollWidth及document-body-scrollHeight"><a href="#13-document-body-scrollWidth及document-body-scrollHeight" class="headerlink" title="13. document.body.scrollWidth及document.body.scrollHeight"></a>13. <strong>document.body.scrollWidth</strong>及<strong>document.body.scrollHeight</strong></h6><blockquote>
+<p>body与普通element不一样</p>
+</blockquote>
+<ul>
+<li><p>给定body宽高 &lt; 浏览器窗口时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scrollWidth = 浏览器窗口宽度</div><div class="line">scrollHeight = 浏览器窗口高度</div></pre></td></tr></table></figure>
+</li>
+<li><p>给定body宽高大于浏览器窗口，且内容小于给定body宽高时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scrollWidth = 给定的宽度 + body所有padding + body所有margin + body所有border</div><div class="line">scrollHeight = 给定的高度 + body所有padding + body所有margin + body所有border</div></pre></td></tr></table></figure>
+</li>
+<li><p>给定body宽高大于浏览器窗口，且内容大于给定窗口时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scrollWidth = 内容的宽度 + body所有padding + body所有margin + body所有border</div><div class="line">scrollHeight = 内容的高度 + body所有padding + body所有margin + body所有border</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollWidth" target="_blank" rel="external">Element.scrollWidth</a></p>
+<h6 id="14-element-scrollWidth和element-scrollHeight"><a href="#14-element-scrollWidth和element-scrollHeight" class="headerlink" title="14. element.scrollWidth和element.scrollHeight"></a>14. <strong>element.scrollWidth</strong>和<strong>element.scrollHeight</strong></h6><ul>
+<li><p>当无滚动条时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scrollWidth = clientWidth = 元素宽度 + padding和</div><div class="line">scrollHeight = clientHeight = 元素高度 + padding和</div></pre></td></tr></table></figure>
+</li>
+<li><p>当有滚动条时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scrollWidth = 实际内容的宽度 + padding和</div><div class="line">scrollHeight  = 实际内容的高度 + padding和</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="15-document-body-scrollTop及document-body-scrollLeft"><a href="#15-document-body-scrollTop及document-body-scrollLeft" class="headerlink" title="15. document.body.scrollTop及document.body.scrollLeft"></a>15. <strong>document.body.scrollTop</strong>及<strong>document.body.scrollLeft</strong></h6><ul>
+<li>这对属性是可读写（可被重新赋值） 的</li>
+<li>指的是当元素其中的内容超出其宽高的时候，元素被卷起来的高和宽度。</li>
+<li>对于element元素同样适用</li>
+</ul>
+<h6 id="16-window-scrollY及window-scrollX"><a href="#16-window-scrollY及window-scrollX" class="headerlink" title="16. window.scrollY及window.scrollX"></a>16. <strong>window.scrollY</strong>及<strong>window.scrollX</strong></h6><ul>
+<li>window.scrollY 文档从顶部开始滚动过的像素值 / window.scrollX 文档从左侧开始滚动的像素值。</li>
+</ul>
+<h1 id="event中的五种坐标"><a href="#event中的五种坐标" class="headerlink" title="event中的五种坐标"></a>event中的五种坐标</h1><ol>
+<li><p><strong>clientX</strong>及<strong>clientY</strong>：相对于浏览器（可视区左上角0,0）的坐标</p>
+</li>
+<li><p><strong>screenX</strong>和<strong>screenY</strong>：相对于设备屏幕左上角（0,0）的坐标</p>
+</li>
+<li><p><strong>offsetX</strong>和<strong>offsetY</strong>：相对于事件源左上角（0,0）的坐标</p>
+</li>
+<li><p><strong>pageX</strong>和<strong>pageY</strong>：相对于整个网页左上角（0,0）的坐标</p>
+</li>
+</ol>
+<h6 id="参考来源："><a href="#参考来源：" class="headerlink" title="参考来源："></a>参考来源：</h6><ul>
+<li>视频课程：<a href="http://www.imooc.com/learn/608" target="_blank" rel="external">JS/jQuery宽高的理解和应用</a></li>
+<li>博客：<a href="http://duni.sinaapp.com/?p=750" target="_blank" rel="external">JavaScript中的各种宽高属性</a></li>
+</ul>
+
             <hr width="98%">
             <div>
                 <h3>我的窝</h3>
@@ -279,6 +413,29 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/07/25/20170725DragAndDrop/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            拖放API中的drag和drop实战
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/06/26/20170626FontLightBlur/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">css实现鼠标悬浮字体流光背景模糊效果</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         

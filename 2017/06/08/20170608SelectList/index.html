@@ -5,18 +5,24 @@
     <meta name="baidu-site-verification" content="c6FvlJjXM0" />
     <meta name="google-site-verification" content="nIsOrwE2Wm5pnS7Jk3Qn3GAzbHINWBovJ50ACgOMZO4" />
     
-    <title>标签: 省市区三级联动 | Visugar个人博客</title>
+    <title>select表单元素详解及下拉列表模拟实现 | Visugar个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="前端技术，个人博客，记录心情,visugar">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Visugar个人博客">
-<meta property="og:url" content="http://visugar.com/tags/省市区三级联动/index.html">
+        <meta name="keywords" content="前端,css3,select" />
+    
+    <meta name="description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图： 1.firefox下select的默认样式：  2.chrom">
+<meta name="keywords" content="前端,css3,select">
+<meta property="og:type" content="article">
+<meta property="og:title" content="select表单元素详解及下拉列表模拟实现">
+<meta property="og:url" content="http://visugar.com/2017/06/08/20170608SelectList/index.html">
 <meta property="og:site_name" content="Visugar个人博客">
-<meta property="og:description" content="前端技术，个人博客，记录心情,visugar">
+<meta property="og:description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图： 1.firefox下select的默认样式：  2.chrom">
+<meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90">
+<meta property="og:updated_time" content="2017-06-09T13:15:41.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Visugar个人博客">
-<meta name="twitter:description" content="前端技术，个人博客，记录心情,visugar">
+<meta name="twitter:title" content="select表单元素详解及下拉列表模拟实现">
+<meta name="twitter:description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图： 1.firefox下select的默认样式：  2.chrom">
+<meta name="twitter:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90">
     
 
     
@@ -134,73 +140,211 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签: <em>省市区三级联动</em>
+    <a class="page-title-link" href="/categories/Web开发/">Web开发</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-20170608SelectList" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/06/09/20170609ThreeLevel/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://opfk7lrr2.bkt.clouddn.com/DSC03889.JPG?imageView/2/w/600/q/90)" alt="原生JS实现省市区（县）三级联动选择" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Web开发/">Web开发</a>
-            </div>
-            <div class="date"><time datetime="2017-06-09T12:28:08.000Z" itemprop="datePublished">2017-06-09</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2017/06/09/20170609ThreeLevel/">原生JS实现省市区（县）三级联动选择</a>
+        select表单元素详解及下拉列表模拟实现
         </h1>
     
 
-        <p class="article-excerpt">
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/06/08/20170608SelectList/" class="article-date">
+            <time datetime="2017-06-08T11:45:10.000Z" itemprop="datePublished">2017-06-08</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/css3/">css3</a>, <a class="tag-link" href="/tags/select/">select</a>, <a class="tag-link" href="/tags/前端/">前端</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90" alt="图书馆前"></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p><strong>select</strong> 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。</p>
+<p>介绍之前先看下demo预览图：</p>
+<p>1.firefox下select的默认样式：</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/firefox-default.png" alt="firefox-default"></p>
+<p>2.chrome下select的默认样式：</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/chrome-default.png" alt="chrome-default"></p>
+<p>3.firefox下自定义select下拉列表的icon效果：</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/firefox-self.png" alt="firefox-self"></p>
+<p>4.chrome下自定义select下拉列表的icon效果：</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/chrome-self.png" alt="chrome-self"></p>
+<p>5.原生js模拟select下拉列表的实现效果(chrome及firefox效果一致)：</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/chrome-moni.png" alt="模拟select"></p>
+<p>源代码地址→<a href="https://github.com/visugar/FrontEnd-examples" target="_blank" rel="external">传送门</a></p>
+<p>预览地址→<a href="https://visugar.github.io/FrontEnd-examples/02模拟select下拉列表/index.html" target="_blank" rel="external">传送门</a></p>
+<h4 id="1-select表单元素及相关属性（我只是大自然的搬运工）"><a href="#1-select表单元素及相关属性（我只是大自然的搬运工）" class="headerlink" title="1. select表单元素及相关属性（我只是大自然的搬运工）"></a>1. select表单元素及相关属性（我只是大自然的搬运工）</h4><ul>
+<li><strong>提示</strong><br>select 元素是一种表单控件，可用于在表单中接受用户输入</li>
+<li><strong>支持的全局属性</strong><ul>
+<li>仅挑几个属性</li>
+<li>autofocus(其值为autofocus): 规定在页面加载后文本区域自动获得焦点。</li>
+<li>disabled(值为disabled): 规定禁用该下拉列表。</li>
+<li>form(值为form_id): 规定文本区域所属的一个或多个表单。</li>
+<li>multiple(值为multiple): 规定可选择多个选项。</li>
+</ul>
+</li>
+<li><strong>支持的事件属性</strong><ul>
+<li>挑一个最常用到的额</li>
+<li>onchange：当select改变选择时调用的事件句柄。(可以实现三级联动的效果)</li>
+</ul>
+</li>
+<li><strong>selected对象的属性及方法</strong><ul>
+<li>挑几个重要的额</li>
+<li>options[]：返回包含下拉列表中的所有选项的一个数组。</li>
+<li>length：返回下拉列表中的选项数目。</li>
+<li>selectIndex：设置或返回下拉列表中被选项目的索引号。</li>
+<li>add(): 向下拉列表添加一个选项。</li>
+<li>remove(): 从下拉列表中删除一个选项。</li>
+</ul>
+</li>
+<li><strong>option标签</strong><ul>
+<li>option元素定义下拉列表中的一个选项（一个条目）。</li>
+<li>disabled(值为disabled)：规定此选项应在首次加载时被禁用。</li>
+<li>label(值为text)：定义当使用 <optgroup> 时所使用的标注。</optgroup></li>
+<li>selected)(值为selected)：规定选项（在首次显示在列表中时）表现为选中状态。</li>
+<li>value(text): 定义送往服务器的选项值。</li>
+</ul>
+</li>
+<li><strong>option对象的属性</strong><ul>
+<li>几个比较重要的额</li>
+<li>defaultSelected：返回 selected 属性的默认值。</li>
+<li>disabled:设置或返回选项是否应被禁用。</li>
+<li>index：返回下拉列表中某个选项的索引位置。</li>
+<li>selected：设置或返回 selected 属性的值。<br><strong>注意</strong>：</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>select本身的样式可用css设置，但对option设置的样式在chrome中不起作用，在Firefox可行</li>
+<li>w3c官网的详细解释 → <a href="http://www.w3school.com.cn/tags/tag_select.asp" target="_blank" rel="external">传送门</a></li>
+</ol>
+<h4 id="2-HTML标签自定义属性（纯属题外话）"><a href="#2-HTML标签自定义属性（纯属题外话）" class="headerlink" title="2. HTML标签自定义属性（纯属题外话）"></a>2. HTML标签自定义属性（纯属题外话）</h4><p><strong>HTML5 data-*自定义属性</strong>：添加data-前缀使属性变成自定义属性，最大的好处是我们可以把所有自定义属性在dataset对象中统一管理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;student&quot; data-weight=&quot;98&quot;&gt;点击显示&lt;/div&gt;</div><div class="line"></div><div class="line">var student = document.getElementById(&quot;student&quot;);</div><div class="line">student.dataset.cm = &apos;168&apos;; //设置自定义属性</div><div class="line">var stuWeight = studdent.dataset.weight; //获取自定义属性值</div><div class="line"></div><div class="line">student.dataset.birthDate = &apos;19980612&apos;;  //连字符的自定义属性 (例如设置data-birth-date)</div></pre></td></tr></table></figure>
+<h4 id="3-自定义下拉列表的图标"><a href="#3-自定义下拉列表的图标" class="headerlink" title="3. 自定义下拉列表的图标"></a>3. 自定义下拉列表的图标</h4><p>select默认样式中的下拉按钮不是很好看，我们可以自己用替张图片替换掉。（效果看文章上面的链接，请忽略我的丑丑的图标额）</p>
+<p>1.对select自定义图标时需要设置apperance属性为<code>none</code>(隐藏原有小三角)，并做兼容</p>
+<p>2.加上将要替换的自定义图标即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select&#123;</div><div class="line">    -webkit-appearance: none; /*隐藏默认样式中的小三角*/</div><div class="line">    -moz-appearance: none;</div><div class="line">    background: url(&apos;http://opif0c56u.bkt.clouddn.com/select.gif&apos;) no-repeat scroll right 8px center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.可对option添加背景色</p>
+<p>4.在firefox中可使用伪元素<code>:before</code>对option添加序号（此处插播一个css添加序号的方法）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">select&#123;</div><div class="line">    counter-reset: item; //类似于声明计数变量（声明在父元素中）</div><div class="line">&#125;</div><div class="line">select option:before &#123;</div><div class="line">    counter-increment: item;   //要使用的计数名</div><div class="line">    content: counter(item) &quot; . &quot;; //追加前置序号,chrome对option的设置中不起作用</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="4-js模拟select下拉菜单-重头戏"><a href="#4-js模拟select下拉菜单-重头戏" class="headerlink" title="4. js模拟select下拉菜单(重头戏)"></a>4. js模拟select下拉菜单(重头戏)</h4><p>许多时候会觉得select表单特别的不好用，不能自己添加很多的样式，小伙伴们还是自己模拟一个吧！</p>
+<p>1.html代码结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;sel-wrap&quot;&gt;</div><div class="line">    &lt;div id=&quot;sel-show&quot;&gt;=请选择=&lt;/div&gt;</div><div class="line">    &lt;ul id=&quot;sel-option&quot;&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;早上吃包子&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;中午吃米饭&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;晚上吃面条&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;宵夜吃烧烤&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;item&quot;&gt;睡前喝牛奶&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>2.下拉按钮的图标跟上面自定义的方式一致（这里不再说了）。</p>
+<p>3.hover到li上时，利用伪元素<code>:before</code>追加一个对勾。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#sel-option li:hover:before &#123;</div><div class="line">    content: &apos;\2714&apos; &apos; &apos;;  //此处为对勾+空格</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>4.下面说下实现原理：</p>
+<ul>
+<li><p>下拉菜单的选项为ul中的内容，需要先隐藏起来，且显示的时候是浮在其他内容的上面，此处需要使用position来实现。（即脱离文档流）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#sel-wrap&#123;</div><div class="line">    position: relative;  //设置父元素</div><div class="line">&#125;</div><div class="line">#sel-option&#123;</div><div class="line">    position: absolute;  //设置下拉列项的包裹层</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>点击下拉框时显示下拉列表项</p>
+</li>
+<li>点击列表项时将选中值传递给下拉框并显示，同时下拉项收起（此处的点击事件绑定在父元素中）</li>
+<li>当下拉项显示并未选中任何下拉项时，点击下拉框收起下拉项</li>
+<li>当下拉项显示并未选中任何下拉项时，点击下拉项以外的任意位置，收起下拉框</li>
+<li>最终实现（样式什么的都可以随便改）：</li>
+</ul>
+<p><img src="http://opif0c56u.bkt.clouddn.com/firefox-moni.png" alt="最终样式"></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol>
+<li>小花作为菜鸟第一次自己模拟下拉列表的实现，有可能存在代码欠缺，但是为了方便以后使用的时候查询，所以就记录下</li>
+<li>欢迎大佬们指点</li>
+</ol>
+
+            <hr width="98%">
+            <div>
+                <h3>我的窝</h3>
+                <p><a href="http://visugar.com">小花的博客</a></p>
+                <h3>招摇撞骗（可自行忽略）</h3>
+                <p><a href="http://visugar.com/about/" >小花求赏→爱的辣条</a></p>
+            </div>
+        </div>
+        <footer class="article-footer">
             
-写在前面前段时间写一个关于天气的东西，里面的省市区（县）城市选择让我很头疼，在网上搜索出来大都是借助插件或者第三方库，感觉这样做代码会很重，所以索性就把几种城市选择的方式实现一遍，以备日后的不时之需。这三种方法都是针对pc端的，并且都是使用原生js实现的，连jq都没使用，于是代码有点繁琐额（尴尬）。。。。不过还是让我把原理讲完吧。
-源代码地址→传送门
-预览地址→传送门
-方法一：下拉选择框实现省市
-        </p>
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+
+        </footer>
     </div>
 </article>
-    
-        </div>
-    
-
-
-    </div></section>
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+    var cloudTieConfig = {
+        url: document.location.href,
+        sourceId: "",
+        productKey: "b08f967c2b9f4e169012761c96b55b58",
+        target: "cloud-tie-wrapper"
+    };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 
 
 
@@ -238,6 +382,29 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/06/09/20170609ThreeLevel/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            原生JS实现省市区（县）三级联动选择
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/05/19/20170519PreviewHtml/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">预览github项目的html文件新方法</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
