@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Visugar个人博客">
 <meta property="og:description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图： 1.firefox下select的默认样式：  2.chrom">
 <meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90">
-<meta property="og:updated_time" content="2017-06-09T13:15:41.624Z">
+<meta property="og:updated_time" content="2017-07-27T12:26:42.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="select表单元素详解及下拉列表模拟实现">
 <meta name="twitter:description" content="写在前面select 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。 介绍之前先看下demo预览图： 1.firefox下select的默认样式：  2.chrom">
@@ -191,22 +191,21 @@
 <p><img src="http://opif0c56u.bkt.clouddn.com/chrome-moni.png" alt="模拟select"></p>
 <p>源代码地址→<a href="https://github.com/visugar/FrontEnd-examples" target="_blank" rel="external">传送门</a></p>
 <p>预览地址→<a href="https://visugar.github.io/FrontEnd-examples/02模拟select下拉列表/index.html" target="_blank" rel="external">传送门</a></p>
-<h4 id="1-select表单元素及相关属性（我只是大自然的搬运工）"><a href="#1-select表单元素及相关属性（我只是大自然的搬运工）" class="headerlink" title="1. select表单元素及相关属性（我只是大自然的搬运工）"></a>1. select表单元素及相关属性（我只是大自然的搬运工）</h4><ul>
-<li><strong>提示</strong><br>select 元素是一种表单控件，可用于在表单中接受用户输入</li>
-<li><strong>支持的全局属性</strong><ul>
+<h4 id="1-select表单元素及相关属性（我只是大自然的搬运工）"><a href="#1-select表单元素及相关属性（我只是大自然的搬运工）" class="headerlink" title="1. select表单元素及相关属性（我只是大自然的搬运工）"></a>1. select表单元素及相关属性（我只是大自然的搬运工）</h4><p><strong>提示</strong><br>select 元素是一种表单控件，可用于在表单中接受用户输入<br><strong>支持的全局属性</strong></p>
+<ul>
 <li>仅挑几个属性</li>
 <li>autofocus(其值为autofocus): 规定在页面加载后文本区域自动获得焦点。</li>
 <li>disabled(值为disabled): 规定禁用该下拉列表。</li>
 <li>form(值为form_id): 规定文本区域所属的一个或多个表单。</li>
 <li>multiple(值为multiple): 规定可选择多个选项。</li>
 </ul>
-</li>
-<li><strong>支持的事件属性</strong><ul>
+<p><strong>支持的事件属性</strong></p>
+<ul>
 <li>挑一个最常用到的额</li>
 <li>onchange：当select改变选择时调用的事件句柄。(可以实现三级联动的效果)</li>
 </ul>
-</li>
-<li><strong>selected对象的属性及方法</strong><ul>
+<p><strong>selected对象的属性及方法</strong></p>
+<ul>
 <li>挑几个重要的额</li>
 <li>options[]：返回包含下拉列表中的所有选项的一个数组。</li>
 <li>length：返回下拉列表中的选项数目。</li>
@@ -214,28 +213,25 @@
 <li>add(): 向下拉列表添加一个选项。</li>
 <li>remove(): 从下拉列表中删除一个选项。</li>
 </ul>
-</li>
-<li><strong>option标签</strong><ul>
+<p><strong>option标签</strong></p>
+<ul>
 <li>option元素定义下拉列表中的一个选项（一个条目）。</li>
 <li>disabled(值为disabled)：规定此选项应在首次加载时被禁用。</li>
 <li>label(值为text)：定义当使用 <optgroup> 时所使用的标注。</optgroup></li>
 <li>selected)(值为selected)：规定选项（在首次显示在列表中时）表现为选中状态。</li>
 <li>value(text): 定义送往服务器的选项值。</li>
 </ul>
-</li>
-<li><strong>option对象的属性</strong><ul>
+<p><strong>option对象的属性</strong></p>
+<ul>
 <li>几个比较重要的额</li>
 <li>defaultSelected：返回 selected 属性的默认值。</li>
 <li>disabled:设置或返回选项是否应被禁用。</li>
 <li>index：返回下拉列表中某个选项的索引位置。</li>
-<li>selected：设置或返回 selected 属性的值。<br><strong>注意</strong>：</li>
+<li>selected：设置或返回 selected 属性的值。</li>
 </ul>
-</li>
-</ul>
-<ol>
-<li>select本身的样式可用css设置，但对option设置的样式在chrome中不起作用，在Firefox可行</li>
-<li>w3c官网的详细解释 → <a href="http://www.w3school.com.cn/tags/tag_select.asp" target="_blank" rel="external">传送门</a></li>
-</ol>
+<p><strong>注意</strong>：</p>
+<p>select本身的样式可用css设置，但对option设置的样式在chrome中不起作用，在Firefox可行</p>
+<p>w3c官网的详细解释 → <a href="http://www.w3school.com.cn/tags/tag_select.asp" target="_blank" rel="external">传送门</a></p>
 <h4 id="2-HTML标签自定义属性（纯属题外话）"><a href="#2-HTML标签自定义属性（纯属题外话）" class="headerlink" title="2. HTML标签自定义属性（纯属题外话）"></a>2. HTML标签自定义属性（纯属题外话）</h4><p><strong>HTML5 data-*自定义属性</strong>：添加data-前缀使属性变成自定义属性，最大的好处是我们可以把所有自定义属性在dataset对象中统一管理。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;student&quot; data-weight=&quot;98&quot;&gt;点击显示&lt;/div&gt;</div><div class="line"></div><div class="line">var student = document.getElementById(&quot;student&quot;);</div><div class="line">student.dataset.cm = &apos;168&apos;; //设置自定义属性</div><div class="line">var stuWeight = studdent.dataset.weight; //获取自定义属性值</div><div class="line"></div><div class="line">student.dataset.birthDate = &apos;19980612&apos;;  //连字符的自定义属性 (例如设置data-birth-date)</div></pre></td></tr></table></figure>
 <h4 id="3-自定义下拉列表的图标"><a href="#3-自定义下拉列表的图标" class="headerlink" title="3. 自定义下拉列表的图标"></a>3. 自定义下拉列表的图标</h4><p>select默认样式中的下拉按钮不是很好看，我们可以自己用替张图片替换掉。（效果看文章上面的链接，请忽略我的丑丑的图标额）</p>
@@ -251,12 +247,9 @@
 <p>3.hover到li上时，利用伪元素<code>:before</code>追加一个对勾。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#sel-option li:hover:before &#123;</div><div class="line">    content: &apos;\2714&apos; &apos; &apos;;  //此处为对勾+空格</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>4.下面说下实现原理：</p>
+<p>下拉菜单的选项为ul中的内容，需要先隐藏起来，且显示的时候是浮在其他内容的上面，此处需要使用position来实现。（即脱离文档流）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#sel-wrap&#123;</div><div class="line">    position: relative;  //设置父元素</div><div class="line">&#125;</div><div class="line">#sel-option&#123;</div><div class="line">    position: absolute;  //设置下拉列项的包裹层</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ul>
-<li><p>下拉菜单的选项为ul中的内容，需要先隐藏起来，且显示的时候是浮在其他内容的上面，此处需要使用position来实现。（即脱离文档流）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#sel-wrap&#123;</div><div class="line">    position: relative;  //设置父元素</div><div class="line">&#125;</div><div class="line">#sel-option&#123;</div><div class="line">    position: absolute;  //设置下拉列项的包裹层</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>点击下拉框时显示下拉列表项</p>
-</li>
+<li>点击下拉框时显示下拉列表项</li>
 <li>点击列表项时将选中值传递给下拉框并显示，同时下拉项收起（此处的点击事件绑定在父元素中）</li>
 <li>当下拉项显示并未选中任何下拉项时，点击下拉框收起下拉项</li>
 <li>当下拉项显示并未选中任何下拉项时，点击下拉项以外的任意位置，收起下拉框</li>

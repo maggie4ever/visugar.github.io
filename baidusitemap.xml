@@ -4,8 +4,54 @@
 
     
   <url>
+    <loc>http://visugar.com/2017/06/08/20170608SelectList/</loc>
+    <lastmod>2017-07-27T12:26:42.937Z</lastmod>
+    <data>
+        <display>
+        <title>select表单元素详解及下拉列表模拟实现</title>
+        <pubTime>2017-06-08T11:45:10.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>css3</tag>
+         
+        <tag>select</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://visugar.com/2017/05/19/20170519PreviewHtml/</loc>
+    <lastmod>2017-07-27T12:21:35.055Z</lastmod>
+    <data>
+        <display>
+        <title>预览github项目的html文件新方法</title>
+        <pubTime>2017-05-19T04:32:01.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://visugar.com/2017/05/06/20170506Layout/</loc>
-    <lastmod>2017-07-27T12:12:42.657Z</lastmod>
+    <lastmod>2017-07-27T12:18:19.762Z</lastmod>
     <data>
         <display>
         <title>菜鸟张小花之多种前端布局实现</title>
@@ -147,52 +193,6 @@
     </url>
 
     
-  <url>
-    <loc>http://visugar.com/2017/06/08/20170608SelectList/</loc>
-    <lastmod>2017-06-09T13:15:41.624Z</lastmod>
-    <data>
-        <display>
-        <title>select表单元素详解及下拉列表模拟实现</title>
-        <pubTime>2017-06-08T11:45:10.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>css3</tag>
-         
-        <tag>select</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://visugar.com/2017/05/19/20170519PreviewHtml/</loc>
-    <lastmod>2017-05-19T04:36:21.065Z</lastmod>
-    <data>
-        <display>
-        <title>预览github项目的html文件新方法</title>
-        <pubTime>2017-05-19T04:32:01.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>github</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://visugar.com/2017/05/17/20170517RoundLoading/</loc>

@@ -369,7 +369,7 @@
     <link href="http://visugar.com/2017/06/08/20170608SelectList/"/>
     <id>http://visugar.com/2017/06/08/20170608SelectList/</id>
     <published>2017-06-08T11:45:10.000Z</published>
-    <updated>2017-06-09T13:15:41.624Z</updated>
+    <updated>2017-07-27T12:26:42.937Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90" alt="图书馆前"></p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p><strong>select</strong> 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。</p>
@@ -386,22 +386,21 @@
 <p><img src="http://opif0c56u.bkt.clouddn.com/chrome-moni.png" alt="模拟select"></p>
 <p>源代码地址→<a href="https://github.com/visugar/FrontEnd-examples" target="_blank" rel="external">传送门</a></p>
 <p>预览地址→<a href="https://visugar.github.io/FrontEnd-examples/02模拟select下拉列表/index.html" target="_blank" rel="external">传送门</a></p>
-<h4 id="1-select表单元素及相关属性（我只是大自然的搬运工）"><a href="#1-select表单元素及相关属性（我只是大自然的搬运工）" class="headerlink" title="1. select表单元素及相关属性（我只是大自然的搬运工）"></a>1. select表单元素及相关属性（我只是大自然的搬运工）</h4><ul>
-<li><strong>提示</strong><br>select 元素是一种表单控件，可用于在表单中接受用户输入</li>
-<li><strong>支持的全局属性</strong><ul>
+<h4 id="1-select表单元素及相关属性（我只是大自然的搬运工）"><a href="#1-select表单元素及相关属性（我只是大自然的搬运工）" class="headerlink" title="1. select表单元素及相关属性（我只是大自然的搬运工）"></a>1. select表单元素及相关属性（我只是大自然的搬运工）</h4><p><strong>提示</strong><br>select 元素是一种表单控件，可用于在表单中接受用户输入<br><strong>支持的全局属性</strong></p>
+<ul>
 <li>仅挑几个属性</li>
 <li>autofocus(其值为autofocus): 规定在页面加载后文本区域自动获得焦点。</li>
 <li>disabled(值为disabled): 规定禁用该下拉列表。</li>
 <li>form(值为form_id): 规定文本区域所属的一个或多个表单。</li>
 <li>multiple(值为multiple): 规定可选择多个选项。</li>
 </ul>
-</li>
-<li><strong>支持的事件属性</strong><ul>
+<p><strong>支持的事件属性</strong></p>
+<ul>
 <li>挑一个最常用到的额</li>
 <li>onchange：当select改变选择时调用的事件句柄。(可以实现三级联动的效果)</li>
 </ul>
-</li>
-<li><strong>selected对象的属性及方法</strong><ul>
+<p><strong>selected对象的属性及方法</strong></p>
+<ul>
 <li>挑几个重要的额</li>
 <li>options[]：返回包含下拉列表中的所有选项的一个数组。</li>
 <li>length：返回下拉列表中的选项数目。</li>
@@ -409,28 +408,25 @@
 <li>add(): 向下拉列表添加一个选项。</li>
 <li>remove(): 从下拉列表中删除一个选项。</li>
 </ul>
-</li>
-<li><strong>option标签</strong><ul>
+<p><strong>option标签</strong></p>
+<ul>
 <li>option元素定义下拉列表中的一个选项（一个条目）。</li>
 <li>disabled(值为disabled)：规定此选项应在首次加载时被禁用。</li>
 <li>label(值为text)：定义当使用 <optgroup> 时所使用的标注。</optgroup></li>
 <li>selected)(值为selected)：规定选项（在首次显示在列表中时）表现为选中状态。</li>
 <li>value(text): 定义送往服务器的选项值。</li>
 </ul>
-</li>
-<li><strong>option对象的属性</strong><ul>
+<p><strong>option对象的属性</strong></p>
+<ul>
 <li>几个比较重要的额</li>
 <li>defaultSelected：返回 selected 属性的默认值。</li>
 <li>disabled:设置或返回选项是否应被禁用。</li>
 <li>index：返回下拉列表中某个选项的索引位置。</li>
-<li>selected：设置或返回 selected 属性的值。<br><strong>注意</strong>：</li>
+<li>selected：设置或返回 selected 属性的值。</li>
 </ul>
-</li>
-</ul>
-<ol>
-<li>select本身的样式可用css设置，但对option设置的样式在chrome中不起作用，在Firefox可行</li>
-<li>w3c官网的详细解释 → <a href="http://www.w3school.com.cn/tags/tag_select.asp" target="_blank" rel="external">传送门</a></li>
-</ol>
+<p><strong>注意</strong>：</p>
+<p>select本身的样式可用css设置，但对option设置的样式在chrome中不起作用，在Firefox可行</p>
+<p>w3c官网的详细解释 → <a href="http://www.w3school.com.cn/tags/tag_select.asp" target="_blank" rel="external">传送门</a></p>
 <h4 id="2-HTML标签自定义属性（纯属题外话）"><a href="#2-HTML标签自定义属性（纯属题外话）" class="headerlink" title="2. HTML标签自定义属性（纯属题外话）"></a>2. HTML标签自定义属性（纯属题外话）</h4><p><strong>HTML5 data-*自定义属性</strong>：添加data-前缀使属性变成自定义属性，最大的好处是我们可以把所有自定义属性在dataset对象中统一管理。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;student&quot; data-weight=&quot;98&quot;&gt;点击显示&lt;/div&gt;</div><div class="line"></div><div class="line">var student = document.getElementById(&quot;student&quot;);</div><div class="line">student.dataset.cm = &apos;168&apos;; //设置自定义属性</div><div class="line">var stuWeight = studdent.dataset.weight; //获取自定义属性值</div><div class="line"></div><div class="line">student.dataset.birthDate = &apos;19980612&apos;;  //连字符的自定义属性 (例如设置data-birth-date)</div></pre></td></tr></table></figure>
 <h4 id="3-自定义下拉列表的图标"><a href="#3-自定义下拉列表的图标" class="headerlink" title="3. 自定义下拉列表的图标"></a>3. 自定义下拉列表的图标</h4><p>select默认样式中的下拉按钮不是很好看，我们可以自己用替张图片替换掉。（效果看文章上面的链接，请忽略我的丑丑的图标额）</p>
@@ -446,12 +442,9 @@
 <p>3.hover到li上时，利用伪元素<code>:before</code>追加一个对勾。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#sel-option li:hover:before &#123;</div><div class="line">    content: &apos;\2714&apos; &apos; &apos;;  //此处为对勾+空格</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>4.下面说下实现原理：</p>
+<p>下拉菜单的选项为ul中的内容，需要先隐藏起来，且显示的时候是浮在其他内容的上面，此处需要使用position来实现。（即脱离文档流）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#sel-wrap&#123;</div><div class="line">    position: relative;  //设置父元素</div><div class="line">&#125;</div><div class="line">#sel-option&#123;</div><div class="line">    position: absolute;  //设置下拉列项的包裹层</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ul>
-<li><p>下拉菜单的选项为ul中的内容，需要先隐藏起来，且显示的时候是浮在其他内容的上面，此处需要使用position来实现。（即脱离文档流）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#sel-wrap&#123;</div><div class="line">    position: relative;  //设置父元素</div><div class="line">&#125;</div><div class="line">#sel-option&#123;</div><div class="line">    position: absolute;  //设置下拉列项的包裹层</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>点击下拉框时显示下拉列表项</p>
-</li>
+<li>点击下拉框时显示下拉列表项</li>
 <li>点击列表项时将选中值传递给下拉框并显示，同时下拉项收起（此处的点击事件绑定在父元素中）</li>
 <li>当下拉项显示并未选中任何下拉项时，点击下拉框收起下拉项</li>
 <li>当下拉项显示并未选中任何下拉项时，点击下拉项以外的任意位置，收起下拉框</li>
@@ -487,35 +480,23 @@
     <link href="http://visugar.com/2017/05/19/20170519PreviewHtml/"/>
     <id>http://visugar.com/2017/05/19/20170519PreviewHtml/</id>
     <published>2017-05-19T04:32:01.000Z</published>
-    <updated>2017-05-19T04:36:21.065Z</updated>
+    <updated>2017-07-27T12:21:35.055Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC03498.JPG?imageView/2/w/600/q/90" alt="这是一个很好看的地方"></p>
 <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>关于如何在线预览github中的html文件，其实这是一个很多人知道的东西，但是查资料的时候呢总是找不到正确的答案，并且一开始我也是踩了坑的。</p>
 <h4 id="踩坑经历"><a href="#踩坑经历" class="headerlink" title="踩坑经历"></a>踩坑经历</h4><p>搜出来的结果大概就两种：</p>
-<ol>
-<li><p>第一种是在你打开的源码地址的url地址基础上加<code>http://htmlpreview.github.io/?</code>或者<code>http://htmlpreview.github.com/?(注：填这个还是会转到前面那个前缀去的)</code>前缀。</p>
-</li>
-<li><p>第二种就是在你的项目branch上添加一个gh-pages分支，然后将你的项目复制一份到这个分支上，然后再进入settings的github pages进行设置就OK了。</p>
-</li>
-<li><p>总结下上面两种，添加前缀的方式确实比较简单，但是东西多了就会加载很慢，甚至不能正确的显示css样式，对于显示js的效果就更不使用了。所以，赶快放弃吧！创建分支的方式确实是很麻烦额，之前就是感觉麻烦的不得了所以没用这种方式，接下来要介绍的是创建分支的升级版，看下文~</p>
-</li>
-</ol>
+<p>第一种是在你打开的源码地址的url地址基础上加<code>http://htmlpreview.github.io/?</code>或者<code>http://htmlpreview.github.com/?(注：填这个还是会转到前面那个前缀去的)</code>前缀。</p>
+<p>第二种就是在你的项目branch上添加一个gh-pages分支，然后将你的项目复制一份到这个分支上，然后再进入settings的github pages进行设置就OK了。</p>
+<p>总结下上面两种，添加前缀的方式确实比较简单，但是东西多了就会加载很慢，甚至不能正确的显示css样式，对于显示js的效果就更不使用了。所以，赶快放弃吧！创建分支的方式确实是很麻烦额，之前就是感觉麻烦的不得了所以没用这种方式，接下来要介绍的是创建分支的升级版，看下文~</p>
 <h4 id="取经啦"><a href="#取经啦" class="headerlink" title="取经啦"></a>取经啦</h4><p>一度感觉小花说话很麻烦，请不要见怪！！！</p>
-<ol>
-<li><p>第一步就是找到你要展示的repo中的Settings</p>
-<p> <img src="http://opif0c56u.bkt.clouddn.com/yulan01.png" alt="Settings"></p>
-</li>
-<li><p>找到github pages那一栏,在Source中选择<code>master branch</code>,然后save</p>
-<p> <img src="http://opif0c56u.bkt.clouddn.com/yulan02.png" alt="Github Pages"></p>
-</li>
-<li><p>放大你的眼睛找到你自己的这串地址<br> <img src="http://opif0c56u.bkt.clouddn.com/yulan03.png" alt="url前缀"></p>
-</li>
-<li><p>然后就可以愉快的预览了</p>
-<p> <img src="http://opif0c56u.bkt.clouddn.com/yulan04.png" alt="快去预览"></p>
-</li>
-<li><p>完美~</p>
-</li>
-</ol>
+<p> 第一步就是找到你要展示的repo中的Settings</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/yulan01.png" alt="Settings"></p>
+<p>找到github pages那一栏,在Source中选择<code>master branch</code>,然后save</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/yulan02.png" alt="Github Pages"></p>
+<p>放大你的眼睛找到你自己的这串地址<br><img src="http://opif0c56u.bkt.clouddn.com/yulan03.png" alt="url前缀"></p>
+<p>然后就可以愉快的预览了</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/yulan04.png" alt="快去预览"></p>
+<p>完美~</p>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>刚开始自己踩坑发现不对劲但又苦于找不到解决方法，后来偶然有个同学告诉我这样纸，所以，我就只是枚小小的搬运工而已~</p>
 <h6 id="给看完本文的孩纸们一个爱的么么哒"><a href="#给看完本文的孩纸们一个爱的么么哒" class="headerlink" title="给看完本文的孩纸们一个爱的么么哒"></a>给看完本文的孩纸们一个爱的么么哒</h6>]]></content>
     
@@ -686,7 +667,7 @@
     <link href="http://visugar.com/2017/05/06/20170506Layout/"/>
     <id>http://visugar.com/2017/05/06/20170506Layout/</id>
     <published>2017-05-06T08:09:57.000Z</published>
-    <updated>2017-07-27T12:12:42.657Z</updated>
+    <updated>2017-07-27T12:18:19.762Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC07777.JPG?imageView/2/w/600/q/90" alt="look me"></p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
@@ -696,18 +677,12 @@
 </ul>
 <h3 id="1-水平居中"><a href="#1-水平居中" class="headerlink" title="1. 水平居中"></a>1. 水平居中</h3><p>方法一：margin:0 auto; （最常用的居中布局方式）</p>
 <p>方法二：text-align和inline-block的结合（设置父元素的text-align为center）。</p>
-<blockquote>
 <p>这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。</p>
-</blockquote>
 <p>方法三：position绝对定位来实现居中布局。</p>
-<blockquote>
 <p>适用于块级元素不给出宽高的情况下(需要借助transtrom的tanslateX方法)。</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#parent&#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">#child&#123;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 50%;</div><div class="line">	transform: translateX(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>方法四：利用flex弹性布局的一个属性。</p>
-<blockquote>
 <p>子元素宽度已知的情况下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#parent&#123;</div><div class="line">	display: flex;</div><div class="line">	justify-content: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>其他还有很多方法，一般用的不太多。并且各种方法优缺点不一样，可选择性使用。</p>
 <h3 id="2-水平居中及垂直居中"><a href="#2-水平居中及垂直居中" class="headerlink" title="2. 水平居中及垂直居中"></a>2. 水平居中及垂直居中</h3><p>方法一：先说一种神奇的方式吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. 子元素 div 绝对定位</div><div class="line">2. 父元素需要被定位</div><div class="line">3. 子元素 top、bottom、left、right 四个位置值均为 0</div><div class="line">4. 子元素 margin: auto;</div></pre></td></tr></table></figure></p>
 <p>下面代码是可以实现的，但还有点问题，大家帮小花看看~</p>
@@ -717,17 +692,13 @@
 <p>其他应该还有一些方法，暂时还没想到，等写出来了再补补（哦对了，忘了说flex了，算了还是不写了）</p>
 <h3 id="3-左边固定右边自适应的两列布局"><a href="#3-左边固定右边自适应的两列布局" class="headerlink" title="3. 左边固定右边自适应的两列布局"></a>3. 左边固定右边自适应的两列布局</h3><p>我猜吧，大家对这种布局方式最熟悉不过了，平时用的也会比较多，所以呢，你们写的应该都会比我的好~</p>
 <p>方式一：float+margin的方式</p>
-<blockquote>
 <p>这种方式一定要记得给父元素清除浮动啊，不然就尴尬了呢，这里插播一种全局性(这个词似乎不太对)的清除浮动的伪元素方法.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.clearfix:after &#123;</div><div class="line">    content: &apos;.&apos;;</div><div class="line">    height: 0;</div><div class="line">    overflow: hidden;</div><div class="line">    clear: both;</div><div class="line">    display: block;</div><div class="line">    visibility: hidden;</div><div class="line">&#125;</div><div class="line">.clearfix &#123;</div><div class="line">    zoom: 1;  &lt;!--hack--&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>看起来有点小复杂啊，这里不分析这种方法的原理，记住就好了。当然你也可以直接借助触发BFC的方式来解决（偷偷告诉你，常用的方式就是给你的父元素设置<code>overflow: hidden;</code>啦）。</p>
 <p>哦+语气~好像跑偏了，说好的布局呢，见下诉代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#left&#123;</div><div class="line">	float: left;</div><div class="line">	width: 100px;</div><div class="line">&#125;</div><div class="line">#right&#123;</div><div class="line">	margin-left: 120px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>方式二：float+overflow的方式</p>
 <p>这就是传说中利用BFC的规则来实现两列布局啊啊啊！</p>
-<blockquote>
 <p>这种方式直接不需要清除浮动什么的就可以了，也不会影响前后文，用起来比较爽丫。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#left&#123;</div><div class="line">	float: left;</div><div class="line">	width: 100px;</div><div class="line">	margin-right: 20px; &lt;!--好歹留个空啊嘿嘿--&gt;</div><div class="line">&#125;</div><div class="line">#right&#123;</div><div class="line">	overflow: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>方式三：float+margin+position的方式</p>
 <p>这个方式呢也用到过，但是要考虑的比较多一点，不过其实也还好。<br>接下来请看实现代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#parent&#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">#left&#123;</div><div class="line">	float: left;</div><div class="line">	width: 100px;</div><div class="line">	background-color: #ccc;</div><div class="line">&#125;</div><div class="line">#right&#123;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 120px;</div><div class="line">	background-color:pink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这种方式实现起来很简单，但是对后文是有影响的，需要自己解决一下，懒小花就不写啦~</p>

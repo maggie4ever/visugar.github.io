@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Visugar个人博客">
 <meta property="og:description" content="写在前面 由于知识有限，有的内容可能有点小错误什么的，仅供参考参考，欢迎大佬们指正">
 <meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC07777.JPG?imageView/2/w/600/q/90">
-<meta property="og:updated_time" content="2017-07-27T12:12:42.657Z">
+<meta property="og:updated_time" content="2017-07-27T12:18:19.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="菜鸟张小花之多种前端布局实现">
 <meta name="twitter:description" content="写在前面 由于知识有限，有的内容可能有点小错误什么的，仅供参考参考，欢迎大佬们指正">
@@ -184,18 +184,12 @@
 </ul>
 <h3 id="1-水平居中"><a href="#1-水平居中" class="headerlink" title="1. 水平居中"></a>1. 水平居中</h3><p>方法一：margin:0 auto; （最常用的居中布局方式）</p>
 <p>方法二：text-align和inline-block的结合（设置父元素的text-align为center）。</p>
-<blockquote>
 <p>这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。</p>
-</blockquote>
 <p>方法三：position绝对定位来实现居中布局。</p>
-<blockquote>
 <p>适用于块级元素不给出宽高的情况下(需要借助transtrom的tanslateX方法)。</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#parent&#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">#child&#123;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 50%;</div><div class="line">	transform: translateX(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>方法四：利用flex弹性布局的一个属性。</p>
-<blockquote>
 <p>子元素宽度已知的情况下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#parent&#123;</div><div class="line">	display: flex;</div><div class="line">	justify-content: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>其他还有很多方法，一般用的不太多。并且各种方法优缺点不一样，可选择性使用。</p>
 <h3 id="2-水平居中及垂直居中"><a href="#2-水平居中及垂直居中" class="headerlink" title="2. 水平居中及垂直居中"></a>2. 水平居中及垂直居中</h3><p>方法一：先说一种神奇的方式吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. 子元素 div 绝对定位</div><div class="line">2. 父元素需要被定位</div><div class="line">3. 子元素 top、bottom、left、right 四个位置值均为 0</div><div class="line">4. 子元素 margin: auto;</div></pre></td></tr></table></figure></p>
 <p>下面代码是可以实现的，但还有点问题，大家帮小花看看~</p>
@@ -205,17 +199,13 @@
 <p>其他应该还有一些方法，暂时还没想到，等写出来了再补补（哦对了，忘了说flex了，算了还是不写了）</p>
 <h3 id="3-左边固定右边自适应的两列布局"><a href="#3-左边固定右边自适应的两列布局" class="headerlink" title="3. 左边固定右边自适应的两列布局"></a>3. 左边固定右边自适应的两列布局</h3><p>我猜吧，大家对这种布局方式最熟悉不过了，平时用的也会比较多，所以呢，你们写的应该都会比我的好~</p>
 <p>方式一：float+margin的方式</p>
-<blockquote>
 <p>这种方式一定要记得给父元素清除浮动啊，不然就尴尬了呢，这里插播一种全局性(这个词似乎不太对)的清除浮动的伪元素方法.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.clearfix:after &#123;</div><div class="line">    content: &apos;.&apos;;</div><div class="line">    height: 0;</div><div class="line">    overflow: hidden;</div><div class="line">    clear: both;</div><div class="line">    display: block;</div><div class="line">    visibility: hidden;</div><div class="line">&#125;</div><div class="line">.clearfix &#123;</div><div class="line">    zoom: 1;  &lt;!--hack--&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>看起来有点小复杂啊，这里不分析这种方法的原理，记住就好了。当然你也可以直接借助触发BFC的方式来解决（偷偷告诉你，常用的方式就是给你的父元素设置<code>overflow: hidden;</code>啦）。</p>
 <p>哦+语气~好像跑偏了，说好的布局呢，见下诉代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#left&#123;</div><div class="line">	float: left;</div><div class="line">	width: 100px;</div><div class="line">&#125;</div><div class="line">#right&#123;</div><div class="line">	margin-left: 120px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>方式二：float+overflow的方式</p>
 <p>这就是传说中利用BFC的规则来实现两列布局啊啊啊！</p>
-<blockquote>
 <p>这种方式直接不需要清除浮动什么的就可以了，也不会影响前后文，用起来比较爽丫。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#left&#123;</div><div class="line">	float: left;</div><div class="line">	width: 100px;</div><div class="line">	margin-right: 20px; &lt;!--好歹留个空啊嘿嘿--&gt;</div><div class="line">&#125;</div><div class="line">#right&#123;</div><div class="line">	overflow: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>方式三：float+margin+position的方式</p>
 <p>这个方式呢也用到过，但是要考虑的比较多一点，不过其实也还好。<br>接下来请看实现代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#parent&#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">#left&#123;</div><div class="line">	float: left;</div><div class="line">	width: 100px;</div><div class="line">	background-color: #ccc;</div><div class="line">&#125;</div><div class="line">#right&#123;</div><div class="line">	position: absolute;</div><div class="line">	top: 0;</div><div class="line">	left: 120px;</div><div class="line">	background-color:pink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这种方式实现起来很简单，但是对后文是有影响的，需要自己解决一下，懒小花就不写啦~</p>
