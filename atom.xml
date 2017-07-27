@@ -78,7 +78,7 @@
     <link href="http://visugar.com/2017/07/25/20170725ClienOffsetScroll/"/>
     <id>http://visugar.com/2017/07/25/20170725ClienOffsetScroll/</id>
     <published>2017-07-25T11:28:30.000Z</published>
-    <updated>2017-07-27T12:42:53.676Z</updated>
+    <updated>2017-07-27T12:51:19.236Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1727565-d51672eab4d06697.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="眼花缭乱"></p>
 <h2 id="window相关宽高属性"><a href="#window相关宽高属性" class="headerlink" title="window相关宽高属性"></a>window相关宽高属性</h2><h4 id="1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度"><a href="#1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度" class="headerlink" title="1. window.outerHeight (窗口的外层的高度) / window.outerWidth (窗口的外层的宽度)"></a>1. <strong>window.outerHeight</strong> (窗口的外层的高度) / <strong>window.outerWidth</strong> (窗口的外层的宽度)</h4><ul>
@@ -113,26 +113,16 @@
 <li>语法：var intElemClientWidth = element.clientWidth;<br><img src="http://upload-images.jianshu.io/upload_images/1727565-b9c85298f4d69745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="document.body.clientWH"></li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth" target="_blank" rel="external">Element.clientWidth - MDN</a></p>
-<h4 id="7-document-body-clientHeight或element-clientHeight"><a href="#7-document-body-clientHeight或element-clientHeight" class="headerlink" title="7. document.body.clientHeight或element.clientHeight"></a>7. <strong>document.body.clientHeight</strong>或<strong>element.clientHeight</strong></h4><ul>
-<li>返回元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。</li>
-</ul>
+<h4 id="7-document-body-clientHeight或element-clientHeight"><a href="#7-document-body-clientHeight或element-clientHeight" class="headerlink" title="7. document.body.clientHeight或element.clientHeight"></a>7. <strong>document.body.clientHeight</strong>或<strong>element.clientHeight</strong></h4><p>返回元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。</p>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight" target="_blank" rel="external">element.clientHeight - MDN</a></p>
-<h4 id="8-document-body-clientLeft或element-clientLeft"><a href="#8-document-body-clientLeft或element-clientLeft" class="headerlink" title="8. document.body.clientLeft或element.clientLeft"></a>8. <strong>document.body.clientLeft</strong>或<strong>element.clientLeft</strong></h4><ul>
-<li>表示一个元素的左边框的宽度，以像素表示。如果元素的文本方向是从右向左（RTL, right-to-left），并且由于内容溢出导致左边出现了一个垂直滚动条，则该属性包括滚动条的宽度。<br><img src="http://upload-images.jianshu.io/upload_images/1727565-0aa014faec459e55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="element.clientLT"></li>
-</ul>
+<h4 id="8-document-body-clientLeft或element-clientLeft"><a href="#8-document-body-clientLeft或element-clientLeft" class="headerlink" title="8. document.body.clientLeft或element.clientLeft"></a>8. <strong>document.body.clientLeft</strong>或<strong>element.clientLeft</strong></h4><p>表示一个元素的左边框的宽度，以像素表示。如果元素的文本方向是从右向左（RTL, right-to-left），并且由于内容溢出导致左边出现了一个垂直滚动条，则该属性包括滚动条的宽度。<br><img src="http://upload-images.jianshu.io/upload_images/1727565-0aa014faec459e55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="element.clientLT"></p>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientLeft" target="_blank" rel="external">Element.clientLeft - MDN</a></p>
-<h4 id="9-document-body-clientTop或element-clientTop"><a href="#9-document-body-clientTop或element-clientTop" class="headerlink" title="9. document.body.clientTop或element.clientTop"></a>9. <strong>document.body.clientTop</strong>或<strong>element.clientTop</strong></h4><ul>
-<li>一个元素顶部边框的宽度（以像素表示）。不包括顶部外边距或内边距。</li>
-</ul>
+<h4 id="9-document-body-clientTop或element-clientTop"><a href="#9-document-body-clientTop或element-clientTop" class="headerlink" title="9. document.body.clientTop或element.clientTop"></a>9. <strong>document.body.clientTop</strong>或<strong>element.clientTop</strong></h4><p>一个元素顶部边框的宽度（以像素表示）。不包括顶部外边距或内边距。</p>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientTop" target="_blank" rel="external">Element.clientTop</a></p>
 <h3 id="与offset相关属性"><a href="#与offset相关属性" class="headerlink" title="与offset相关属性"></a>与offset相关属性</h3><p>这一对属性指的是元素的border+padding+content的宽度和高度</p>
-<h4 id="10-document-body-offsetWidth或element-offsetWidth"><a href="#10-document-body-offsetWidth或element-offsetWidth" class="headerlink" title="10. document.body.offsetWidth或element.offsetWidth"></a>10. <strong>document.body.offsetWidth</strong>或<strong>element.offsetWidth</strong></h4><ul>
-<li>border/padding/width三者的总宽度<br><img src="http://upload-images.jianshu.io/upload_images/1727565-a44eb7d8cc51e523.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="offsetWH"></li>
-</ul>
+<h4 id="10-document-body-offsetWidth或element-offsetWidth"><a href="#10-document-body-offsetWidth或element-offsetWidth" class="headerlink" title="10. document.body.offsetWidth或element.offsetWidth"></a>10. <strong>document.body.offsetWidth</strong>或<strong>element.offsetWidth</strong></h4><p>border/padding/width三者的总宽度<br><img src="http://upload-images.jianshu.io/upload_images/1727565-a44eb7d8cc51e523.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="offsetWH"></p>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth" target="_blank" rel="external">HTMLElement.offsetWidth</a></p>
-<h4 id="11-document-body-offsetHeight或element-offsetHeight"><a href="#11-document-body-offsetHeight或element-offsetHeight" class="headerlink" title="11. document.body.offsetHeight或element.offsetHeight"></a>11. <strong>document.body.offsetHeight</strong>或<strong>element.offsetHeight</strong></h4><ul>
-<li>border/padding/width三者的总高度，且是一个整数。</li>
-</ul>
+<h4 id="11-document-body-offsetHeight或element-offsetHeight"><a href="#11-document-body-offsetHeight或element-offsetHeight" class="headerlink" title="11. document.body.offsetHeight或element.offsetHeight"></a>11. <strong>document.body.offsetHeight</strong>或<strong>element.offsetHeight</strong></h4><p>border/padding/width三者的总高度，且是一个整数。</p>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight" target="_blank" rel="external">HTMLElement.offsetHeight</a></p>
 <h4 id="12-HTMLElement-offsetLeft和HTMLElement-offsetTop"><a href="#12-HTMLElement-offsetLeft和HTMLElement-offsetTop" class="headerlink" title="12. HTMLElement.offsetLeft和HTMLElement.offsetTop"></a>12. <strong>HTMLElement.offsetLeft</strong>和<strong>HTMLElement.offsetTop</strong></h4><p>这两个属性是基于offsetParent的</p>
 <ul>
@@ -157,9 +147,7 @@
 <li>指的是当元素其中的内容超出其宽高的时候，元素被卷起来的高和宽度。</li>
 <li>对于element元素同样适用</li>
 </ul>
-<h4 id="16-window-scrollY及window-scrollX"><a href="#16-window-scrollY及window-scrollX" class="headerlink" title="16. window.scrollY及window.scrollX"></a>16. <strong>window.scrollY</strong>及<strong>window.scrollX</strong></h4><ul>
-<li>window.scrollY 文档从顶部开始滚动过的像素值 / window.scrollX 文档从左侧开始滚动的像素值。</li>
-</ul>
+<h4 id="16-window-scrollY及window-scrollX"><a href="#16-window-scrollY及window-scrollX" class="headerlink" title="16. window.scrollY及window.scrollX"></a>16. <strong>window.scrollY</strong>及<strong>window.scrollX</strong></h4><p>window.scrollY 文档从顶部开始滚动过的像素值 / window.scrollX 文档从左侧开始滚动的像素值。</p>
 <h1 id="event中的五种坐标"><a href="#event中的五种坐标" class="headerlink" title="event中的五种坐标"></a>event中的五种坐标</h1><p>1、<strong>clientX</strong>及<strong>clientY</strong>：相对于浏览器（可视区左上角0,0）的坐标</p>
 <p>2、<strong>screenX</strong>和<strong>screenY</strong>：相对于设备屏幕左上角（0,0）的坐标</p>
 <p>3、<strong>offsetX</strong>和<strong>offsetY</strong>：相对于事件源左上角（0,0）的坐标</p>
