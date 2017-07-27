@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-07-25T11:36:31.508Z</updated>
+  <updated>2017-07-27T12:37:03.485Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://visugar.com/2017/07/25/20170725DragAndDrop/"/>
     <id>http://visugar.com/2017/07/25/20170725DragAndDrop/</id>
     <published>2017-07-25T11:35:17.000Z</published>
-    <updated>2017-07-25T11:36:31.508Z</updated>
+    <updated>2017-07-27T12:37:03.485Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800" alt="漫山遍野"></p>
 <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>在HTML5之前，实现拖放功能需要借助mousedown/mousemove/mouseover/mouseout/mouseup等鼠标事件来完成，HTML5中拖放API的出现使很多事情变简单。下面是做笔记做笔记~</p>
@@ -30,47 +30,26 @@
 <li><a href="https://visugar.github.io/FrontEnd-examples/08H5%E6%8B%96%E6%94%BEAPI/drag01.html" target="_blank" rel="external">栗子预览2</a></li>
 <li><a href="https://visugar.github.io/FrontEnd-examples/08H5%E6%8B%96%E6%94%BEAPI/drag02.html" target="_blank" rel="external">栗子预览3</a></li>
 </ul>
-<h4 id="拖放过程"><a href="#拖放过程" class="headerlink" title="拖放过程"></a>拖放过程</h4><ol>
-<li><p>拖放：包括拖拽（drag）和释放（drop）</p>
-</li>
-<li><p>拖放中涉及两个元素，分别是：源对象和目标对象，如下图<br>源对象是被拖拽的元素，目标对象是要释放到的接收元素。<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag10.png" alt="源对象和目标对象"></p>
-</li>
-<li><p>拖放事件：</p>
-</li>
-</ol>
+<h4 id="拖放过程"><a href="#拖放过程" class="headerlink" title="拖放过程"></a>拖放过程</h4><p>拖放：包括拖拽（drag）和释放（drop）</p>
+<p>拖放中涉及两个元素，分别是：源对象和目标对象，如下图<br>源对象是被拖拽的元素，目标对象是要释放到的接收元素。<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag10.png" alt="源对象和目标对象"></p>
+<p>拖放事件：</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/20170725event.png" alt="拖放事件流"></p>
 <p><code>拖放事件流</code>为拖放操作开始后触发的一系列事件，分为以下两类：</p>
 <p>发生在源对象上的事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dragstart:用户开始拖动页面中的某个元素时触发的事件</div><div class="line">drag: 源对象在拖拽过程中持续触发的事件</div><div class="line">dragend:拖动完成时触发的事件，一般用于清空拖动过程中的状态等。</div></pre></td></tr></table></figure></p>
 <p>发生在目标对象上的事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dragenter:源对象进入到目标对象时，会触发目标对象的ondragenter事件</div><div class="line">dragleave:源对象移除之前调用了dragenter的元素时，目标元素触发的事件</div><div class="line">dragover：源对象进入目标对象后持续触发的事件</div><div class="line">drop：用户释放鼠标时，drop会在目标对象上被调用</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>设置元素可拖动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dragable = &quot;true&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>传输和控–dataTransfer</p>
-</li>
-</ol>
+<p>设置元素可拖动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dragable = &quot;true&quot;</div></pre></td></tr></table></figure></p>
+<p> 传输和控–dataTransfer</p>
 <p><code>dataTransfer</code>对象可用于每个拖放事件中。用于获取和设置实际放置的数据，主要属性及方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">setData(format,data):在dragstart事件中调用此函数可以注册一个MIME类型格式的传输项。</div><div class="line">getData(format):可以获取指定类型的注册数据项。</div><div class="line">types：属性以数组形式返回所有当前注册的格式。</div><div class="line">items：返回所有项机器相关格式列表</div><div class="line">files：返回与放置相关的所有文件</div><div class="line">clearData():不带参则清空所有注册数据，带参则移除指定注册项</div><div class="line">…………等等</div></pre></td></tr></table></figure></p>
 <h4 id="来点儿小栗子"><a href="#来点儿小栗子" class="headerlink" title="来点儿小栗子"></a>来点儿小栗子</h4><p>说小栗子前说下两点：</p>
-<ul>
-<li>触发dragover事件时，需要使用preventDefault()方法阻止默认事件，drag事件才能正常触发</li>
-<li><p>dataTransfer中的files属性用到了File API规范的子集，files存放了文件列表，files支持下列属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name:带有扩展名的文件全名</div><div class="line">type：文件的MIME类型</div><div class="line">size：以字节为单位的文件大小</div><div class="line">lastModifiedDate：最后一次修改文件内容的时间戳</div></pre></td></tr></table></figure>
-</li>
-<li><p>下面会用到的FileReader对象<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader" target="_blank" rel="external">详细请移步</a>：<br>FileReader 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 File 或 Blob 对象指定要读取的文件或数据。</p>
-</li>
-</ul>
+<p>触发dragover事件时，需要使用preventDefault()方法阻止默认事件，drag事件才能正常触发</p>
+<p>dataTransfer中的files属性用到了File API规范的子集，files存放了文件列表，files支持下列属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name:带有扩展名的文件全名</div><div class="line">type：文件的MIME类型</div><div class="line">size：以字节为单位的文件大小</div><div class="line">lastModifiedDate：最后一次修改文件内容的时间戳</div></pre></td></tr></table></figure></p>
+<p>下面会用到的FileReader对象<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader" target="_blank" rel="external">详细请移步</a>：<br>FileReader 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 File 或 Blob 对象指定要读取的文件或数据。</p>
 <p>其中File对象可以是来自用户在一个<input>元素上选择文件后返回的FileList对象,也可以来自拖放操作生成的 DataTransfer对象,还可以是来自在一个HTMLCanvasElement上执行mozGetAsFile()方法后返回结果.</p>
-<ol>
-<li>简单的节点拖放<br>可将任意节点拖放到其他元素上，并插入到目标元素的前面<br>拖放前后：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag02.gif" alt="拖放节点效果"></li>
-</ol>
+<p>1.简单的节点拖放<br>可将任意节点拖放到其他元素上，并插入到目标元素的前面<br>拖放前后：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag02.gif" alt="拖放节点效果"></p>
 <p>主要代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/*目标对象上触发的dragove事件*/</div><div class="line">   drag.addEventListener(&apos;dragover&apos;, function (e) &#123;</div><div class="line">       e.preventDefault(); //阻止默认动作</div><div class="line">   &#125;)</div><div class="line"></div><div class="line">   /*源对象释放，目标对象上触发的事件*/</div><div class="line">   drag.addEventListener(&apos;drop&apos;, function (e) &#123;</div><div class="line">       ele.classList.remove(&apos;draging&apos;);</div><div class="line">       if (e.target.nodeName === &apos;LI&apos;) &#123;</div><div class="line">           e.target.parentNode.insertBefore(ele, e.target); //将源对象元素插入到目标元素前面</div><div class="line">       &#125;</div><div class="line">   &#125;)</div></pre></td></tr></table></figure></p>
-<ol>
-<li>节点清除<br>可将龙猫丢进垃圾桶，即清除img元素节点<br>丢龙猫前后：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag03.gif" alt="丢龙猫前后"></li>
-</ol>
-<p>主要代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;h3&gt;拖动龙猫到垃圾桶后从DOM树中删除子元素&lt;/h3&gt;</div><div class="line">      &lt;img id=&quot;bin&quot; src=&quot;./img/default.png&quot;&gt;</div><div class="line">      &lt;hr/&gt;</div><div class="line">      &lt;img id=&quot;item1&quot; class=&quot;imgs&quot; src=&quot;./img/01.jpeg&quot;&gt;</div><div class="line">      &lt;img id=&quot;item2&quot; class=&quot;imgs&quot; src=&quot;./img/02.jpg&quot;&gt;</div><div class="line">      &lt;img id=&quot;item3&quot; class=&quot;imgs&quot; src=&quot;./img/03.jpeg&quot;&gt;</div><div class="line"></div><div class="line">      &lt;script&gt;</div><div class="line"></div><div class="line">        //为源对象添加事件监听 —— 记录拖动了哪一个源对象</div><div class="line">        var imgs = document.querySelectorAll(&apos;.imgs&apos;);</div><div class="line">        var target = document.querySelector(&apos;#bin&apos;);</div><div class="line"></div><div class="line">        for(var i=0; i&lt;imgs.length; i++)&#123;</div><div class="line">          var pic = imgs[i];</div><div class="line">          pic.ondragstart = function(e)&#123; //开始拖动源对象</div><div class="line">            e.dataTransfer.setData(&apos;imgID&apos;,this.id);//保存被拖拽源的id</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //为目标对象添加事件监听 —— 删除拖动的源对象</div><div class="line">        target.ondragover= function(e)&#123;</div><div class="line">          e.preventDefault();  //阻止默认行为</div><div class="line">        &#125;</div><div class="line">        target.ondrop= function(e)&#123; //源对象松手释放在了目标对象中</div><div class="line">          //删除被拖动的源对象</div><div class="line">          var id = e.dataTransfer.getData(&apos;imgID&apos;);</div><div class="line">          var p = document.getElementById(id);</div><div class="line">          p.parentNode.removeChild(p);  //从父元素中删除子节点</div><div class="line">        &#125;</div><div class="line"></div><div class="line">      &lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<ol>
-<li>将本地图片拖放到页面中指定区域<br>可将你的美图拖到网页中显示</li>
-</ol>
+<p>2.节点清除<br>可将龙猫丢进垃圾桶，即清除img元素节点<br>丢龙猫前后：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag03.gif" alt="丢龙猫前后"><br>主要代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;h3&gt;拖动龙猫到垃圾桶后从DOM树中删除子元素&lt;/h3&gt;</div><div class="line">      &lt;img id=&quot;bin&quot; src=&quot;./img/default.png&quot;&gt;</div><div class="line">      &lt;hr/&gt;</div><div class="line">      &lt;img id=&quot;item1&quot; class=&quot;imgs&quot; src=&quot;./img/01.jpeg&quot;&gt;</div><div class="line">      &lt;img id=&quot;item2&quot; class=&quot;imgs&quot; src=&quot;./img/02.jpg&quot;&gt;</div><div class="line">      &lt;img id=&quot;item3&quot; class=&quot;imgs&quot; src=&quot;./img/03.jpeg&quot;&gt;</div><div class="line"></div><div class="line">      &lt;script&gt;</div><div class="line"></div><div class="line">        //为源对象添加事件监听 —— 记录拖动了哪一个源对象</div><div class="line">        var imgs = document.querySelectorAll(&apos;.imgs&apos;);</div><div class="line">        var target = document.querySelector(&apos;#bin&apos;);</div><div class="line"></div><div class="line">        for(var i=0; i&lt;imgs.length; i++)&#123;</div><div class="line">          var pic = imgs[i];</div><div class="line">          pic.ondragstart = function(e)&#123; //开始拖动源对象</div><div class="line">            e.dataTransfer.setData(&apos;imgID&apos;,this.id);//保存被拖拽源的id</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //为目标对象添加事件监听 —— 删除拖动的源对象</div><div class="line">        target.ondragover= function(e)&#123;</div><div class="line">          e.preventDefault();  //阻止默认行为</div><div class="line">        &#125;</div><div class="line">        target.ondrop= function(e)&#123; //源对象松手释放在了目标对象中</div><div class="line">          //删除被拖动的源对象</div><div class="line">          var id = e.dataTransfer.getData(&apos;imgID&apos;);</div><div class="line">          var p = document.getElementById(id);</div><div class="line">          p.parentNode.removeChild(p);  //从父元素中删除子节点</div><div class="line">        &#125;</div><div class="line"></div><div class="line">      &lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>3.将本地图片拖放到页面中指定区域</p>
+<p>可将你的美图拖到网页中显示</p>
 <p>爆照前后效果：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag01.gif" alt="爆照前后"></p>
 <p>主要代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var content = document.querySelector(&apos;#content&apos;);</div><div class="line"></div><div class="line">    document.addEventListener(&apos;dragover&apos;,function(e)&#123;</div><div class="line">        e.preventDefault(); //阻止document的默认事件</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    document.addEventListener(&apos;drop&apos;,function(e)&#123;</div><div class="line">        e.preventDefault(); //阻止document的默认事件(阻止照片在新窗口中打开)</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    content.addEventListener(&apos;dragover&apos;,function(e)&#123;</div><div class="line">        e.preventDefault();</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    content.addEventListener(&apos;drop&apos;,function(e)&#123;</div><div class="line">        var imgFs = e.dataTransfer.files[0];  //files存放了文件列表</div><div class="line">        //console.log(imgFs);</div><div class="line">        var fs = new FileReader();  //创建一个FileReader对象</div><div class="line">        fs.readAsDataURL(imgFs);</div><div class="line">        /*图片资源加载完成之后显示在content中*/</div><div class="line">        fs.onload = function()&#123;</div><div class="line">            var img = new Image();</div><div class="line">            img.src = fs.result;</div><div class="line">            content.appendChild(img);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>对今天学习的知识点做个记录，欢迎大佬们指正~</p>
@@ -99,69 +78,65 @@
     <link href="http://visugar.com/2017/07/25/20170725ClienOffsetScroll/"/>
     <id>http://visugar.com/2017/07/25/20170725ClienOffsetScroll/</id>
     <published>2017-07-25T11:28:30.000Z</published>
-    <updated>2017-07-25T11:32:00.344Z</updated>
+    <updated>2017-07-27T12:34:45.902Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1727565-d51672eab4d06697.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="眼花缭乱"></p>
-<h2 id="window相关宽高属性"><a href="#window相关宽高属性" class="headerlink" title="window相关宽高属性"></a>window相关宽高属性</h2><h6 id="1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度"><a href="#1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度" class="headerlink" title="1. window.outerHeight (窗口的外层的高度) / window.outerWidth (窗口的外层的宽度)"></a>1. <strong>window.outerHeight</strong> (窗口的外层的高度) / <strong>window.outerWidth</strong> (窗口的外层的宽度)</h6><ul>
+<h2 id="window相关宽高属性"><a href="#window相关宽高属性" class="headerlink" title="window相关宽高属性"></a>window相关宽高属性</h2><h4 id="1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度"><a href="#1-window-outerHeight-窗口的外层的高度-window-outerWidth-窗口的外层的宽度" class="headerlink" title="1. window.outerHeight (窗口的外层的高度) / window.outerWidth (窗口的外层的宽度)"></a>1. <strong>window.outerHeight</strong> (窗口的外层的高度) / <strong>window.outerWidth</strong> (窗口的外层的宽度)</h4><ul>
 <li>window.outerHeight获取整个浏览器窗口的高度（单位：像素），包括侧边栏（如果存在）、窗口镶边（window chrome）和窗口调正边框。包含调试窗及浏览器边框</li>
 <li>window.outerWidth表示整个浏览器窗口的宽度，包括侧边栏（如果存在）、窗口镶边（window chrome）和调正窗口大小的边框。包含调试窗及浏览器边框<br><img src="http://upload-images.jianshu.io/upload_images/1727565-09555815592f0bb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window的相关属性"></li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/outerHeight" target="_blank" rel="external">window.outerHeight -MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/window/outerWidth" target="_blank" rel="external">window.outerWidth-MDN</a></p>
-<h6 id="2-window-innerHeight-浏览器窗口的视口的高度-和-window-innerWidth"><a href="#2-window-innerHeight-浏览器窗口的视口的高度-和-window-innerWidth" class="headerlink" title="2. window.innerHeight (浏览器窗口的视口的高度)和 window.innerWidth"></a>2. <strong>window.innerHeight</strong> (浏览器窗口的视口的高度)和 <strong>window.innerWidth</strong></h6><ul>
+<h4 id="2-window-innerHeight-浏览器窗口的视口的高度-和-window-innerWidth"><a href="#2-window-innerHeight-浏览器窗口的视口的高度-和-window-innerWidth" class="headerlink" title="2. window.innerHeight (浏览器窗口的视口的高度)和 window.innerWidth"></a>2. <strong>window.innerHeight</strong> (浏览器窗口的视口的高度)和 <strong>window.innerWidth</strong></h4><ul>
 <li>window.innerHeight浏览器窗口的视口（viewport）高度（以像素为单位），如果存在水平滚动条，则包括它。不包含调试窗及浏览器边框</li>
 <li>window.innerWidth浏览器视口（viewport）宽度（单位：像素），如果存在垂直滚动条则包括它。不包含调试窗及浏览器边框</li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/window/innerHeight" target="_blank" rel="external">window.innerHeight - MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/window/innerWidth" target="_blank" rel="external">window.innerWidth - MDN</a></p>
-<h6 id="3-window-screen-width和window-screen-height"><a href="#3-window-screen-width和window-screen-height" class="headerlink" title="3. window.screen.width和window.screen.height"></a>3. <strong>window.screen.width</strong>和<strong>window.screen.height</strong></h6><blockquote>
-<p>注：在获取值时可不加window.前缀</p>
-</blockquote>
+<h4 id="3-window-screen-width和window-screen-height"><a href="#3-window-screen-width和window-screen-height" class="headerlink" title="3. window.screen.width和window.screen.height"></a>3. <strong>window.screen.width</strong>和<strong>window.screen.height</strong></h4><p>注：在获取值时可不加window.前缀</p>
 <ul>
 <li>window.screen.width声明了显示当前浏览器的<code>屏幕的宽度</code>，以像素计</li>
 <li>window.screen.height声明了显示当前浏览器的<code>屏幕的高度</code>，以像素计<br><img src="http://upload-images.jianshu.io/upload_images/1727565-4e1521faf20a88e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.screen"></li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a></p>
-<h6 id="4-window-screen-availHeight和window-screen-availWidth"><a href="#4-window-screen-availHeight和window-screen-availWidth" class="headerlink" title="4. window.screen.availHeight和window.screen.availWidth"></a>4. <strong>window.screen.availHeight</strong>和<strong>window.screen.availWidth</strong></h6><ul>
+<h4 id="4-window-screen-availHeight和window-screen-availWidth"><a href="#4-window-screen-availHeight和window-screen-availWidth" class="headerlink" title="4. window.screen.availHeight和window.screen.availWidth"></a>4. <strong>window.screen.availHeight</strong>和<strong>window.screen.availWidth</strong></h4><ul>
 <li>window.screen.availHeight声明了显示浏览器的<code>屏幕的可用高度</code>，以像素计。除去我们底部任务栏外的屏幕高度</li>
 <li>window.screen.availWidth声明了显示浏览器的<code>屏幕的可用宽度</code>，以像素计</li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/screen" target="_blank" rel="external">window.screen - MDN</a></p>
-<h6 id="5-window-screenTop和window-screenLeft"><a href="#5-window-screenTop和window-screenLeft" class="headerlink" title="5. window.screenTop和window.screenLeft"></a>5. <strong>window.screenTop</strong>和<strong>window.screenLeft</strong></h6><ul>
+<h4 id="5-window-screenTop和window-screenLeft"><a href="#5-window-screenTop和window-screenLeft" class="headerlink" title="5. window.screenTop和window.screenLeft"></a>5. <strong>window.screenTop</strong>和<strong>window.screenLeft</strong></h4><ul>
 <li>功能： 返回窗口的左上角在屏幕上的x坐标。该属性为只读属性。语法： window.screenLeft。注：在Firefox等浏览器中使用的是screenX属性。</li>
 <li>返回窗口的左上角在屏幕上的y坐标。该属性为只读属性。 语法： window.screenTop。注：在Firefox等浏览器中使用的是screenY属性。<br><img src="http://upload-images.jianshu.io/upload_images/1727565-0d26e615e78a1d47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.screenTop/left"></li>
 </ul>
 <p>参考链接：<br><a href="http://blog.csdn.net/fengyun111999/article/details/5392505" target="_blank" rel="external">window.screenTop</a><br><a href="http://blog.csdn.net/fengyun111999/article/details/5392505" target="_blank" rel="external">window.screenLeft</a></p>
-<h2 id="document下面的相关属性（offset-client-scroll）"><a href="#document下面的相关属性（offset-client-scroll）" class="headerlink" title="document下面的相关属性（offset/client/scroll）"></a>document下面的相关属性（offset/client/scroll）</h2><h3 id="与client相关属性"><a href="#与client相关属性" class="headerlink" title="与client相关属性"></a>与client相关属性</h3><h6 id="6-document-body-clientWidth或element-clientWidth"><a href="#6-document-body-clientWidth或element-clientWidth" class="headerlink" title="6. document.body.clientWidth或element.clientWidth"></a>6. <strong>document.body.clientWidth</strong>或<strong>element.clientWidth</strong></h6><ul>
+<h2 id="document下面的相关属性（offset-client-scroll）"><a href="#document下面的相关属性（offset-client-scroll）" class="headerlink" title="document下面的相关属性（offset/client/scroll）"></a>document下面的相关属性（offset/client/scroll）</h2><h3 id="与client相关属性"><a href="#与client相关属性" class="headerlink" title="与client相关属性"></a>与client相关属性</h3><h4 id="6-document-body-clientWidth或element-clientWidth"><a href="#6-document-body-clientWidth或element-clientWidth" class="headerlink" title="6. document.body.clientWidth或element.clientWidth"></a>6. <strong>document.body.clientWidth</strong>或<strong>element.clientWidth</strong></h4><ul>
 <li>表示元素的内部宽度，以像素计。该属性包括内边距，但不包括垂直滚动条（如果有的话）、边框和外边距。</li>
 <li>该属性值会被四舍五入为一个整数。如果你需要一个小数值，可使用 element.getBoundingClientRect()。</li>
 <li>语法：var intElemClientWidth = element.clientWidth;<br><img src="http://upload-images.jianshu.io/upload_images/1727565-b9c85298f4d69745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="document.body.clientWH"></li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth" target="_blank" rel="external">Element.clientWidth - MDN</a></p>
-<h6 id="7-document-body-clientHeight或element-clientHeight"><a href="#7-document-body-clientHeight或element-clientHeight" class="headerlink" title="7. document.body.clientHeight或element.clientHeight"></a>7. <strong>document.body.clientHeight</strong>或<strong>element.clientHeight</strong></h6><ul>
+<h4 id="7-document-body-clientHeight或element-clientHeight"><a href="#7-document-body-clientHeight或element-clientHeight" class="headerlink" title="7. document.body.clientHeight或element.clientHeight"></a>7. <strong>document.body.clientHeight</strong>或<strong>element.clientHeight</strong></h4><ul>
 <li>返回元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。</li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight" target="_blank" rel="external">element.clientHeight - MDN</a></p>
-<h6 id="8-document-body-clientLeft或element-clientLeft"><a href="#8-document-body-clientLeft或element-clientLeft" class="headerlink" title="8. document.body.clientLeft或element.clientLeft"></a>8. <strong>document.body.clientLeft</strong>或<strong>element.clientLeft</strong></h6><ul>
+<h4 id="8-document-body-clientLeft或element-clientLeft"><a href="#8-document-body-clientLeft或element-clientLeft" class="headerlink" title="8. document.body.clientLeft或element.clientLeft"></a>8. <strong>document.body.clientLeft</strong>或<strong>element.clientLeft</strong></h4><ul>
 <li>表示一个元素的左边框的宽度，以像素表示。如果元素的文本方向是从右向左（RTL, right-to-left），并且由于内容溢出导致左边出现了一个垂直滚动条，则该属性包括滚动条的宽度。<br><img src="http://upload-images.jianshu.io/upload_images/1727565-0aa014faec459e55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="element.clientLT"></li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientLeft" target="_blank" rel="external">Element.clientLeft - MDN</a></p>
-<h6 id="9-document-body-clientTop或element-clientTop"><a href="#9-document-body-clientTop或element-clientTop" class="headerlink" title="9. document.body.clientTop或element.clientTop"></a>9. <strong>document.body.clientTop</strong>或<strong>element.clientTop</strong></h6><ul>
+<h4 id="9-document-body-clientTop或element-clientTop"><a href="#9-document-body-clientTop或element-clientTop" class="headerlink" title="9. document.body.clientTop或element.clientTop"></a>9. <strong>document.body.clientTop</strong>或<strong>element.clientTop</strong></h4><ul>
 <li>一个元素顶部边框的宽度（以像素表示）。不包括顶部外边距或内边距。</li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientTop" target="_blank" rel="external">Element.clientTop</a></p>
 <h3 id="与offset相关属性"><a href="#与offset相关属性" class="headerlink" title="与offset相关属性"></a>与offset相关属性</h3><blockquote>
 <p>这一对属性指的是元素的border+padding+content的宽度和高度</p>
 </blockquote>
-<h6 id="10-document-body-offsetWidth或element-offsetWidth"><a href="#10-document-body-offsetWidth或element-offsetWidth" class="headerlink" title="10. document.body.offsetWidth或element.offsetWidth"></a>10. <strong>document.body.offsetWidth</strong>或<strong>element.offsetWidth</strong></h6><ul>
+<h4 id="10-document-body-offsetWidth或element-offsetWidth"><a href="#10-document-body-offsetWidth或element-offsetWidth" class="headerlink" title="10. document.body.offsetWidth或element.offsetWidth"></a>10. <strong>document.body.offsetWidth</strong>或<strong>element.offsetWidth</strong></h4><ul>
 <li>border/padding/width三者的总宽度<br><img src="http://upload-images.jianshu.io/upload_images/1727565-a44eb7d8cc51e523.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="offsetWH"></li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth" target="_blank" rel="external">HTMLElement.offsetWidth</a></p>
-<h6 id="11-document-body-offsetHeight或element-offsetHeight"><a href="#11-document-body-offsetHeight或element-offsetHeight" class="headerlink" title="11. document.body.offsetHeight或element.offsetHeight"></a>11. <strong>document.body.offsetHeight</strong>或<strong>element.offsetHeight</strong></h6><ul>
+<h4 id="11-document-body-offsetHeight或element-offsetHeight"><a href="#11-document-body-offsetHeight或element-offsetHeight" class="headerlink" title="11. document.body.offsetHeight或element.offsetHeight"></a>11. <strong>document.body.offsetHeight</strong>或<strong>element.offsetHeight</strong></h4><ul>
 <li>border/padding/width三者的总高度，且是一个整数。</li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight" target="_blank" rel="external">HTMLElement.offsetHeight</a></p>
-<h6 id="12-HTMLElement-offsetLeft和HTMLElement-offsetTop"><a href="#12-HTMLElement-offsetLeft和HTMLElement-offsetTop" class="headerlink" title="12. HTMLElement.offsetLeft和HTMLElement.offsetTop"></a>12. <strong>HTMLElement.offsetLeft</strong>和<strong>HTMLElement.offsetTop</strong></h6><blockquote>
-<p>这两个属性是基于offsetParent的</p>
-</blockquote>
+<h4 id="12-HTMLElement-offsetLeft和HTMLElement-offsetTop"><a href="#12-HTMLElement-offsetLeft和HTMLElement-offsetTop" class="headerlink" title="12. HTMLElement.offsetLeft和HTMLElement.offsetTop"></a>12. <strong>HTMLElement.offsetLeft</strong>和<strong>HTMLElement.offsetTop</strong></h4><p>这两个属性是基于offsetParent的</p>
 <ul>
 <li>如果当前元素的父级元素没有进行CSS定位（position为absolute或relative）,offsetParent为body.</li>
 <li>假如当前元素的父级元素中有CSS定位，offsetParent取最近的那个父级元素。</li>
@@ -178,7 +153,7 @@
 </li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft" target="_blank" rel="external">HTMLElement.offsetLeft</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop" target="_blank" rel="external">HTMLElement.offsetTop</a></p>
-<h3 id="与scroll相关属性"><a href="#与scroll相关属性" class="headerlink" title="与scroll相关属性"></a>与scroll相关属性</h3><h6 id="13-document-body-scrollWidth及document-body-scrollHeight"><a href="#13-document-body-scrollWidth及document-body-scrollHeight" class="headerlink" title="13. document.body.scrollWidth及document.body.scrollHeight"></a>13. <strong>document.body.scrollWidth</strong>及<strong>document.body.scrollHeight</strong></h6><blockquote>
+<h3 id="与scroll相关属性"><a href="#与scroll相关属性" class="headerlink" title="与scroll相关属性"></a>与scroll相关属性</h3><h4 id="13-document-body-scrollWidth及document-body-scrollHeight"><a href="#13-document-body-scrollWidth及document-body-scrollHeight" class="headerlink" title="13. document.body.scrollWidth及document.body.scrollHeight"></a>13. <strong>document.body.scrollWidth</strong>及<strong>document.body.scrollHeight</strong></h4><blockquote>
 <p>body与普通element不一样</p>
 </blockquote>
 <ul>
@@ -193,7 +168,7 @@
 </li>
 </ul>
 <p>参考链接：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollWidth" target="_blank" rel="external">Element.scrollWidth</a></p>
-<h6 id="14-element-scrollWidth和element-scrollHeight"><a href="#14-element-scrollWidth和element-scrollHeight" class="headerlink" title="14. element.scrollWidth和element.scrollHeight"></a>14. <strong>element.scrollWidth</strong>和<strong>element.scrollHeight</strong></h6><ul>
+<h4 id="14-element-scrollWidth和element-scrollHeight"><a href="#14-element-scrollWidth和element-scrollHeight" class="headerlink" title="14. element.scrollWidth和element.scrollHeight"></a>14. <strong>element.scrollWidth</strong>和<strong>element.scrollHeight</strong></h4><ul>
 <li><p>当无滚动条时：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scrollWidth = clientWidth = 元素宽度 + padding和</div><div class="line">scrollHeight = clientHeight = 元素高度 + padding和</div></pre></td></tr></table></figure>
 </li>
@@ -201,12 +176,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scrollWidth = 实际内容的宽度 + padding和</div><div class="line">scrollHeight  = 实际内容的高度 + padding和</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h6 id="15-document-body-scrollTop及document-body-scrollLeft"><a href="#15-document-body-scrollTop及document-body-scrollLeft" class="headerlink" title="15. document.body.scrollTop及document.body.scrollLeft"></a>15. <strong>document.body.scrollTop</strong>及<strong>document.body.scrollLeft</strong></h6><ul>
+<h4 id="15-document-body-scrollTop及document-body-scrollLeft"><a href="#15-document-body-scrollTop及document-body-scrollLeft" class="headerlink" title="15. document.body.scrollTop及document.body.scrollLeft"></a>15. <strong>document.body.scrollTop</strong>及<strong>document.body.scrollLeft</strong></h4><ul>
 <li>这对属性是可读写（可被重新赋值） 的</li>
 <li>指的是当元素其中的内容超出其宽高的时候，元素被卷起来的高和宽度。</li>
 <li>对于element元素同样适用</li>
 </ul>
-<h6 id="16-window-scrollY及window-scrollX"><a href="#16-window-scrollY及window-scrollX" class="headerlink" title="16. window.scrollY及window.scrollX"></a>16. <strong>window.scrollY</strong>及<strong>window.scrollX</strong></h6><ul>
+<h4 id="16-window-scrollY及window-scrollX"><a href="#16-window-scrollY及window-scrollX" class="headerlink" title="16. window.scrollY及window.scrollX"></a>16. <strong>window.scrollY</strong>及<strong>window.scrollX</strong></h4><ul>
 <li>window.scrollY 文档从顶部开始滚动过的像素值 / window.scrollX 文档从左侧开始滚动的像素值。</li>
 </ul>
 <h1 id="event中的五种坐标"><a href="#event中的五种坐标" class="headerlink" title="event中的五种坐标"></a>event中的五种坐标</h1><ol>
@@ -219,7 +194,7 @@
 <li><p><strong>pageX</strong>和<strong>pageY</strong>：相对于整个网页左上角（0,0）的坐标</p>
 </li>
 </ol>
-<h6 id="参考来源："><a href="#参考来源：" class="headerlink" title="参考来源："></a>参考来源：</h6><ul>
+<h4 id="参考来源："><a href="#参考来源：" class="headerlink" title="参考来源："></a>参考来源：</h4><ul>
 <li>视频课程：<a href="http://www.imooc.com/learn/608" target="_blank" rel="external">JS/jQuery宽高的理解和应用</a></li>
 <li>博客：<a href="http://duni.sinaapp.com/?p=750" target="_blank" rel="external">JavaScript中的各种宽高属性</a></li>
 </ul>
@@ -292,27 +267,26 @@
     <link href="http://visugar.com/2017/06/09/20170609ThreeLevel/"/>
     <id>http://visugar.com/2017/06/09/20170609ThreeLevel/</id>
     <published>2017-06-09T12:28:08.000Z</published>
-    <updated>2017-06-09T13:22:20.285Z</updated>
+    <updated>2017-07-27T12:31:39.312Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC03889.JPG?imageView/2/w/600/q/90" alt="wo e le"></p>
 <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>前段时间写一个关于天气的东西，里面的省市区（县）城市选择让我很头疼，在网上搜索出来大都是借助插件或者第三方库，感觉这样做代码会很重，所以索性就把几种城市选择的方式实现一遍，以备日后的不时之需。这三种方法都是针对pc端的，并且都是使用原生js实现的，连jq都没使用，于是代码有点繁琐额（尴尬）。。。。不过还是让我把原理讲完吧。</p>
 <p>源代码地址→<a href="https://github.com/visugar/FrontEnd-examples" target="_blank" rel="external">传送门</a></p>
 <p>预览地址→<a href="https://visugar.github.io/FrontEnd-examples/01省市区三级联动/index.html" target="_blank" rel="external">传送门</a></p>
-<h4 id="方法一：下拉选择框实现省市区（县）三级联动"><a href="#方法一：下拉选择框实现省市区（县）三级联动" class="headerlink" title="方法一：下拉选择框实现省市区（县）三级联动"></a>方法一：下拉选择框实现省市区（县）三级联动</h4><ol>
-<li>用下拉框实现省市区三级联动是很常见的一种方式，也很方便。这里需要先了解下select的相关属性及其对象属性，请参考<a href="http://visugar.com/2017/06/08/select%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0/">此文</a></li>
-<li><p>先看下最终实现效果图：<br><img src="http://opif0c56u.bkt.clouddn.com/select00.png" alt="select实现三级联动"><br>3.思路介绍：<br>页面加载时，动态获取省份列表并放到下拉菜单的下拉项中：<br><img src="http://opif0c56u.bkt.clouddn.com/select01.png" alt="select-省份显示"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    /*自动加载省份列表*/</div><div class="line">(function showProv() &#123;</div><div class="line">    btn.disabled = true;</div><div class="line">    var len = provice.length;</div><div class="line">    for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">        var provOpt = document.createElement(&apos;option&apos;);</div><div class="line">        provOpt.innerText = provice[i][&apos;name&apos;];</div><div class="line">        provOpt.value = i;</div><div class="line">        prov.appendChild(provOpt);</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>当点击省份列表中的某一项，此时触发省份下拉框的<code>onchange事件</code>，在onchange事件中根据前面所选的省份来显示对应城市。这里用到一个select的selectedIndex属性，从而获取刚刚点击的是哪个省份（生成省份列表时添加了value属性值）：<br><img src="http://opif0c56u.bkt.clouddn.com/select02.png" alt="select-省份显示"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var val = obj.options[obj.selectedIndex].value;  //这里得到的是所选择省份在所有下拉项中为第几项</div></pre></td></tr></table></figure>
-<p>当点击城市列表中的某一项时，原理同上（此处不赘述）<br><img src="http://opif0c56u.bkt.clouddn.com/select04.png" alt="select-省份显示"><br>选择城市时存在两种情况，如何城市选项下不存在县区，则直接将所选省市显示在输入框，否则依照上诉原理显示县区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!--方法是判断县区的length是否为0--&gt;</div><div class="line">var countryLen = provice[current.prov][&quot;city&quot;][val].districtAndCounty.length;</div><div class="line">    if(countryLen == 0)&#123;</div><div class="line">        addrShow.value = provice[current.prov].name + &apos;-&apos; + provice[current.prov][&quot;city&quot;][current.city].name;</div><div class="line">        return;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="方法一：下拉选择框实现省市区（县）三级联动"><a href="#方法一：下拉选择框实现省市区（县）三级联动" class="headerlink" title="方法一：下拉选择框实现省市区（县）三级联动"></a>方法一：下拉选择框实现省市区（县）三级联动</h4><p>用下拉框实现省市区三级联动是很常见的一种方式，也很方便。这里需要先了解下select的相关属性及其对象属性，请参考<a href="http://visugar.com/2017/06/08/select%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0/">此文</a></p>
+<p>先看下最终实现效果图：<br><img src="http://opif0c56u.bkt.clouddn.com/select00.png" alt="select实现三级联动"></p>
+<p>思路介绍：</p>
+<p>页面加载时，动态获取省份列表并放到下拉菜单的下拉项中：<br><img src="http://opif0c56u.bkt.clouddn.com/select01.png" alt="select-省份显示"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    /*自动加载省份列表*/</div><div class="line">(function showProv() &#123;</div><div class="line">    btn.disabled = true;</div><div class="line">    var len = provice.length;</div><div class="line">    for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">        var provOpt = document.createElement(&apos;option&apos;);</div><div class="line">        provOpt.innerText = provice[i][&apos;name&apos;];</div><div class="line">        provOpt.value = i;</div><div class="line">        prov.appendChild(provOpt);</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>当点击省份列表中的某一项，此时触发省份下拉框的<code>onchange事件</code>，在onchange事件中根据前面所选的省份来显示对应城市。这里用到一个select的selectedIndex属性，从而获取刚刚点击的是哪个省份（生成省份列表时添加了value属性值）：<br><img src="http://opif0c56u.bkt.clouddn.com/select02.png" alt="select-省份显示"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var val = obj.options[obj.selectedIndex].value;  //这里得到的是所选择省份在所有下拉项中为第几项</div></pre></td></tr></table></figure></p>
+<p>当点击城市列表中的某一项时，原理同上（此处不赘述）<br><img src="http://opif0c56u.bkt.clouddn.com/select04.png" alt="select-省份显示"><br>选择城市时存在两种情况，如何城市选项下不存在县区，则直接将所选省市显示在输入框，否则依照上诉原理显示县区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!--方法是判断县区的length是否为0--&gt;</div><div class="line">var countryLen = provice[current.prov][&quot;city&quot;][val].districtAndCounty.length;</div><div class="line">    if(countryLen == 0)&#123;</div><div class="line">        addrShow.value = provice[current.prov].name + &apos;-&apos; + provice[current.prov][&quot;city&quot;][current.city].name;</div><div class="line">        return;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <p>最后点击县区后再按确定，则可将所选地点显示在输入框中。</p>
-</li>
-</ol>
-<p>4.注意:</p>
+<p>注意:</p>
 <ul>
 <li>在未选中具体县区时，按钮为不可点状态</li>
-<li>具体的实现主要根据城市数据来进行更细的处理。<br>5.说明：</li>
+<li>具体的实现主要根据城市数据来进行更细的处理。</li>
+</ul>
+<p>说明：</p>
+<ul>
 <li>这里使用的省市区数据来源于网络，不能保证真实性及完整性，仅供案例使用</li>
 <li>此处使用的数据类型为js数组,格式参考如下（<a href="https://github.com/visugar/FrontEnd-examples/blob/master/01%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/city.js" target="_blank" rel="external">完整版</a>）：</li>
 </ul>
