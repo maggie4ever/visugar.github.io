@@ -4,6 +4,54 @@
 
     
   <url>
+    <loc>http://visugar.com/2017/07/28/20170728setTimeout/</loc>
+    <lastmod>2017-07-28T14:37:25.605Z</lastmod>
+    <data>
+        <display>
+        <title>定时器（setTimeout）的秘密</title>
+        <pubTime>2017-07-28T14:32:46.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>setTimeout</tag>
+         
+        <tag>定时器</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://visugar.com/2017/07/25/20170725DragAndDrop/</loc>
+    <lastmod>2017-07-28T14:34:26.772Z</lastmod>
+    <data>
+        <display>
+        <title>拖放API中的drag和drop实战</title>
+        <pubTime>2017-07-25T11:35:17.000Z</pubTime>
+        
+        <tag>拖放API</tag>
+         
+        <tag>drag</tag>
+         
+        <tag>drop</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://visugar.com/2017/07/25/20170725ClienOffsetScroll/</loc>
     <lastmod>2017-07-27T12:51:19.236Z</lastmod>
     <data>
@@ -28,30 +76,6 @@
 
     
   <url>
-    <loc>http://visugar.com/2017/07/25/20170725DragAndDrop/</loc>
-    <lastmod>2017-07-27T12:37:03.485Z</lastmod>
-    <data>
-        <display>
-        <title>拖放API中的drag和drop实战</title>
-        <pubTime>2017-07-25T11:35:17.000Z</pubTime>
-        
-        <tag>拖放API</tag>
-         
-        <tag>drag</tag>
-         
-        <tag>drop</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://visugar.com/2017/06/09/20170609ThreeLevel/</loc>
     <lastmod>2017-07-27T12:31:39.312Z</lastmod>
     <data>
@@ -61,11 +85,11 @@
         
         <tag>前端</tag>
          
-        <tag>select</tag>
-         
         <tag>省市区三级联动</tag>
          
         <tag>JS</tag>
+         
+        <tag>select</tag>
          
          
            
@@ -226,9 +250,9 @@
         <title>RegExp（正则表达式）常用要点小结</title>
         <pubTime>2017-05-11T08:17:05.000Z</pubTime>
         
-        <tag>前端</tag>
-         
         <tag>文档</tag>
+         
+        <tag>前端</tag>
          
         <tag>正则表达式</tag>
          
@@ -250,11 +274,11 @@
         <title>中文技术文档规范-改自阮一峰老师</title>
         <pubTime>2017-05-10T01:08:30.000Z</pubTime>
         
-        <tag>前端</tag>
-         
         <tag>写作规范</tag>
          
         <tag>文档</tag>
+         
+        <tag>前端</tag>
          
          
            

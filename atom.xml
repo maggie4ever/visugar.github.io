@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-07-27T12:37:03.485Z</updated>
+  <updated>2017-07-28T14:37:25.605Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -16,13 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>定时器（setTimeout）的秘密</title>
+    <link href="http://visugar.com/2017/07/28/20170728setTimeout/"/>
+    <id>http://visugar.com/2017/07/28/20170728setTimeout/</id>
+    <published>2017-07-28T14:32:46.000Z</published>
+    <updated>2017-07-28T14:37:25.605Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00935.JPG?viewImage/2/w/600/q/90" alt="美美哒武功山"></p>
+<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>setTimeout()是大家再熟悉不过的定时器，但平时对定时器的了解甚少，于是想看看setTimeout()的原理机制。</p>
+<h4 id="setTimeout-基础"><a href="#setTimeout-基础" class="headerlink" title="setTimeout()基础"></a>setTimeout()基础</h4><p>setTimeout()函数用来指定某个函数或某段代码，在多少毫秒之后执行。它返回一个整数，表示定时器的编号，以后可以用来取消这个定时器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var timeer = setTimeout(function|code,delay);</div></pre></td></tr></table></figure></p>
+<p>注：其中为code时需要以字符串形式传入，一般都是使用传入function的形式。</p>
+<blockquote>
+<p>setTimeout(func,delay,arg1,arg2···)</p>
+</blockquote>
+<p>setTimeout()可传入多个参数，第三个参数起是作为回调函数的参数传入。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function add(a,b)&#123;</div><div class="line">    console.log(a+b);</div><div class="line">&#125;</div><div class="line">setTimeout(add,4000,20,30);  //20和30作为add的参数传入 结果为50</div></pre></td></tr></table></figure></p>
+<p>HTML5规定setTimeout()的最短时间间隔是4ms，对于不处在当前窗口的页面，浏览器会将时间间隔扩大到1000ms，若笔记本电脑处于电池供电状态，chrome及IE9以上版本，会将时间间隔切换到系统定时器，约15.6ms。</p>
+<h4 id="setTimeout-中回调函数的指向"><a href="#setTimeout-中回调函数的指向" class="headerlink" title="setTimeout()中回调函数的指向"></a>setTimeout()中回调函数的指向</h4><p>setTimeout()回调函数调用的是某个对象的方法，则其中this指向的是setTimeout所处的环境而并非指向该对象环境。</p>
+<p>可使用ES5中的bind()方法解决this指向，即将对象环境绑定到要执行的回调函数上即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var name = &apos;lily&apos;;</div><div class="line">function Person(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.printName = function()&#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person01 = new Person(&apos;jike&apos;);</div><div class="line"></div><div class="line"> //此处的this.name为window下的name，所以是&apos;lily&apos;</div><div class="line">window.setTimeout(person01.printName,1000);</div><div class="line"></div><div class="line">//此处将printName绑定在person01上，所以this.name的值为&apos;jike&apos;</div><div class="line">window.setTimeout(person01.printName.bind(person01),2000);</div><div class="line"></div><div class="line">//将printName中的this.name与person01限定在同一个作用域中，所以结果是&apos;jike&apos;</div><div class="line">window.setTimeout(function()&#123;person01.printName();&#125;,3000);</div><div class="line"></div><div class="line">//借助ES6中的箭头函数也可以解决问题</div><div class="line">window.setTimeout(() =&gt; &#123;person01.printName&#125;,1000);</div></pre></td></tr></table></figure></p>
+<h4 id="setTimeout运行机制"><a href="#setTimeout运行机制" class="headerlink" title="setTimeout运行机制"></a>setTimeout运行机制</h4><p>setTimeout()和setInterval()的运行机制是，将指定的代码移出本次执行，等到下一轮Event Loop时，再检查是否到了指定时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮Event Loop时重新判断。这意味着，setTimeout()指定的代码，必须等到本次执行的所有代码都执行完，才会执行。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">task1();</div><div class="line">setTimeout(otherTask,1000);</div><div class="line">task2();</div></pre></td></tr></table></figure></p>
+<p>其中task1和task2为立即执行任务，otherTask被指定在1s后执行，此时otherTask被添加到任务队列的尾部，要等当前的脚本中Event Loop的任务队列全部执行完成后，才开始执行otherTask，但如果task1和task2很耗时，前面的任务超过1s还未结束，此时otherTask只能等task1和task2运行结束，才会执行otherTask。</p>
+<h4 id="setTimeout-func-0-的运用"><a href="#setTimeout-func-0-的运用" class="headerlink" title="setTimeout(func,0)的运用"></a>setTimeout(func,0)的运用</h4><p>当延迟时间设为0时，即当前任务队列一结束就立即执行func。（换个角度说就是同步任务的任务队列结束后尽早执行。）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">task01();</div><div class="line">setTimeout(function()&#123;</div><div class="line">    console.log(&apos;hello!&apos;);  //在task01和task02结束后立即打印hello!</div><div class="line">&#125;,0)</div><div class="line">task02();</div></pre></td></tr></table></figure></p>
+<p>0ms在实际上是达不到的，根据HTML5标准，setTimeout()推迟执行的时间最少是4ms，如果小于这个值，会被自动增加到4，同时也是为了防止多个setTimeout(func,0)语句连续执行，造成性能问题。</p>
+<ul>
+<li>setTimeout(func,0)可以调整事件的发生顺序。</li>
+</ul>
+<h4 id="clearTimeout"><a href="#clearTimeout" class="headerlink" title="clearTimeout()"></a>clearTimeout()</h4><p>setTimeout()和setInterval()函数，都返回一个表示计数器编号的整数值，将该整数传入clearTimeout()和clearInterval()函数，就可以取消对应的定时器。两种定时器用的同一个编号池。</p>
+<p>setTimeout()和setInterval()函数返回的整数值都是连续的，因此可以利用循环来清除所有的定时器。</p>
+<h4 id="防抖动（debounce）"><a href="#防抖动（debounce）" class="headerlink" title="防抖动（debounce）"></a>防抖动（debounce）</h4><p>该方法用于防止某个函数在短时间内被密集调用，具体来具体来说，debounce方法返回一个新版的该函数，这个新版函数调用后，只有在指定时间内没有新的调用，才会执行，否则就重新计时。</p>
+<p>实际中不要设置太多个setTimeout()和setInterval(),它们耗费CPU，理想做法是将要延迟执行的代码都放在同一个函数里，然后支队这个函数使用setTimeout()和setInterval()。</p>
+<h4 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a>setInterval()</h4><p>setInterval()使用原理机制与setTimeout()一样，区别就是setInterval()是每隔多少ms执行一次回调函数。也可以传入大于两个参数。</p>
+<p>setInterval()指定的是“开始执行”之间的间隔，并不考虑每次任指定的是“开始执行”之间的间隔，并不考虑每次任，比如，setInterval()指定每100ms执行一次，每次执行需要5ms，那么第一次执行后95ms后，第二次执行就会开始。如果某次执行需要105ms，即超过了delay时间，则执行结束后下一次执行就会立即开始。</p>
+<p>setInterval()的最短间隔是10ms，小于10ms的时间间隔会被调整到10ms</p>
+<p>setInterval()具有累积效应，如果某个操作特别耗时，超过了setInterval()的时间间隔，排在后面的操作就会被累积起来，然后在很短的时间内连续触发，这可能会造成性能问题。</p>
+<h4 id="资源参考"><a href="#资源参考" class="headerlink" title="资源参考"></a>资源参考</h4><ul>
+<li><a href="https://www.w3cplus.com/blog/2103.html" target="_blank" rel="external">你所不知道的setTimeout</a></li>
+<li><a href="https://www.w3cplus.com/javascript/javaScript-setInterval.html" target="_blank" rel="external">你所不知道的setInterval</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout" target="_blank" rel="external">setTimeout-MDN</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC00935.JPG?viewImage/2/w/600/q/90&quot; alt=&quot;美美哒武功山&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;he
+    
+    </summary>
+    
+      <category term="Web开发" scheme="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="setTimeout" scheme="http://visugar.com/tags/setTimeout/"/>
+    
+      <category term="定时器" scheme="http://visugar.com/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>拖放API中的drag和drop实战</title>
     <link href="http://visugar.com/2017/07/25/20170725DragAndDrop/"/>
     <id>http://visugar.com/2017/07/25/20170725DragAndDrop/</id>
     <published>2017-07-25T11:35:17.000Z</published>
-    <updated>2017-07-27T12:37:03.485Z</updated>
+    <updated>2017-07-28T14:34:26.772Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800" alt="漫山遍野"></p>
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800/q/90" alt="漫山遍野"></p>
 <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>在HTML5之前，实现拖放功能需要借助mousedown/mousemove/mouseover/mouseout/mouseup等鼠标事件来完成，HTML5中拖放API的出现使很多事情变简单。下面是做笔记做笔记~</p>
 <ul>
 <li><a href="https://github.com/visugar/FrontEnd-examples/blob/master/08H5%E6%8B%96%E6%94%BEAPI/index.html" target="_blank" rel="external">源码地址</a></li>
@@ -57,8 +116,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800&quot; alt=&quot;漫山遍野&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlin
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800/q/90&quot; alt=&quot;漫山遍野&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;head
     
     </summary>
     
@@ -288,11 +347,11 @@
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="select" scheme="http://visugar.com/tags/select/"/>
-    
       <category term="省市区三级联动" scheme="http://visugar.com/tags/%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/"/>
     
       <category term="JS" scheme="http://visugar.com/tags/JS/"/>
+    
+      <category term="select" scheme="http://visugar.com/tags/select/"/>
     
   </entry>
   
@@ -555,9 +614,9 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
-      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
@@ -586,11 +645,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
-      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
     
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
