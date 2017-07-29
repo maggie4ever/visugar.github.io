@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="YEUhREmSTM" />
+    <meta name="google-site-verification" content="nIsOrwE2Wm5pnS7Jk3Qn3GAzbHINWBovJ50ACgOMZO4" />
+    
+    <title>拖放API中的drag和drop实战 | Visugar个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="拖放API,drag,drop" />
+    
+    <meta name="description" content="写在前面在HTML5之前，实现拖放功能需要借助mousedown/mousemove/mouseover/mouseout/mouseup等鼠标事件来完成，HTML5中拖放API的出现使很多事情变简单。下面是做笔记做笔记~  源码地址 栗子预览1 栗子预览2 栗子预览3  拖放过程拖放：包括拖拽（drag）和释放（drop） 拖放中涉及两个元素，分别是：源对象和目标对象，如下图源对象是被拖拽的元">
+<meta name="keywords" content="拖放API,drag,drop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拖放API中的drag和drop实战">
+<meta property="og:url" content="http://visugar.com/2017/07/25/20170725DragAndDrop/index.html">
+<meta property="og:site_name" content="Visugar个人博客">
+<meta property="og:description" content="写在前面在HTML5之前，实现拖放功能需要借助mousedown/mousemove/mouseover/mouseout/mouseup等鼠标事件来完成，HTML5中拖放API的出现使很多事情变简单。下面是做笔记做笔记~  源码地址 栗子预览1 栗子预览2 栗子预览3  拖放过程拖放：包括拖拽（drag）和释放（drop） 拖放中涉及两个元素，分别是：源对象和目标对象，如下图源对象是被拖拽的元">
+<meta property="og:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800/q/90">
+<meta property="og:updated_time" content="2017-07-28T14:34:26.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="拖放API中的drag和drop实战">
+<meta name="twitter:description" content="写在前面在HTML5之前，实现拖放功能需要借助mousedown/mousemove/mouseover/mouseout/mouseup等鼠标事件来完成，HTML5中拖放API的出现使很多事情变简单。下面是做笔记做笔记~  源码地址 栗子预览1 栗子预览2 栗子预览3  拖放过程拖放：包括拖拽（drag）和释放（drop） 拖放中涉及两个元素，分别是：源对象和目标对象，如下图源对象是被拖拽的元">
+<meta name="twitter:image" content="http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800/q/90">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Visugar个人博客" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="http://opeywooaz.bkt.clouddn.com/icon1.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">书写前端，记录心情，以及碎碎念 ~</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web开发/">Web开发</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/划重点/">划重点</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/board">更新日志</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">关于我</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Web开发/">Web开发</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-20170725DragAndDrop" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        拖放API中的drag和drop实战
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/07/25/20170725DragAndDrop/" class="article-date">
+            <time datetime="2017-07-25T11:35:17.000Z" itemprop="datePublished">2017-07-25</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/drag/">drag</a>, <a class="tag-link" href="/tags/drop/">drop</a>, <a class="tag-link" href="/tags/拖放API/">拖放API</a>
+    </div>
+
+                阅读数:<span id="/2017/07/25/20170725DragAndDrop/" class="leancloud_visitors" data-flag-title="拖放API中的drag和drop实战"></span>次
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800/q/90" alt="漫山遍野"></p>
+<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>在HTML5之前，实现拖放功能需要借助mousedown/mousemove/mouseover/mouseout/mouseup等鼠标事件来完成，HTML5中拖放API的出现使很多事情变简单。下面是做笔记做笔记~</p>
+<ul>
+<li><a href="https://github.com/visugar/FrontEnd-examples/blob/master/08H5%E6%8B%96%E6%94%BEAPI/index.html" target="_blank" rel="external">源码地址</a></li>
+<li><a href="https://visugar.github.io/FrontEnd-examples/08H5%E6%8B%96%E6%94%BEAPI/index.html" target="_blank" rel="external">栗子预览1</a></li>
+<li><a href="https://visugar.github.io/FrontEnd-examples/08H5%E6%8B%96%E6%94%BEAPI/drag01.html" target="_blank" rel="external">栗子预览2</a></li>
+<li><a href="https://visugar.github.io/FrontEnd-examples/08H5%E6%8B%96%E6%94%BEAPI/drag02.html" target="_blank" rel="external">栗子预览3</a></li>
+</ul>
+<h4 id="拖放过程"><a href="#拖放过程" class="headerlink" title="拖放过程"></a>拖放过程</h4><p>拖放：包括拖拽（drag）和释放（drop）</p>
+<p>拖放中涉及两个元素，分别是：源对象和目标对象，如下图<br>源对象是被拖拽的元素，目标对象是要释放到的接收元素。<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag10.png" alt="源对象和目标对象"></p>
+<p>拖放事件：</p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/20170725event.png" alt="拖放事件流"></p>
+<p><code>拖放事件流</code>为拖放操作开始后触发的一系列事件，分为以下两类：</p>
+<p>发生在源对象上的事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dragstart:用户开始拖动页面中的某个元素时触发的事件</div><div class="line">drag: 源对象在拖拽过程中持续触发的事件</div><div class="line">dragend:拖动完成时触发的事件，一般用于清空拖动过程中的状态等。</div></pre></td></tr></table></figure></p>
+<p>发生在目标对象上的事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dragenter:源对象进入到目标对象时，会触发目标对象的ondragenter事件</div><div class="line">dragleave:源对象移除之前调用了dragenter的元素时，目标元素触发的事件</div><div class="line">dragover：源对象进入目标对象后持续触发的事件</div><div class="line">drop：用户释放鼠标时，drop会在目标对象上被调用</div></pre></td></tr></table></figure></p>
+<p>设置元素可拖动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dragable = &quot;true&quot;</div></pre></td></tr></table></figure></p>
+<p> 传输和控–dataTransfer</p>
+<p><code>dataTransfer</code>对象可用于每个拖放事件中。用于获取和设置实际放置的数据，主要属性及方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">setData(format,data):在dragstart事件中调用此函数可以注册一个MIME类型格式的传输项。</div><div class="line">getData(format):可以获取指定类型的注册数据项。</div><div class="line">types：属性以数组形式返回所有当前注册的格式。</div><div class="line">items：返回所有项机器相关格式列表</div><div class="line">files：返回与放置相关的所有文件</div><div class="line">clearData():不带参则清空所有注册数据，带参则移除指定注册项</div><div class="line">…………等等</div></pre></td></tr></table></figure></p>
+<h4 id="来点儿小栗子"><a href="#来点儿小栗子" class="headerlink" title="来点儿小栗子"></a>来点儿小栗子</h4><p>说小栗子前说下两点：</p>
+<p>触发dragover事件时，需要使用preventDefault()方法阻止默认事件，drag事件才能正常触发</p>
+<p>dataTransfer中的files属性用到了File API规范的子集，files存放了文件列表，files支持下列属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name:带有扩展名的文件全名</div><div class="line">type：文件的MIME类型</div><div class="line">size：以字节为单位的文件大小</div><div class="line">lastModifiedDate：最后一次修改文件内容的时间戳</div></pre></td></tr></table></figure></p>
+<p>下面会用到的FileReader对象<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader" target="_blank" rel="external">详细请移步</a>：<br>FileReader 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 File 或 Blob 对象指定要读取的文件或数据。</p>
+<p>其中File对象可以是来自用户在一个<input>元素上选择文件后返回的FileList对象,也可以来自拖放操作生成的 DataTransfer对象,还可以是来自在一个HTMLCanvasElement上执行mozGetAsFile()方法后返回结果.</p>
+<p>1.简单的节点拖放<br>可将任意节点拖放到其他元素上，并插入到目标元素的前面<br>拖放前后：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag02.gif" alt="拖放节点效果"></p>
+<p>主要代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/*目标对象上触发的dragove事件*/</div><div class="line">   drag.addEventListener(&apos;dragover&apos;, function (e) &#123;</div><div class="line">       e.preventDefault(); //阻止默认动作</div><div class="line">   &#125;)</div><div class="line"></div><div class="line">   /*源对象释放，目标对象上触发的事件*/</div><div class="line">   drag.addEventListener(&apos;drop&apos;, function (e) &#123;</div><div class="line">       ele.classList.remove(&apos;draging&apos;);</div><div class="line">       if (e.target.nodeName === &apos;LI&apos;) &#123;</div><div class="line">           e.target.parentNode.insertBefore(ele, e.target); //将源对象元素插入到目标元素前面</div><div class="line">       &#125;</div><div class="line">   &#125;)</div></pre></td></tr></table></figure></p>
+<p>2.节点清除<br>可将龙猫丢进垃圾桶，即清除img元素节点<br>丢龙猫前后：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag03.gif" alt="丢龙猫前后"><br>主要代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;h3&gt;拖动龙猫到垃圾桶后从DOM树中删除子元素&lt;/h3&gt;</div><div class="line">      &lt;img id=&quot;bin&quot; src=&quot;./img/default.png&quot;&gt;</div><div class="line">      &lt;hr/&gt;</div><div class="line">      &lt;img id=&quot;item1&quot; class=&quot;imgs&quot; src=&quot;./img/01.jpeg&quot;&gt;</div><div class="line">      &lt;img id=&quot;item2&quot; class=&quot;imgs&quot; src=&quot;./img/02.jpg&quot;&gt;</div><div class="line">      &lt;img id=&quot;item3&quot; class=&quot;imgs&quot; src=&quot;./img/03.jpeg&quot;&gt;</div><div class="line"></div><div class="line">      &lt;script&gt;</div><div class="line"></div><div class="line">        //为源对象添加事件监听 —— 记录拖动了哪一个源对象</div><div class="line">        var imgs = document.querySelectorAll(&apos;.imgs&apos;);</div><div class="line">        var target = document.querySelector(&apos;#bin&apos;);</div><div class="line"></div><div class="line">        for(var i=0; i&lt;imgs.length; i++)&#123;</div><div class="line">          var pic = imgs[i];</div><div class="line">          pic.ondragstart = function(e)&#123; //开始拖动源对象</div><div class="line">            e.dataTransfer.setData(&apos;imgID&apos;,this.id);//保存被拖拽源的id</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //为目标对象添加事件监听 —— 删除拖动的源对象</div><div class="line">        target.ondragover= function(e)&#123;</div><div class="line">          e.preventDefault();  //阻止默认行为</div><div class="line">        &#125;</div><div class="line">        target.ondrop= function(e)&#123; //源对象松手释放在了目标对象中</div><div class="line">          //删除被拖动的源对象</div><div class="line">          var id = e.dataTransfer.getData(&apos;imgID&apos;);</div><div class="line">          var p = document.getElementById(id);</div><div class="line">          p.parentNode.removeChild(p);  //从父元素中删除子节点</div><div class="line">        &#125;</div><div class="line"></div><div class="line">      &lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>3.将本地图片拖放到页面中指定区域</p>
+<p>可将你的美图拖到网页中显示</p>
+<p>爆照前后效果：<br><img src="http://opif0c56u.bkt.clouddn.com/20170725drag01.gif" alt="爆照前后"></p>
+<p>主要代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var content = document.querySelector(&apos;#content&apos;);</div><div class="line"></div><div class="line">    document.addEventListener(&apos;dragover&apos;,function(e)&#123;</div><div class="line">        e.preventDefault(); //阻止document的默认事件</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    document.addEventListener(&apos;drop&apos;,function(e)&#123;</div><div class="line">        e.preventDefault(); //阻止document的默认事件(阻止照片在新窗口中打开)</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    content.addEventListener(&apos;dragover&apos;,function(e)&#123;</div><div class="line">        e.preventDefault();</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    content.addEventListener(&apos;drop&apos;,function(e)&#123;</div><div class="line">        var imgFs = e.dataTransfer.files[0];  //files存放了文件列表</div><div class="line">        //console.log(imgFs);</div><div class="line">        var fs = new FileReader();  //创建一个FileReader对象</div><div class="line">        fs.readAsDataURL(imgFs);</div><div class="line">        /*图片资源加载完成之后显示在content中*/</div><div class="line">        fs.onload = function()&#123;</div><div class="line">            var img = new Image();</div><div class="line">            img.src = fs.result;</div><div class="line">            content.appendChild(img);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>对今天学习的知识点做个记录，欢迎大佬们指正~</p>
+
+            <hr width="98%">
+            <div>
+                <h3>我的窝</h3>
+                <p><a href="http://visugar.com">小花的博客</a></p>
+                <h3>招摇撞骗（可自行忽略）</h3>
+                <p><a href="http://visugar.com/about/" >小花求赏→爱的辣条</a></p>
+            </div>
+        </div>
+        <footer class="article-footer">
+            
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+
+        </footer>
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTc4Ni82MzUy">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    </div>
+</article>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/visugar" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="http://weibo.com/visugar77" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/07/28/20170728setTimeout/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            定时器（setTimeout）的秘密
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/07/25/20170725ClienOffsetScroll/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">JS中client/offset/scroll等的宽高解析</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/28/20170728setTimeout/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://opfk7lrr2.bkt.clouddn.com/DSC00935.JPG?viewImage/2/w/600/q/90)" alt="定时器（setTimeout）的秘密" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web开发/">Web开发</a></p>
+                            <p class="item-title"><a href="/2017/07/28/20170728setTimeout/" class="title">定时器（setTimeout）的秘密</a></p>
+                            <p class="item-date"><time datetime="2017-07-28T14:32:46.000Z" itemprop="datePublished">2017-07-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/25/20170725DragAndDrop/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://opfk7lrr2.bkt.clouddn.com/DSC00494.JPG?imageView/2/w/800/q/90)" alt="拖放API中的drag和drop实战" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web开发/">Web开发</a></p>
+                            <p class="item-title"><a href="/2017/07/25/20170725DragAndDrop/" class="title">拖放API中的drag和drop实战</a></p>
+                            <p class="item-date"><time datetime="2017-07-25T11:35:17.000Z" itemprop="datePublished">2017-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/25/20170725ClienOffsetScroll/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://upload-images.jianshu.io/upload_images/1727565-d51672eab4d06697.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)" alt="JS中client/offset/scroll等的宽高解析" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/划重点/">划重点</a></p>
+                            <p class="item-title"><a href="/2017/07/25/20170725ClienOffsetScroll/" class="title">JS中client/offset/scroll等的宽高解析</a></p>
+                            <p class="item-date"><time datetime="2017-07-25T11:28:30.000Z" itemprop="datePublished">2017-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/26/20170626FontLightBlur/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://opfk7lrr2.bkt.clouddn.com/DSC00724.JPG?imageView/2/w/600/90)" alt="css实现鼠标悬浮字体流光背景模糊效果" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web开发/">Web开发</a></p>
+                            <p class="item-title"><a href="/2017/06/26/20170626FontLightBlur/" class="title">css实现鼠标悬浮字体流光背景模糊效果</a></p>
+                            <p class="item-date"><time datetime="2017-06-26T10:36:31.000Z" itemprop="datePublished">2017-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/09/20170609ThreeLevel/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://opfk7lrr2.bkt.clouddn.com/DSC03889.JPG?imageView/2/w/600/q/90)" alt="原生JS实现省市区（县）三级联动选择" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web开发/">Web开发</a></p>
+                            <p class="item-title"><a href="/2017/06/09/20170609ThreeLevel/" class="title">原生JS实现省市区（县）三级联动选择</a></p>
+                            <p class="item-date"><time datetime="2017-06-09T12:28:08.000Z" itemprop="datePublished">2017-06-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+<div class="widget-wrap widget-list">
+    <h3 class="widget-title">联系方式</h3>
+    <div class="widget">
+        <p>QQ: 1228075865</p>
+        <p>Email: visugar@163.com </p>
+       <!-- <img src="http://opeywooaz.bkt.clouddn.com/01.jpg" style="width: 280px;height: 280px;">-->
+    </div>
+</div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Web开发/">Web开发</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/划重点/">划重点</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/CSS布局/" style="font-size: 10px;">CSS布局</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/drag/" style="font-size: 10px;">drag</a> <a href="/tags/drop/" style="font-size: 10px;">drop</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/offset-client-scroll/" style="font-size: 10px;">offset/client/scroll</a> <a href="/tags/select/" style="font-size: 15px;">select</a> <a href="/tags/setTimeout/" style="font-size: 10px;">setTimeout</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/width-height/" style="font-size: 10px;">width/height</a> <a href="/tags/z-index/" style="font-size: 10px;">z-index</a> <a href="/tags/写作规范/" style="font-size: 10px;">写作规范</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/定时器/" style="font-size: 10px;">定时器</a> <a href="/tags/拖放API/" style="font-size: 10px;">拖放API</a> <a href="/tags/文档/" style="font-size: 15px;">文档</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/省市区三级联动/" style="font-size: 10px;">省市区三级联动</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">友链</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://lyyua.com/">友一Lyu</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.jianshu.com/u/d9768dd88a22">简书</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/ppoffice/hexo-theme-hueman">Theme</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 张小花</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = 'TnQrhUVygMM617G1EVPHEhYA-gzGzoHsz';
+    var APP_KEY = 'hClIsY2hnPtsfkQmS2gqGHcn';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+    });
+</script>
+
+
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
