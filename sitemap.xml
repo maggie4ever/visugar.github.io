@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://visugar.com/about/index.html</loc>
+    
+    <lastmod>2017-07-31T11:11:26.320Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://visugar.com/2017/07/28/20170728setTimeout/</loc>
     
     <lastmod>2017-07-28T14:37:25.605Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>http://visugar.com/2017/05/10/20170510DocRule/</loc>
     
     <lastmod>2017-05-18T11:41:47.440Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://visugar.com/about/index.html</loc>
-    
-    <lastmod>2017-05-08T01:19:34.120Z</lastmod>
     
   </url>
   
