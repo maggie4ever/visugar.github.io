@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-07-28T14:37:25.605Z</updated>
+  <updated>2017-08-01T11:53:43.783Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客添加SEO-评论系统-阅读统计-站长统计</title>
+    <link href="http://visugar.com/2017/08/01/20170801HexoPlugins/"/>
+    <id>http://visugar.com/2017/08/01/20170801HexoPlugins/</id>
+    <published>2017-08-01T11:49:26.000Z</published>
+    <updated>2017-08-01T11:53:43.783Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC07450.JPG?imageView/2/w/800/q/80" alt="丹霞山"></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>在五月出捣腾了一把个人博客，但是刚开始只做了一些基础设置，套路也没摸清，基础安装篇请看<a href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/">hexo从零开始到搭建完整</a>,里面讲到了基础工具的安装及blog项目的文件夹含义，以及RSS添加、域名的绑定等操作，后来想着加点功能，但是奈何我选的主题集成的东西比较少，需要一比一步自己添加，于是摸索了一番。。。现在真是发现了next主题的好处，不仅持续更新，而且作者以及在主题中集成了各种功能，简直爽歪歪，不过我还是默默的接着摸索吧！下面介绍几种好用的东西。</p>
+<ol>
+<li>推荐七牛云</li>
+<li>添加百度SEO</li>
+<li>添加谷歌SEO</li>
+<li>添加评论系统来必力</li>
+<li>百度统计</li>
+<li>文章统计leanCloud</li>
+<li>引入站长统计不蒜子</li>
+</ol>
+<h3 id="七牛云"><a href="#七牛云" class="headerlink" title="七牛云"></a>七牛云</h3><p>先给大兄弟们极力推荐个好用的图床工具<code>七牛云</code>。么么<br><img src="http://opif0c56u.bkt.clouddn.com/20170731sevenCowCloud.png" alt="七牛云"><br>注：上传后的图片尽量不要修改和删除额，不然之前添加的链接就会失效啦</p>
+<h3 id="添加百度SEO"><a href="#添加百度SEO" class="headerlink" title="添加百度SEO"></a>添加百度SEO</h3><p>为了增加文章的曝光率，让别人更容易搜到你的文章，那就添加SEO吧，不过好像要下面介绍下添加加入百度SEO的步骤：</p>
+<p>在百度中输入<code>site:yourwebsite</code>,好像要绑定了域名的网址才可以额，直接github.io的好像不行，<a href="http://zhanzhang.baidu.com/site/index?site=http://www.visugar.com/" target="_blank" rel="external">百度站长平台</a>。<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo00.png" alt="检验你的网址"></p>
+<p>填写要提交的网址：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo01.png" alt="提交网址"></p>
+<p>选择站点的相关属性：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo02.png" alt="选择站点属性"></p>
+<p>验证你的网站（这里有三种方法，你任选一种就好了，我试了后面两种，操作简单方便。我最后使用的是第三种添加一条解析）：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo3.png" alt="文件验证"><br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo4.png" alt="HTML验证网站"></p>
+<p><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo5.png" alt="CNAME验证网站"></p>
+<p>CNAME验证方式如下，记录类型选CNAME，主机记录为zz.baidu.com,记录值就填百度给的。<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo9.png" alt="CNAME验证"></p>
+<p>接下来要让你的网站生成网站地图，及生产sitemap，将sitemap提交到百度，先安装地图生成插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure></p>
+<p>然后查看是否在根目录的<code>_config.xml</code>配置文件下添加了你的url：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo11.png" alt="添加url"><br>重新部署后即可在public文件下看到sitemap.xml和baidusitemap.xml文件，在浏览器中输入你的网址/sitemap.xml即可看到所生成的地图文件，表示安装成功。<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdmap.png" alt="sitemap"></p>
+<p>接着是提交你的sitemap到百度，点击<code>链接提交</code>进行提交。分为自动提交和手动提交。自动提交提供了3中方式，可以都使用，也可以只使用其中的一种：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo12.png" alt="提交sitemap"><br>根据提示操作即可。建议采用自动提交额，手动提交会累死人</p>
+<p>然后进行死链提交：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731bdseo010.png" alt="死链提交"><br>提交完了等着就好了，可能要很久才生效。。。</p>
+<h3 id="添加谷歌SEO"><a href="#添加谷歌SEO" class="headerlink" title="添加谷歌SEO"></a>添加谷歌SEO</h3><p>作为程序boy，google是少不了的，所以也把你的网站加到谷歌SEO吧，添加到谷歌的话很快就能生效的额，大概只要几分钟吧，添加起来也是比较简单滴。当然要先自备天梯。。。</p>
+<p>敲黑板！首先得有个谷歌账号，自由发挥吧，然后到这里<a href="https://www.google.com/webmasters/verification/home?hl=zh-CN&amp;theme=wmt&amp;continue=https://www.google.com/webmasters/tools/change-address?hl%3Dzh-CN%26siteUrl%3Dhttp://visugar.com/%26sig%3DALjLGbO6-M1mTuGz1Y5Up7WSkGHtUoE4MQ%26sig%3DALjLGbPf2LcvrtswfByhZmozORjZiSc52A" target="_blank" rel="external">添加地址</a>去添加你的网址。</p>
+<p>也可以现在google总共输入如下内容，然后进入到添加网站的地址：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731google01.png" alt="验证网址"></p>
+<p>点击<code>添加属性</code>后即可添加你的博客地址。<br><img src="http://opif0c56u.bkt.clouddn.com/20170731google02.png" alt="添加属性"></p>
+<p>添加完成之后进行网站验证，我使用的貌似是备用方法，比较便捷。<br><img src="http://opif0c56u.bkt.clouddn.com/20170731google03.png" alt="网站验证"><br><img src="http://opif0c56u.bkt.clouddn.com/20170731google04.png" alt="备用方法"></p>
+<p>添加好之后稍等一会儿再Google中输入关键字，就可以看到效果啦<br><img src="http://opif0c56u.bkt.clouddn.com/20170731google05.png" alt="查看你的博客"></p>
+<h3 id="添加评论系统来必力"><a href="#添加评论系统来必力" class="headerlink" title="添加评论系统来必力"></a>添加评论系统来必力</h3><p>评论系统真是个令我伤心的东西，我用的<code>hueman</code>主题也是集成了几种评论系统的，但是都是坑啊，disqus是国外的额。畅言是要备案的，友言的感觉不是很好看，之前很强大多说在6月1号关了，转战云更贴，结果宣布在8月1号正式停用。嗯！就是今天，八一建军节就是周年！此处比心~</p>
+<p>其实后面才知道有来必力这玩意儿的，第一眼看它还有点不顺眼，原因你懂的，后来发现用的人还挺多的，于是最后还是被它征服了</p>
+<p><a href="https://livere.com/" target="_blank" rel="external">官网传送门</a>，注册的时候会出现点韩语，不过莫慌，该看懂的还是看的懂额，嗯就酱。</p>
+<p>注册好后到管理页面去：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731livebe01.png" alt="点击管理页面"></p>
+<p>在<code>代码管理</code>中获取安装代码：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731livebe02.png" alt="安装代码"><br>（此处针对的是hueman主题，其他的应该类似）获取安装代码后，在主题的comment下新建一个文件放入刚刚那段代码，再找到article文件，找到如下代码，若没有则直接在footer后面添加即可。livebe即为刚刚所创文件名称。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%- partial(&apos;comment/livebe&apos;) %&gt;</div></pre></td></tr></table></figure></p>
+<p>完成上面步骤之后可选择性进行一些相关配置，如下：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731livebe03.png" alt="相关配置"></p>
+<p>重新部署博客后即可看到效果：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731livebe04.png" alt="效果图"></p>
+<h3 id="添加百度统计"><a href="#添加百度统计" class="headerlink" title="添加百度统计"></a>添加百度统计</h3><p>百度统计也是个好东西，因为可以看到一些很详细的信息！</p>
+<p><a href="https://tongji.baidu.com/sc-web/24289468/home/site/index?from=3" target="_blank" rel="external">百度统计传送门</a></p>
+<p>在管理这一栏先把要统计的网站添加进来：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731tg01.png" alt="添加网站"></p>
+<p>然后找到代码获取，进行代码安装：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731tg02.png" alt="代码安装"></p>
+<p>代码安装好后重新部署，再回到百度统计中进行代码安装检查，安装正确即可。</p>
+<p>差不多等个半小时吧，再进入到报告这一栏即可查看相关数据了。</p>
+<h3 id="文章阅读量统计leanCloud"><a href="#文章阅读量统计leanCloud" class="headerlink" title="文章阅读量统计leanCloud"></a>文章阅读量统计leanCloud</h3><p>对于文章数量的统计，leanCloud是个好东西，<a href="https://leancloud.cn/" target="_blank" rel="external">官网传送门</a>，leanCloud功能繁多，你可以好好的利用一番，这里主要讲文章阅读数量。</p>
+<p>乖乖注册好账号之后去添加一个应用：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731leanCloud01.png" alt="创建应用"></p>
+<p>点击你的应用右上角的齿轮，进入到配置页面：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731leanCloud02.png" alt="设置页面"></p>
+<p>在存储这一栏中创建一个新的Class Name：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731leanCloud03.png" alt="新建Class Name"></p>
+<p>新的Class Name为Counter：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731leanCloud04.png" alt="Counter"></p>
+<p>然后在设置页面的应用Key可查看到你的App ID及App Key：<br><img src="http://opif0c56u.bkt.clouddn.com/20170731leanCloud05.png" alt="查看信息"></p>
+<p>在主题的配置文件下添加如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//若主题已集成则只需要加此段</div><div class="line">leancloud_visitors:</div><div class="line">  enable: true</div><div class="line">  app_id: 你的id</div><div class="line">  app_key: 你的key</div></pre></td></tr></table></figure></p>
+<p>在article中适当的位置添加如下（取决于你要将它显示在何处）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">阅读数量:&lt;span id=&quot;&lt;%= url_for(post.path) %&gt;&quot; class=&quot;leancloud_visitors&quot; data-flag-title=&quot;&lt;%- post.title %&gt;&quot;&gt;&lt;/span&gt;次</div></pre></td></tr></table></figure></p>
+<p>在footer的最后添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/2.5.0/av-min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var APP_ID = &apos;你的app id&apos;;</div><div class="line">    var APP_KEY = &apos;你的app key&apos;;</div><div class="line">    AV.init(&#123;</div><div class="line">        appId: APP_ID,</div><div class="line">        appKey: APP_KEY</div><div class="line">    &#125;);</div><div class="line">    // 显示次数</div><div class="line">    function showTime(Counter) &#123;</div><div class="line">        var query = new AV.Query(&quot;Counter&quot;);</div><div class="line">        if($(&quot;.leancloud_visitors&quot;).length &gt; 0)&#123;</div><div class="line">            var url = $(&quot;.leancloud_visitors&quot;).attr(&apos;id&apos;).trim();</div><div class="line">            // where field</div><div class="line">            query.equalTo(&quot;words&quot;, url);</div><div class="line">            // count</div><div class="line">            query.count().then(function (number) &#123;</div><div class="line">                // There are number instances of MyClass where words equals url.</div><div class="line">                $(document.getElementById(url)).text(number?  number : &apos;--&apos;);</div><div class="line">            &#125;, function (error) &#123;</div><div class="line">                // error is an instance of AVError.</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    // 追加pv</div><div class="line">    function addCount(Counter) &#123;</div><div class="line">        var url = $(&quot;.leancloud_visitors&quot;).length &gt; 0 ? $(&quot;.leancloud_visitors&quot;).attr(&apos;id&apos;).trim() : &apos;icafebolger.com&apos;;</div><div class="line">        var Counter = AV.Object.extend(&quot;Counter&quot;);</div><div class="line">        var query = new Counter;</div><div class="line">        query.save(&#123;</div><div class="line">            words: url</div><div class="line">        &#125;).then(function (object) &#123;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">    $(function () &#123;</div><div class="line">        var Counter = AV.Object.extend(&quot;Counter&quot;);</div><div class="line">        addCount(Counter);</div><div class="line">        showTime(Counter);</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>重启之后即可看到效果。</p>
+<h3 id="引入站长统计不蒜子"><a href="#引入站长统计不蒜子" class="headerlink" title="引入站长统计不蒜子"></a>引入站长统计<code>不蒜子</code></h3><p>文章阅读量可以用leanCloud，那么整站统计用不蒜子还是比较方便的，只需要在footer中适当的位置添加如下代码<a href="http://busuanzi.ibruce.info/" target="_blank" rel="external">不蒜子传送门</a>，重新部署即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</div><div class="line">            &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次&lt;/span&gt;</div></pre></td></tr></table></figure></p>
+<p>不蒜子可自行DIY~</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ol>
+<li><p>搞完这些之后你会发现满满的都是账号，/(ㄒoㄒ)/~~</p>
+</li>
+<li><p>这些可自行选择用一些，不需要都用上额</p>
+</li>
+<li><p>终于要告一段落了，有的时候为了这个东东，也是很费时啊，不过弄完之后也是挺开心的，加油吧少年！</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC07450.JPG?imageView/2/w/800/q/80&quot; alt=&quot;丹霞山&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;heade
+    
+    </summary>
+    
+      <category term="Web开发" scheme="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="hexo" scheme="http://visugar.com/tags/hexo/"/>
+    
+      <category term="个人博客" scheme="http://visugar.com/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="评论系统" scheme="http://visugar.com/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="来必力" scheme="http://visugar.com/tags/%E6%9D%A5%E5%BF%85%E5%8A%9B/"/>
+    
+      <category term="文章统计" scheme="http://visugar.com/tags/%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>定时器（setTimeout）的秘密</title>
@@ -347,11 +440,11 @@
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="select" scheme="http://visugar.com/tags/select/"/>
-    
       <category term="省市区三级联动" scheme="http://visugar.com/tags/%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/"/>
     
       <category term="JS" scheme="http://visugar.com/tags/JS/"/>
+    
+      <category term="select" scheme="http://visugar.com/tags/select/"/>
     
   </entry>
   
@@ -614,9 +707,9 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
-      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
@@ -645,11 +738,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
-      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
     
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
