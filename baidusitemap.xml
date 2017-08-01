@@ -5,15 +5,13 @@
     
   <url>
     <loc>http://visugar.com/2017/08/01/20170801HexoPlugins/</loc>
-    <lastmod>2017-08-01T11:53:43.783Z</lastmod>
+    <lastmod>2017-08-01T11:57:59.336Z</lastmod>
     <data>
         <display>
         <title>Hexo博客添加SEO-评论系统-阅读统计-站长统计</title>
         <pubTime>2017-08-01T11:49:26.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
-        <tag>个人博客</tag>
+        <tag>hexo博客</tag>
          
         <tag>评论系统</tag>
          
@@ -114,11 +112,11 @@
         
         <tag>前端</tag>
          
+        <tag>select</tag>
+         
         <tag>省市区三级联动</tag>
          
         <tag>JS</tag>
-         
-        <tag>select</tag>
          
          
            
@@ -279,9 +277,9 @@
         <title>RegExp（正则表达式）常用要点小结</title>
         <pubTime>2017-05-11T08:17:05.000Z</pubTime>
         
-        <tag>文档</tag>
-         
         <tag>前端</tag>
+         
+        <tag>文档</tag>
          
         <tag>正则表达式</tag>
          
@@ -303,11 +301,11 @@
         <title>中文技术文档规范-改自阮一峰老师</title>
         <pubTime>2017-05-10T01:08:30.000Z</pubTime>
         
+        <tag>前端</tag>
+         
         <tag>写作规范</tag>
          
         <tag>文档</tag>
-         
-        <tag>前端</tag>
          
          
            
