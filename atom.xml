@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-08-01T12:24:59.324Z</updated>
+  <updated>2017-08-09T11:03:03.195Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web Animations API (JS动画利器)</title>
+    <link href="http://visugar.com/2017/08/09/20170809WebAnimations/"/>
+    <id>http://visugar.com/2017/08/09/20170809WebAnimations/</id>
+    <published>2017-08-09T11:01:03.000Z</published>
+    <updated>2017-08-09T11:03:03.195Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00539.JPG?imageView/2/w/800/q/90" alt="哥哥"></p>
+<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>之前学习了CSS animation/setTimeout/setInterval/requestAnimationFrame等，这些都可以用在某种场景下的小动画，也可以说是动效。CSS动画君居然强大，但是缺陷也很多啊，有的时候没法满足要求，定时器用在动画中就更不使用了，但是requestAnimationFrame也是个很强大的东西，具体详情移步到<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="external">window.requestAnimationFrame</a><a href="https://www.w3cplus.com/animaton/animations-you-should-know.html" target="_blank" rel="external">关于动画，你需要知道的 </a><a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%e5%8a%a8%e7%94%bb%e7%ae%97%e6%b3%95/" target="_blank" rel="external">requestAnimationFrame-张鑫旭</a>这几篇文章。下面做的笔记是关于Web Animations API (WAAPI)的，也就是js中的animate。</p>
+<h4 id="web-animations-API"><a href="#web-animations-API" class="headerlink" title="web animations API"></a>web animations API</h4><p>对于waapi，可能大家对css animation更熟悉，下面先看下css animation的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">.item1&#123;</div><div class="line">    animation: rotate  4s inifite ease running;</div><div class="line">&#125;</div><div class="line">@keyframes rotate&#123;</div><div class="line">    from&#123;</div><div class="line">        transform：rotate(0);</div><div class="line">    &#125;</div><div class="line">    to&#123;</div><div class="line">        transform:rotate(360deg);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">或者</div><div class="line">@keyframes rotate&#123;</div><div class="line">    0%&#123;</div><div class="line">        transform：rotate(0);</div><div class="line">        background-color：red;</div><div class="line">    &#125;</div><div class="line">    40%&#123;</div><div class="line">        background-color：blue;</div><div class="line">    &#125;</div><div class="line">    100%&#123;</div><div class="line">        transform:rotate(360deg);</div><div class="line">        background-color:red;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>平时用的较多的是百分比类型的，可以定义多个关键帧。下面来看看waapi版本的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var ani1 = [</div><div class="line">        &#123;transform:&apos;rotate(0)&apos;,backgroundColor:&apos;red&apos;&#125;,</div><div class="line">        &#123;backgroundColor:&apos;blue&apos;,offset:0.4&#125;,</div><div class="line">        &#123;transform:&apos;rotate(360deg)&apos;,backgroundColor:&apos;red&apos;&#125;</div><div class="line">    ];</div><div class="line">    var aniOpt1 = &#123;</div><div class="line">        duration:4000,</div><div class="line">        iterations:Infinity,</div><div class="line">        easing:&apos;ease-in-out&apos;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    document.querySelector(&quot;.item1&quot;).animate(ani1,aniOpt1);</div></pre></td></tr></table></figure></p>
+<p><code>Element.animate()</code> 元素调用后会立即执行。跟css3动画有点类似但是有很多小区别，列如：</p>
+<ol>
+<li>css3动画中用的时间单位为s，而wappi中使用的与setTimeout等定时器的单位及写法一致（单位为ms且可省略）</li>
+<li>waapi中关键帧的值传入的是字符串类型，与css3不一样。</li>
+<li>waapi中不再有百分数，而是用offset来设置关键帧的位置。</li>
+<li>css3动画中animation-duration变为duriation，animation-iteration-count则变成iterations，且其无限次的值由字符串’infinite’变成关键字Infinity。等等还有其他一些元素的改变，从单词来讲变得更简洁了。</li>
+</ol>
+<p>如果只需设置duration属性，则可采用下面这种更简洁的方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.querySelector(&quot;.item1&quot;).animate(ani1,4000);</div></pre></td></tr></table></figure></p>
+<p>document.animate()可以应用在任何可以使用CSS动画的DOM元素上，下面是几个waapi更强大的控制方法：</p>
+<p><strong>play()，pause()，reverse()和playbackRate控制播放</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var rotateAni = document.querySelector(&quot;.item1&quot;).animate(ani1,aniOpt1);</div><div class="line">rotateAni.play() //播放</div><div class="line">rotateAni.pause() //暂停</div></pre></td></tr></table></figure></p>
+<p>注：在动画执行的时候可以在控制台打印下rotateAni，能够看到rotateAni所带的一些属性值及原型上的方法(此时playbackRate的值为1)。<br><img src="http://opif0c56u.bkt.clouddn.com/20170728rotateAni.png" alt="打印正在执行的动画"></p>
+<p>然后发现除了上面这几个之外还有一些其他的属性及方法，再挑几个说一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">finish()  //对于有限次的动画而言，直接停止动画，且跳到动画结束位置</div><div class="line">cancel()  //取消动画过程，直接跳到动画的开始位置</div><div class="line">reverse() //让动画反向执行到动画执行的原点,会将playbackTate从1变成-1</div></pre></td></tr></table></figure></p>
+<p><strong>playbackRate属性</strong><br><code>reverse()</code>方法可将playbackRate的值改变。如果手动将playbackRate改成一个0-1之间的数值，则可将动画慢下来。设成大于1的值则可使动画加速。</p>
+<p><strong>获取动画信息</strong><br>还有一些方法尚在实验中额，等浏览器可支持后再用起来。。。</p>
+<p><strong>wappi的事件监听</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">onfinish:用于注册完成事件，当调用finish()方法是也可以触发。</div><div class="line">oncancel:用于注册取消事件，当调用cancel()方法是也可以触发。</div><div class="line"></div><div class="line">rotateAni.onfinish = function()&#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line">rotateAni.oncancel = function()&#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="浏览器支持度"><a href="#浏览器支持度" class="headerlink" title="浏览器支持度"></a>浏览器支持度</h4><p>一图胜前言<a href="https://caniuse.com/#search=web%20animations%20api" target="_blank" rel="external">can i use</a><br><img src="http://opif0c56u.bkt.clouddn.com/20170728compare.png" alt="浏览器对waapi的支持"></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol>
+<li>由于目前浏览器支持度不算高，所以呢还是要慎用。</li>
+<li>在现代浏览器中，使用wappi可以做出很酷的动画，可以多试试。</li>
+<li>本文也只算是学习笔记，所以欢迎大佬们指点额~</li>
+</ol>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://www.w3cplus.com/animation/waapi.html" target="_blank" rel="external">WAAPI-w3cplus</a></li>
+<li><a href="https://www.w3cplus.com/animation/css-animations-vs-web-animations-api.html" target="_blank" rel="external">web animations-w3cplus</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API" target="_blank" rel="external">Web Animations API-MDN</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC00539.JPG?imageView/2/w/800/q/90&quot; alt=&quot;哥哥&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;header
+    
+    </summary>
+    
+      <category term="WEB开发" scheme="http://visugar.com/categories/WEB%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="动画" scheme="http://visugar.com/tags/%E5%8A%A8%E7%94%BB/"/>
+    
+      <category term="js" scheme="http://visugar.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客添加SEO-评论系统-阅读统计-站长统计</title>
