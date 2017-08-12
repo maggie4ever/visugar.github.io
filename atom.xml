@@ -384,7 +384,7 @@
     <link href="http://visugar.com/2017/06/26/20170626FontLightBlur/"/>
     <id>http://visugar.com/2017/06/26/20170626FontLightBlur/</id>
     <published>2017-06-26T10:36:31.000Z</published>
-    <updated>2017-06-26T10:39:10.234Z</updated>
+    <updated>2017-06-26T10:39:10.235Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00724.JPG?imageView/2/w/600/90" alt="美丽的天空"></p>
 <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>有的时候感觉写点小玩意儿挺开心的，还能实践很多的小知识点，所以这次学着写了个有趣的鼠标悬浮模糊效果，只使用了css额。</p>
@@ -505,7 +505,7 @@
     <link href="http://visugar.com/2017/06/08/20170608SelectList/"/>
     <id>http://visugar.com/2017/06/08/20170608SelectList/</id>
     <published>2017-06-08T11:45:10.000Z</published>
-    <updated>2017-07-27T12:26:42.937Z</updated>
+    <updated>2017-07-27T12:26:42.938Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00636.JPG?imageView/2/w/600/q/90" alt="图书馆前"></p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p><strong>select</strong> 是HTML表单元素中很常用的一个，其中很重要的几个属性常被忽略，但这几个属性却能帮助我们完成很多的功能，当然，select下拉列表默认样式很不友好，所以更多的时候可以自己模拟实现一个同样功能的下拉菜单。下文先介绍select标签的一些属性及使用，后面再模拟一个相同效果的下拉菜单。</p>
@@ -772,7 +772,7 @@
     <link href="http://visugar.com/2017/05/10/20170510DocRule/"/>
     <id>http://visugar.com/2017/05/10/20170510DocRule/</id>
     <published>2017-05-10T01:08:30.000Z</published>
-    <updated>2017-05-18T11:41:47.440Z</updated>
+    <updated>2017-05-18T11:41:47.441Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1727565-e450ee7e521b3f2f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/800" alt="湖北石首"></p>
 <h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>以前从来去想一篇技术文章要怎么架构，总是随自己想到什么写什么，然后看到了阮一峰老师的总结，就把它改成了思维导图，以便记忆查询。</p>
@@ -803,7 +803,7 @@
     <link href="http://visugar.com/2017/05/06/20170506Layout/"/>
     <id>http://visugar.com/2017/05/06/20170506Layout/</id>
     <published>2017-05-06T08:09:57.000Z</published>
-    <updated>2017-07-27T12:18:19.762Z</updated>
+    <updated>2017-07-27T12:18:19.763Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC07777.JPG?imageView/2/w/600/q/90" alt="look me"></p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
@@ -897,7 +897,7 @@
     <link href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/"/>
     <id>http://visugar.com/2017/05/04/20170504SetUpHexoBlog/</id>
     <published>2017-05-04T08:16:15.000Z</published>
-    <updated>2017-07-27T12:08:07.074Z</updated>
+    <updated>2017-08-12T05:49:01.527Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png?imageView/2/w/600/q/90" alt="look me"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放<a id="more"></a>，不好找，所以才想着自己搭建一个人博客网站，现在大家用<code>hexo</code>比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
@@ -984,7 +984,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Extensions  #插件和主题</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">#RSS订阅</div><div class="line">plugin:</div><div class="line">- hexo-generator-feed</div><div class="line">#Feed Atom</div><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 20</div></pre></td></tr></table></figure>
 <p>进入到你的主题的配置文件下，找到你的放rss的位置，添加<code>/atom.xml</code>即可。</p>
 <p>重新部署再打开就能看到效果啦~</p>
-<h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4><p>先选一个你要使用的第三方评论系统，最好找个靠谱点的（我使用的是网易云跟帖）。</p>
+<h4 id="10-添加评论"><a href="#10-添加评论" class="headerlink" title="10. 添加评论"></a>10. <strong>添加评论</strong></h4><p><strong>20170812更新：</strong></p>
+<h2 id="云更贴已在2017年8月1日停止服务，具体评论系统文章统计站长统计及百度SEO谷歌SEO什么的可参考Hexo博客添加SEO-评论系统-阅读统计-站长统计"><a href="#云更贴已在2017年8月1日停止服务，具体评论系统文章统计站长统计及百度SEO谷歌SEO什么的可参考Hexo博客添加SEO-评论系统-阅读统计-站长统计" class="headerlink" title="云更贴已在2017年8月1日停止服务，具体评论系统文章统计站长统计及百度SEO谷歌SEO什么的可参考Hexo博客添加SEO-评论系统-阅读统计-站长统计"></a>云更贴已在2017年8月1日停止服务，具体评论系统文章统计站长统计及百度SEO谷歌SEO什么的可参考<a href="http://visugar.com/2017/08/01/20170801HexoPlugins/">Hexo博客添加SEO-评论系统-阅读统计-站长统计</a></h2><p>此段已失效。</p>
+<p>先选一个你要使用的第三方评论系统，最好找个靠谱点的（我使用的是网易云跟帖）。</p>
 <p>在主题的配置文件下找到comment，添加一行，例如我添加的是<code>yungentie: 此处自由发挥</code></p>
 <p>注册完评论系统后获取相应的代码，然后在主题的layout下找到comment新建一个ejs模板文件，名称自定义。</p>
 <p><img src="http://opif0c56u.bkt.clouddn.com/yungentie.png" alt="yungentie"></p>
