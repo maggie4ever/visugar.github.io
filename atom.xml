@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-08-09T11:06:33.814Z</updated>
+  <updated>2017-08-18T11:45:23.854Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS3自定义滚动条样式</title>
+    <link href="http://visugar.com/2017/08/18/20170818CustomScroll/"/>
+    <id>http://visugar.com/2017/08/18/20170818CustomScroll/</id>
+    <published>2017-08-18T11:43:01.000Z</published>
+    <updated>2017-08-18T11:45:23.854Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC01087.JPG?imageView/2/w/800/q/90" alt="落日"></p>
+<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>滚动条是个很常见的东东，不过某些浏览器自带的滚动条确实不太好看啊，下面可以作为学习，探讨下自定义滚动条的实现，这样你的滚动条就可以美美的啦。但是，也只能玩玩，因为只针对webkit内核的浏览器啊啊啊啊啊！</p>
+<h4 id="overflow介绍"><a href="#overflow介绍" class="headerlink" title="overflow介绍"></a>overflow介绍</h4><p><strong>定义</strong>：overflow 属性指定当它溢出其块级容器时,是否剪辑内容，渲染滚动条或显示内容。</p>
+<p><strong>属性值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">overflow:visible    //默认值。内容不会被修剪，超出内容会显示在元素框之外</div><div class="line">overflow:hidden     //内容会被修剪。超出内容被隐藏</div><div class="line">overflow:scroll     //内容会被修剪，浏览器会显示滚动条以便查看其余内容</div><div class="line">overflow:auto       //如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</div><div class="line">overflow:inherit     //规定从该父元素继承overflow属性的值</div></pre></td></tr></table></figure></p>
+<p>注：任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”。</p>
+<p>当overflow设为除默认值（visible）以外的值时，将会创建一个会<code>块级式化上下文</code>（清除浮动的一种方式），更多可查看深入理解BFC和Margin Collapse<a href="http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html" target="_blank" rel="external"></a></p>
+<p><strong>小tips</strong></p>
+<p>对于当行文本对超出部分的处理可使用一下属性。（同时需设置元素的width值，还有<code>overflow:hidden;</code>及<code>white-space:nowrap;</code>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">text-overflow:clip       //修剪文本。</div><div class="line">text-overflow:ellipsis   //显示省略符号来代表被修剪的文本。</div><div class="line">text-overflow:string     //使用给定的字符串来代表被修剪的文本。</div></pre></td></tr></table></figure></p>
+<p>对于多行文本则需要用到不规范属性<code>-webkit-line-clamp</code>，此处不细讲。<a href="http://www.css88.com/archives/5206/comment-page-1" target="_blank" rel="external">点击此处参考</a></p>
+<p><strong>水平及垂直滚动条</strong><br>使用<code>overflow-x</code>和<code>overflow-y</code>可分别设置水平及垂直方向上的滚动条。</p>
+<h4 id="自定义滚动条实现"><a href="#自定义滚动条实现" class="headerlink" title="自定义滚动条实现"></a>自定义滚动条实现</h4><p>此部分针对webkit内核的浏览器，使用伪类来改变滚动条的默认样式，详情如下：<br><strong>滚动条组成部分</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1. ::-webkit-scrollbar                滚动条整体部分</div><div class="line">2. ::-webkit-scrollbar-thumb          滚动条里面的小方块，能向上向下移动（或向左向右移动）</div><div class="line">3. ::-webkit-scrollbar-track          滚动条的轨道（里面装有Thumb）</div><div class="line">4. ::-webkit-scrollbar-button         滚动条的轨道的两端按钮，由于通过点击微调小方块的位置。</div><div class="line">5. ::-webkit-scrollbar-track-piece    内层轨道，滚动条中间部分</div><div class="line">6. ::-webkit-scrollbar-corner         边角，即垂直滚动条和水平滚动条相交的地方</div><div class="line">7. ::-webkit-resizer                  两个滚动条的交汇处上用于拖动调整元素大小的小控件</div></pre></td></tr></table></figure></p>
+<p>滚动条组成结构图如下：<br><img src="http://opfk7lrr2.bkt.clouddn.com/20170731scrollbar02.png" alt="组成结构图"></p>
+<p>下面来一组简单自定义滚动条的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;box box7&quot;&gt;</div><div class="line">    &lt;p&gt;这个属性定义溢出元素内容区的内容会如何处理。如果值为 scroll，不论是否需要， 用户代理都会提供一种滚动机制。因此，有可能即使元素框中可以放下所有内容也 会出现滚动条。 这个属性定义溢出元素内容区的内容会如何处理。如果值为</div><div class="line">        scroll，不论是否需要， 用户代理都会提供一种滚动机制。因此，有可能即使元素框中可以放下所有内容也 会出现滚动条。</div><div class="line">    &lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line">.box8::-webkit-scrollbar &#123;</div><div class="line">    width: 12px;</div><div class="line">    background-color: #eee;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box8::-webkit-scrollbar-track &#123;</div><div class="line">    background-color: #eee;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box8::-webkit-scrollbar-thumb &#123;</div><div class="line">    background: #3DB6A4;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box8::-webkit-scrollbar-button:start &#123;</div><div class="line">    background: url(./imgs/up.png) no-repeat;</div><div class="line">    background-size: 12px 12px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box8::-webkit-scrollbar-button:end &#123;</div><div class="line">    background: url(./imgs/down.png) no-repeat;</div><div class="line">    background-size: 12px 12px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>更多效果如下图：<br><img src="http://opfk7lrr2.bkt.clouddn.com/20170731overflow.png" alt="自定义滚动条"></p>
+<p><strong>注意只在chrome下有效！！！！！！</strong></p>
+<p><a href="https://github.com/visugar/FrontEnd-examples/blob/master/12%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F/index.html" target="_blank" rel="external">源码地址</a></p>
+<p><a href="http://visugar.com/FrontEnd-examples/12%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F/index.html">预览地址</a></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<li>无法兼容各大浏览器，只能在chrome下耍耍</li>
+<li>本文仅作参考，更多内容请看参考资料</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="http://www.xuanfengge.com/css3-webkit-scrollbar.html" target="_blank" rel="external">CSS3自定义滚动条样式 -webkit-scrollbar</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow" target="_blank" rel="external">overflow-MDN</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC01087.JPG?imageView/2/w/800/q/90&quot; alt=&quot;落日&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;header
+    
+    </summary>
+    
+      <category term="Web开发" scheme="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="css" scheme="http://visugar.com/tags/css/"/>
+    
+      <category term="scrollbar" scheme="http://visugar.com/tags/scrollbar/"/>
+    
+  </entry>
   
   <entry>
     <title>Web Animations API (JS动画利器)</title>
@@ -761,9 +813,9 @@
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
@@ -792,9 +844,9 @@
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
-    
       <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
+    
+      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
