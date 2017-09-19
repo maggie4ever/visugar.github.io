@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://visugar.com/2017/09/19/20170919Babel6test/</loc>
+    <lastmod>2017-09-19T11:51:31.914Z</lastmod>
+    <data>
+        <display>
+        <title>Babel初体验</title>
+        <pubTime>2017-09-19T11:44:29.000Z</pubTime>
+        
+        <tag>es6</tag>
+         
+        <tag>babel6</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web开发" url="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://visugar.com/2017/08/01/20170801HexoPlugins/</loc>
     <lastmod>2017-09-03T01:41:14.257Z</lastmod>
     <data>
@@ -325,11 +347,11 @@
         <title>RegExp（正则表达式）常用要点小结</title>
         <pubTime>2017-05-11T08:17:05.000Z</pubTime>
         
+        <tag>文档</tag>
+         
         <tag>前端</tag>
          
         <tag>正则表达式</tag>
-         
-        <tag>文档</tag>
          
          
            
@@ -349,11 +371,11 @@
         <title>中文技术文档规范-改自阮一峰老师</title>
         <pubTime>2017-05-10T01:08:30.000Z</pubTime>
         
-        <tag>前端</tag>
+        <tag>写作规范</tag>
          
         <tag>文档</tag>
          
-        <tag>写作规范</tag>
+        <tag>前端</tag>
          
          
            

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://visugar.com/"/>
-  <updated>2017-08-18T11:45:23.854Z</updated>
+  <updated>2017-09-19T11:51:31.914Z</updated>
   <id>http://visugar.com/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Babel初体验</title>
+    <link href="http://visugar.com/2017/09/19/20170919Babel6test/"/>
+    <id>http://visugar.com/2017/09/19/20170919Babel6test/</id>
+    <published>2017-09-19T11:44:29.000Z</published>
+    <updated>2017-09-19T11:51:31.914Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC00937.JPG" alt="天际"></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>现在es6很流行，尽管各大浏览器都还不能支持它的新特性，但是小伙伴们还是很中意它呀，于是小小的学习的一下</p>
+<h3 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h3><p>这里我们不介绍es6相关内容，只是说下入坑前奏，记录下如何使用babel来对es6进行转码~</p>
+<p><strong>1.准备一个项目（文件夹）</strong></p>
+<p>进入到你的项目根目录下，使用下面命令初始化生成一个package.json文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure></p>
+<p><strong>2.安装babel</strong><br>使用下面命令安装全局babel-cli<br><code>npm install --global babel-cli</code></p>
+<p><strong>3.设置转码规则并安装插件</strong><br>安装相关插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 最新转码规则</div><div class="line">$ npm install --save-dev babel-preset-latest</div><div class="line"></div><div class="line"># react 转码规则</div><div class="line">$ npm install --save-dev babel-preset-react</div></pre></td></tr></table></figure></p>
+<p>现在根目录下新建一个<code>.babelrc</code>文件并添加如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;presets&quot;:[</div><div class="line">        &quot;latest&quot;,</div><div class="line">        &quot;react&quot;,</div><div class="line">    ],</div><div class="line">    &quot;plugins&quot;: []</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>新建一个src文件用于放ES6的代码，再新建一个lib文件用于存放转码后的代码，然后在src文件中新建一个index.js文件，里面放点es6的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [x, y, z] = new Set([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]);</div><div class="line">console.log(x);</div><div class="line">console.log(y);</div><div class="line">console.log(z);</div></pre></td></tr></table></figure></p>
+<p>这时候输入下面的命令就可以直接对index.js进行转码了额~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">babel src/index.js --out-file lib/index.js</div><div class="line">或</div><div class="line">babel src/index.js -o lib/index.js</div></pre></td></tr></table></figure></p>
+<p>同时也可以使用 <code>--watch</code>或<code>-w</code> 对转码文件进行监测文件内容的变化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">babel src/index.js --watch -o lib/index.js</div><div class="line">babel src/index.js -w -o lib/index.js</div></pre></td></tr></table></figure></p>
+<p>但是，如果src中有多个文件的话，上面这样就很繁琐，接下来要使用babel的命令来对文件夹下的.es6、.js等所有文件进行转码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel src -d lib</div></pre></td></tr></table></figure></p>
+<p>同时可将这行命令配置到package.json中的scripts中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">   &quot;compile&quot;:&quot;babel src -d lib&quot;</div><div class="line"> &#125;,</div></pre></td></tr></table></figure></p>
+<p>下一次则直接使用<code>npm run compile</code>即可完成编译。</p>
+<p>也可以使用<code>watch</code>对文件夹进行监测:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;compile&quot;: &quot;babel src -d lib&quot;,</div><div class="line">    &quot;watch-compile&quot;: &quot;babel src -d lib --watch&quot;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
+<p>使用<code>npm run watch-compile</code>命令就只有执行一次，就可以开开心心写ES6了~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC00937.JPG&quot; alt=&quot;天际&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Web开发" scheme="http://visugar.com/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="es6" scheme="http://visugar.com/tags/es6/"/>
+    
+      <category term="babel6" scheme="http://visugar.com/tags/babel6/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS3自定义滚动条样式</title>
@@ -811,11 +852,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
+      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
@@ -842,11 +883,11 @@
       <category term="划重点" scheme="http://visugar.com/categories/%E5%88%92%E9%87%8D%E7%82%B9/"/>
     
     
-      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
     
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
-      <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
+      <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
