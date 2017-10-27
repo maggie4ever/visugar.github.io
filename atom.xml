@@ -639,11 +639,11 @@
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="select" scheme="http://visugar.com/tags/select/"/>
-    
       <category term="省市区三级联动" scheme="http://visugar.com/tags/%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/"/>
     
       <category term="JS" scheme="http://visugar.com/tags/JS/"/>
+    
+      <category term="select" scheme="http://visugar.com/tags/select/"/>
     
   </entry>
   
