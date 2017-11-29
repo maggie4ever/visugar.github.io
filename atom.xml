@@ -224,9 +224,10 @@
     <link href="http://visugar.com/2017/08/01/20170801HexoPlugins/"/>
     <id>http://visugar.com/2017/08/01/20170801HexoPlugins/</id>
     <published>2017-08-01T11:49:26.000Z</published>
-    <updated>2017-09-03T01:41:14.257Z</updated>
+    <updated>2017-11-29T14:41:54.648Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opfk7lrr2.bkt.clouddn.com/DSC07450.JPG?imageView/2/w/800/q/80" alt="丹霞山"></p>
+<h3 id="交流群"><a href="#交流群" class="headerlink" title="交流群"></a>交流群</h3><p>有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流）</p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>在五月出捣腾了一把个人博客，但是刚开始只做了一些基础设置，套路也没摸清，基础安装篇请看<a href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/">hexo从零开始到搭建完整</a>,里面讲到了基础工具的安装及blog项目的文件夹含义，以及RSS添加、域名的绑定等操作，后来想着加点功能，但是奈何我选的主题集成的东西比较少，需要一步一步自己添加，于是摸索了一番。。。现在真是发现了next主题的好处，不仅持续更新，而且作者已经在主题中集成了各种功能，简直爽歪歪，不过我还是默默的接着摸索吧！下面介绍几种好用的东西。</p>
 <ol>
 <li>推荐七牛云</li>
@@ -290,7 +291,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://opfk7lrr2.bkt.clouddn.com/DSC07450.JPG?imageView/2/w/800/q/80&quot; alt=&quot;丹霞山&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;heade
+&lt;h3 id=&quot;交流群&quot;&gt;&lt;a href=&quot;#交流群&quot; class=&quot;headerl
     
     </summary>
     
@@ -908,9 +909,9 @@
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
-    
       <category term="正则表达式" scheme="http://visugar.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
@@ -939,9 +940,9 @@
     
       <category term="前端" scheme="http://visugar.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
-    
       <category term="文档" scheme="http://visugar.com/tags/%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="写作规范" scheme="http://visugar.com/tags/%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
@@ -1044,9 +1045,10 @@
     <link href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/"/>
     <id>http://visugar.com/2017/05/04/20170504SetUpHexoBlog/</id>
     <published>2017-05-04T08:16:15.000Z</published>
-    <updated>2017-08-29T11:23:44.441Z</updated>
+    <updated>2017-11-29T14:41:26.069Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://opif0c56u.bkt.clouddn.com/look-me.png?imageView/2/w/600/q/90" alt="look me"></p>
+<h3 id="交流群"><a href="#交流群" class="headerlink" title="交流群"></a>交流群</h3><p>有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流）</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放<a id="more"></a>，不好找，所以才想着自己搭建一个人博客网站，现在大家用<code>hexo</code>比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
 <p>本篇为从零开始的基础篇，其他SEO、评论系统、统计等请看<a href="http://visugar.com/2017/08/01/20170801HexoPlugins/">Hexo博客添加SEO-评论系统-阅读统计-站长统计</a>，本篇所包含的内容如下：</p>
 <ol>
@@ -1168,6 +1170,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://opif0c56u.bkt.clouddn.com/look-me.png?imageView/2/w/600/q/90&quot; alt=&quot;look me&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;交流群&quot;&gt;&lt;a href=&quot;#交流群&quot; class=&quot;headerlink&quot; title=&quot;交流群&quot;&gt;&lt;/a&gt;交流群&lt;/h3&gt;&lt;p&gt;有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流）&lt;/p&gt;
 &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放
     
     </summary>
